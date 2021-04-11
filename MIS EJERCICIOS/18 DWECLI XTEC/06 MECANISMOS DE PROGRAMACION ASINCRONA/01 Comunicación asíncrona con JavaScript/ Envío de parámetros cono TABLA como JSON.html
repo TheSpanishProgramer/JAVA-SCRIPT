@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Envío de parámetros cono TABLA como JSON</title>
+    <style></style>
+  </head>
+  <body></body>
+
+  <script>
+    var httpRequest = new XMLHttpRequest();
+    var url = 'https://httpbin.org/post';
+    var dades = {
+      nom: 'Montserrat',
+      cognom: 'Capmany',
+    };
+
+    httpRequest.open('POST', url, true);
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
+
+    httpRequest.onload = function () {
+      // Aquí es processaria la respuesta de las peticiones
+      var resposta = httpRequest.responseText;
+      console.log(JSON.parse(resposta));
+    };
+
+    httpRequest.send(JSON.stringify(dades));
+  </script>
+</html>

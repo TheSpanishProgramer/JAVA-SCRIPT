@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1.3</title>
+</head>
+
+<body style="background: cadetblue;">
+    <h3 style="text-align: center;">Ejercicio 1.3</h3>
+    <script>
+        //Creo la clase padre que seria Persona
+        class Persona {
+            //Constructor con los parametros
+            constructor(nombre, apellidos, edad) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.edad = edad;
+            }
+
+            //Metodos
+            //toString
+            toString() {
+                return `Esta persona tiene de nombre ${this.nombre} y apellidos ${this.apellidos} tiene ${this.edad} años de edad.`;
+            }
+        }   //Fin clase Persona
+
+        //Creamos la clase de Medico que hereda de Persona
+        class Medico extends Persona {
+            //Constructor con los datos
+            constructor(nombre, apellidos, edad, especialidad, aniosExper) {
+                super(nombre, apellidos, edad);
+                this._especialidad = especialidad;
+                this._aniosExper = aniosExper;
+            }
+
+            //Metodos
+            //toString
+            toString() {
+                return `${super.toString()} Tiene especialidad de ${this.especialidad} y ${this.aniosExper} años de experiencia.`;
+            }
+
+            //Getts y Setts
+            //Especialidad
+            set especialidad(valor){
+                if (valor==null) {
+                    console.log("Error no has introducido ningun valor");
+                    this._especialidad="Error";
+                } else {
+                    this._especialidad=valor;
+                }
+            }
+            get especialidad(){
+                return this._especialidad;
+            }
+
+            //AniosExper
+            set aniosExper(valor){
+                if (isNaN(valor)) {
+                    console.log("Error no has introducido un numero");
+                    this._aniosExper=0;
+                } else {
+                    this._aniosExper=valor;
+                }
+                
+            }
+            get aniosExper(){
+                return this._aniosExper;
+            }
+
+        }    //Fin clase Medico
+
+        let m1=new Medico("Juan", "Perez", 26, "cardiologia", 1);
+        //Pruebo especialidad
+        console.log(m1.especialidad);
+        m1.especialidad=null;
+        console.log(m1.especialidad);
+
+        //Pruebo experiencia
+        console.log(m1.aniosExper);
+        m1.aniosExper="pepe";
+        console.log(m1.aniosExper);
+
+
+
+    </script>
+</body>
+
+</html>

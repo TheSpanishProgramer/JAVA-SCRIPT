@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Caso práctico/ manipulación dinámica del DOMO</title>
+    <style>
+      div {
+        margin-bottom: 15px;
+      }
+
+      label {
+        width: 100px;
+        display: inline-block;
+      }
+
+      input {
+        width: 100px;
+      }
+
+      th {
+        width: 136px;
+      }
+
+      td {
+        text-align: right;
+      }
+
+      td:first-child {
+        text-align: left;
+      }
+
+      tfoot th {
+        text-align: left;
+      }
+
+      tfoot th:last-child {
+        text-align: right;
+      }
+
+      tfoot,
+      thead,
+      tbody,
+      table {
+        border: 1px solid black;
+      }
+
+      thead,
+      tfoot {
+        background-color: grey;
+      }
+
+      tbody tr:hover {
+        background-color: #2897e8;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3>Introduccion de productos a la factura</h3>
+      <label for="producte">Producto:</label>
+      <input type="text" id="producte" />
+      <label for="quantitat">Cantidad:</label>
+      <input type="number" id="quantitat" value="0" />
+      <label for="preu-unitari">Precio Unidad:</label>
+      <input type="number" id="preu-unitari" value="0" />
+      <button id="afegir">Añadir</button>
+    </div>
+
+    <table rules="groups">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Precio total</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th colspan="4">Base Imponible</th>
+          <th><span id="base-imposable">0</span>€</th>
+        </tr>
+        <tr>
+          <th colspan="4" data-iva="0.21">IVA 21%</th>
+          <th><span id="iva">0</span>€</th>
+        </tr>
+        <tr>
+          <th colspan="4">Total factura</th>
+          <th><span id="total">0</span>€</th>
+        </tr>
+      </tfoot>
+      <tbody></tbody>
+    </table>
+  </body>
+
+  <script>
+    var inicialitzar = function () {
+      var boto = document.getElementById('afegir');
+      boto.onclick = afegirLinia;
+    };
+
+    // Inicialización de la aplicació Cuando se cargo el DOM
+    document.body.onload = inicialitzar;
+
+    var afegirLinia = function () {
+      var nomProducte = document.getElementById('producte').value;
+      var quantitatProducte = document.getElementById('quantitat').value;
+      var preuUnitari = document.getElementById('preu-unitari').value;
+      var totalProducte = quantitatProducte * preuUnitari;
+
+      afegirFilaTaula(
+        nomProducte,
+        quantitatProducte,
+        preuUnitari,
+        totalProducte
+      );
+      recalcularTotal();
+      netejarLinia();
+    };
+
+    var afegirFilaTaula = function (
+      nomProducte,
+      quantitatProducte,
+      preuUnitari,
+      totalProducte
+    ) {
+      var cosTaula = document.querySelector('tbody');
+
+      var fila = document.createElement('tr');
+
+      var col1 = document.createElement('td');
+      var col2 = document.createElement('td');
+      var col3 = document.createElement('td');
+      var col4 = document.createElement('td');
+      var col5 = document.createElement('td');
+
+      col1.innerHTML = nomProducte + ' (detall)';
+      col2.innerHTML = quantitatProducte;
+      col3.innerHTML = preuUnitari + '€';
+      col4.innerHTML = totalProducte + '€';
+      col5.innerHTML = '(eliminar)';
+
+      col1.addEventListener('click', mostrarDetall);
+      col5.addEventListener('click', eliminarFila);
+
+      fila.appendChild(col1);
+      fila.appendChild(col2);
+      fila.appendChild(col3);
+      fila.appendChild(col4);
+      fila.appendChild(col5);
+
+      cosTaula.appendChild(fila);
+    };
+
+    var recalcularTotal = function () {
+      var files = document.querySelectorAll('tbody tr');
+      var valorBase = 0;
+
+      for (var i = 0; i < files.length; i++) {
+        var columnaUltima = files[i].lastElementChild;
+        var columnaPenultima = columnaUltima.previousElementSibling;
+        var valorTotalFila = parseFloat(columnaPenultima.textContent);
+        valorBase += valorTotalFila;
+      }
+
+      var elementBase = document.getElementById('base-imposable');
+      elementBase.innerHTML = valorBase;
+
+      var elementPercentatgeIVA = document.querySelector('[data-iva]');
+      var valorPercentatgeIVA = elementPercentatgeIVA.getAttribute('data-iva');
+      var valorIVA = parseFloat(valorPercentatgeIVA * valorBase);
+
+      var elementIVA = document.getElementById('iva');
+      elementIVA.innerHTML = valorIVA;
+
+      var elementTotal = document.getElementById('total');
+      elementTotal.innerHTML = valorBase + valorIVA;
+    };
+
+    var netejarLinia = function () {
+      document.getElementById('producte').value = '';
+      document.getElementById('quantitat').value = 0;
+      document.getElementById('preu-unitari').value = 0;
+    };
+
+    var mostrarDetall = function () {
+      var missatge = 'Detall de la factura:\n';
+      var elementsFila = this.parentNode.getElementsByTagName('td');
+      var etiquetes = ['Producte', 'Quantitat', 'Preu unitari', 'Preu total'];
+
+      for (var i = 0; i < elementsFila.length; i++) {
+        missatge +=
+          '\t' + etiquetes[i] + ': ' + elementsFila[i].textContent + '\n';
+      }
+
+      alert(missatge);
+    };
+
+    var eliminarFila = function () {
+      this.parentNode.parentNode.removeChild(this.parentNode);
+      recalcularTotal();
+    };
+  </script>
+</html>

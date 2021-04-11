@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Ocultar e-mail a los spamer aun teniendo enlace.</title>
+    <script language="JavaScript">
+      <!--
+      dom0 = 'usu';
+      dom1 = 'ario';
+      dom2 = '@';
+      dom3 = 'ute';
+      dom4 = 'rra';
+      dom5 = '.';
+      dom6 = 'com';
+
+      function encripta() {
+        return dom0 + dom1 + dom2 + dom3 + dom4 + dom5 + dom6;
+      }
+
+      function correo() {
+        document.write(
+          "<a href='mailto:" + encripta() + "'>" + encripta() + '</a>'
+        );
+      }
+      -->
+    </script>
+  </head>
+
+  <body>
+    <a target="_blank" href="<script>correo()</script>"
+      ><script>
+        correo();
+      </script></a
+    >
+  </body>
+</html>

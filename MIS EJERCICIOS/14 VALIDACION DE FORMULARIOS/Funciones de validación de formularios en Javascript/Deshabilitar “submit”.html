@@ -1,0 +1,17 @@
+<script>
+	function submit_oculto(form) {
+		if ((form.nombre3.value != "") && (form.apellido3.value != "")) { 
+			form.enviar3.disabled = false; 
+		}else{
+			form.enviar3.disabled = true;
+		}
+	}
+</script>
+<form name="formulario_didesweb3" method="POST" action="pagina.htm" target="_blank">
+	<p>Nombre: </p>
+	<input type="text" name="nombre3" size="20" onKeyUp="submit_oculto(this.form)">
+	<p>Apellido: </p>
+	<input type="text" name="apellido3" size="20" onKeyUp="submit_oculto(this.form)">
+	<br>
+	<input type="submit" name="enviar3" value="Enviar" disabled>
+</form>

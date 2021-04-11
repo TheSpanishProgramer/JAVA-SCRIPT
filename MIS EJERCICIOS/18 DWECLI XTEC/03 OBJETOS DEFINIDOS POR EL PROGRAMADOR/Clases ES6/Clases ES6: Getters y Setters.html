@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clases ES6/ Getters y Setters</title>
+    <style></style>
+    <script>
+      class Persona {
+        constructor(nom, cognom) {
+          this._nom = nom;
+          this._cognom = cognom;
+        }
+
+        set nom(nom) {
+          this._nom = nom;
+        }
+
+        get nom() {
+          return this._nom;
+        }
+
+        set cognom(cognom) {
+          this._cognom = cognom;
+        }
+
+        get cognom() {
+          return this._cognom;
+        }
+
+        get nomComplet() {
+          return this._nom + ' ' + this._cognom;
+        }
+      }
+
+      var forest = new Persona('Forest', 'Gump');
+
+      console.log('Nom (amb accessor):', forest.nom);
+      console.log('Cognom (amb accessor):', forest.cognom);
+      console.log('Nom complet:', forest.nomComplet);
+      console.log('Nom (propietat):', forest._nom);
+      console.log('Cognom (propietat):', forest._cognom);
+    </script>
+  </head>
+  <body></body>
+</html>

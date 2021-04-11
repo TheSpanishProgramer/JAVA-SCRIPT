@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VALIDACIONES CON EXPRESIONES REGULARES</title>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      input:valid {
+        background-color: #bbfff0;
+      }
+      .check-ok {
+        color: lime;
+      }
+
+      input:invalid ~ .check-ok {
+        display: none;
+      }
+
+      input:valid ~ .check-ok {
+        display: inline;
+      }
+    </style>
+    <script></script>
+  </head>
+  <body>
+    <div>
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="apellidos">Apellidos</label>
+      <input
+        type="text"
+        name="apellidos"
+        id="apellidos"
+        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="correo">Correo electrónico</label>
+      <input
+        type="email"
+        name="correo"
+        id="correo"
+        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="usuario">Usuario</label>
+      <input
+        type="text"
+        name="usuario"
+        id="usuario"
+        pattern="^([a-z]+[0-9]{0,2}){5,12}$"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="pass">Contraseña</label>
+      <input
+        type="password"
+        name="pass"
+        id="pass"
+        pattern="[A-Za-z0-9!?-]{8,12}"
+        required
+      />
+    </div>
+  </body>
+</html>

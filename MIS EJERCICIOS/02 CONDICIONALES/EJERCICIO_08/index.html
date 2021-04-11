@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+       let edad, final;
+
+      {% comment %}  SI la edad es menor de 18, final vale "Demasiado
+      joven", si es mayor que 18: "Mayor de edad" {% endcomment %}
+
+       edad = prompt("edad?", "0");
+       if (isNaN(edad)) {
+       final = "Error. No es un número";
+       } else {
+       final = (edad < 18) ? "Demasiado joven" : "Mayor de edad";
+       }
+       document.write(final);
+    </script>
+  </head>
+</html>

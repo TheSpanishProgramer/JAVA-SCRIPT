@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Comprobación de la disponibilidad XMLHttpRequest</title>
+    <style></style>
+    <script>
+      if (window.XMLHttpRequest) {
+        // Mozilla, Safari, IE7+
+        httpRequest = new XMLHttpRequest();
+        console.log('Creado el Objeto a partir de XMLHttpRequest.');
+      } else if (window.ActiveXObject) {
+        // IE 6 y anteriores
+        httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+        console.log('Creado el Objeto a partir de ActiveXObject.');
+      } else {
+        console.error('Error: Este navegador no admite AJAX.');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de eventos de toque</title>
+    <style>
+      div {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: orange;
+      }
+    </style>
+    <script>
+      var element = document.getElementById('test');
+
+      element.addEventListener('touchcancel', notificaObservador);
+      element.addEventListener('touchstart', notificaObservador);
+      element.addEventListener('touchend', notificaObservador);
+      element.addEventListener('touchmove', notificaObservador);
+
+      function notificaObservador(e) {
+        switch (e.type) {
+          case 'touchstart':
+            element.style['background-color'] = 'green';
+            break;
+
+          case 'touchend':
+            element.style['background-color'] = 'grey';
+            break;
+
+          case 'touchmove':
+            element.style['background-color'] = 'yellow';
+            break;
+
+          case 'touchcancel':
+            element.style['background-color'] = 'red';
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="test"></div>
+  </body>
+</html>

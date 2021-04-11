@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sobrecarga de funciones</title>
+    <style></style>
+    <script>
+      function afegirMetode(objecte, nom, funcio) {
+        var old = objecte[nom];
+        objecte[nom] = function () {
+          if (funcio.length == arguments.length) {
+            return funcio.apply(this, arguments);
+          } else if (typeof old == 'function') {
+            return old.apply(this, arguments);
+          }
+        };
+      }
+
+      var persona = {};
+      afegirMetode(persona, 'calculMatricula', function () {
+        return 'no params';
+      });
+      afegirMetode(persona, 'calculMatricula', function (a) {
+        return a;
+      });
+      afegirMetode(persona, 'calculMatricula', function (a, b) {
+        return a + ' ' + b;
+      });
+
+      document.write(
+        'ningún parámetros: ' + persona.calculMatricula() + '<br>'
+      );
+      document.write('Un parametro: ' + persona.calculMatricula(1) + '<br>');
+      document.write(
+        'Dos parametros: ' + persona.calculMatricula(2, 3) + '<br>'
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

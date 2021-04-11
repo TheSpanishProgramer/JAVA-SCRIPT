@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creació d'objectes/ patró funcional comprovació de prototipus</title>
+    <style></style>
+    <script>
+      var crearPersona = function (nombre) {
+        var persona = {};
+
+        function caminar() {
+          console.log(this.nombre + ' camina ' + this.movimiento + ' metros');
+        }
+
+        var correr = function () {
+          console.log(
+            this.nombre + ' corre ' + this.movimiento * 2 + ' metros'
+          );
+        };
+
+        persona.nombre = nombre;
+        persona.movimiento = 19;
+        persona.saludar = function () {
+          console.log('Hola, me llamo ' + this.nombre);
+        };
+        persona.correr = correr;
+        persona.caminar = caminar;
+
+        return persona;
+      };
+
+      var Forest = crearPersona('Forest');
+      Forest.caminar();
+      Forest.correr();
+      Forest.saludar();
+    </script>
+  </head>
+  <body></body>
+</html>

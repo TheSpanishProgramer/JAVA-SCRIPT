@@ -1,0 +1,25 @@
+<script>
+
+	//Primero vamos a generar un tiempo aleatorio de ejecución para nuestras tareas
+	
+	function tiempoAleatorio() {//Función para generar el tiempo aleatorio  
+		return Math.floor(Math.random() * 1000);
+	}
+	
+	//Función donde vamos a generar las tareas de forma asíncrona con los tiempos de ejecución que hemos generado en la función tiempoAleatorio
+	function promesasAll(contador, tiempoEjecucion) {
+		return new Promise ((resolve) => {
+			setTimeout(() => {//para utilizar esos tiempos aleatorios vamos a utilizar la función setTimeout
+				resolve(contador);
+			}, tiempoEjecucion);
+		});
+	}
+	var contador=0;// Variable con la que vamos a diferenciar cada una de las tareas que componen la promesa
+	Promise.race(// esta función nos va a devolver el resultado de la promesa que se rechaza o devuelve mas rápido
+		[promesasAll(++contador, tiempoAleatorio()),
+		//llamamos a la función que crea la promesa con su operación, a la que le pasamos nuestro contador que nos ayudara a diferenciar cual tarea se ha completado antes, el tiempo que va a tardar y un mensaje de tarea completada
+		promesasAll(++contador, tiempoAleatorio()),
+		promesasAll(++contador, tiempoAleatorio()),
+		promesasAll(++contador, tiempoAleatorio())])
+		.then((data)=> console.log("Se ha completado la tarea: ", data));//mensaje del Promise.race el cual aparecerá una tarea haya sido resuelta
+</script>

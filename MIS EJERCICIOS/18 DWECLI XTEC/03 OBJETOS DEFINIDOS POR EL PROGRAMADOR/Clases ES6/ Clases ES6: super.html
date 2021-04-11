@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clases ES6/ super</title>
+    <style></style>
+    <script>
+      class Arma {
+        constructor(nom, potencia) {
+          this.nom = nom;
+          this.potencia = potencia;
+          this.so = 'Zas!';
+        }
+
+        atacar(objectiu) {
+          console.log(
+            this.so +
+              ' Se han causado ' +
+              this.potencia +
+              ' puntos de daño ' +
+              objectiu
+          );
+        }
+      }
+
+      class ArmaAmbMunicio extends Arma {
+        constructor(nom, potencia, maxMunicio) {
+          super(nom, potencia);
+          this.municio = maxMunicio;
+          this.maxMunicio = maxMunicio;
+          this.so = 'Bang!';
+        }
+
+        atacar(objectiu) {
+          if (this.municio > 0) {
+            this.municio--;
+            super.atacar(objectiu);
+          } else {
+            console.log('Click! no tengo municion!');
+          }
+        }
+      }
+
+      var cuchillo = new Arma('Cuchillo', 2);
+      var pistola = new ArmaAmbMunicio('Pistola', 3, 2);
+
+      cuchillo.atacar('Zombi');
+      pistola.atacar('Gos Zombi');
+      pistola.atacar('Gos Zombi');
+      pistola.atacar('Gos Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

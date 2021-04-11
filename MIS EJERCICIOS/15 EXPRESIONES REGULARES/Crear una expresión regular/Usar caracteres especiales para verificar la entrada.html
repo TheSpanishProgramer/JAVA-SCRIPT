@@ -1,0 +1,28 @@
+<!--En el siguiente ejemplo, se espera que el usuario ingrese un número de teléfono. Cuando el usuario presiona el botón "Comprobar", el script verifica la validez del número. Si el número es válido (encuentra la secuencia de caracteres especificada por la expresión regular), la secuencia de comandos muestra un mensaje agradeciendo al usuario y confirmando el número. Si el número no es válido, el guión informa al usuario que el número de teléfono no es válido.
+
+Entre paréntesis que no capturan (?:, la expresión regular busca tres caracteres numéricos \d{3} O | un paréntesis izquierdo \( seguido de tres dígitos \d{3}, seguido de un paréntesis cerrado \), (finaliza el paréntesis no capturador )), seguido de un guión, una barra diagonal o un punto decimal y cuando lo encuentre, recuerde el carácter ([-\/\.]), seguido de tres dígitos \d{3}, seguido de la coincidencia recordada de un guión, una barra diagonal o un punto decimal \1, seguida de cuatro dígitos \d{4}.
+
+El evento Change activado cuando el usuario presiona Enter establece el valor de RegExp.input.-->
+
+<p>
+	  Ingresa tu número de teléfono (con el código de área) y luego haz clic en "Comprobar".
+	  <br>
+	  El formato esperado es como ###-###-####.
+	</p>
+	<form action="#">
+	  <input id="phone">
+		<button onclick="testInfo(document.getElementById('phone'));">Comprobar</button>
+	</form>
+	
+	<script>
+		
+		var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+		function testInfo(phoneInput) {
+		  var OK = re.exec(phoneInput.value);
+		  if (!OK) {
+			console.error(phoneInput.value + ' isn\'t a phone number with area code!');
+		  } else {
+			console.log('Gracias, tu número de teléfono es ' + OK[0]);}
+		} 
+		
+	</script>

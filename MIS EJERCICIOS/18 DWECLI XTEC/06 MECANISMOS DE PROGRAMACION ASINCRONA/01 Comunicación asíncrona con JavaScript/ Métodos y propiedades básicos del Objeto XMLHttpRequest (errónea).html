@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>inicialización jQuery</title>
+    <style></style>
+    <script>
+      if (window.XMLHttpRequest) {
+        httpRequest = new XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+        // IE 6 y anteriores
+      } else {
+        console.error('Error: Este navegador no soporta AJAX.');
+      }
+
+      httpRequest.onreadystatechange = function () {
+        console.log('Ha cambiada el estado de la petición');
+      };
+
+      httpRequest.open('GET', 'http://www.example.com', true);
+      httpRequest.send(null);
+    </script>
+  </head>
+  <body></body>
+</html>

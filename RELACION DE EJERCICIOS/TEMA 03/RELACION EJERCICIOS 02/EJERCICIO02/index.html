@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+ 
+<body>
+ 
+<form>
+	<input type="date" id="dateini" min="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>">
+	<input type="date" id="datefin" min="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>">
+	<input type="button" value="calcular" onclick="calcular()">
+</form>
+ 
+</body>
+</html>
+ 
+<script>
+function calcular(){
+	var fechaini = new Date(document.getElementById('dateini').value);
+	var fechafin = new Date(document.getElementById('datefin').value);
+	var diasdif= fechafin.getTime()-fechaini.getTime();
+	var contdias = Math.round(diasdif/(1000*60*60*24));
+	alert("los dias que pasan entre ambas fechas son: "+contdias+ " dias.");
+}
+</script>

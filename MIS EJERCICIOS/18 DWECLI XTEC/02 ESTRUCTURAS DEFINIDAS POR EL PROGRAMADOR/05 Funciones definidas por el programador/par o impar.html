@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>par o impar</title>
+    <style></style>
+    <script>
+      var parImpar = (function () {
+        var avui = new Date();
+        if (new Date().getDate() % 2 == 0) {
+          return function () {
+            document.write('Hoy es dia par');
+          };
+        } else {
+          return function () {
+            document.write('hoy es dia impar');
+          };
+        }
+      })();
+
+      parImpar();
+    </script>
+  </head>
+  <body></body>
+</html>

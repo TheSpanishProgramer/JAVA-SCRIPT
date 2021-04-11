@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo TextArea 3</title>
+    <style></style>
+    <script>
+      var textarea = document.getElementById('test');
+
+      textarea.value = 'Valor establecido via codigo';
+
+      function mostrarValor() {
+        alert(textarea.value);
+      }
+    </script>
+  </head>
+  <body>
+    <textarea id="test"></textarea>
+    <br />
+    <button onclick="mostrarValor();">Mostrar valor</button>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Memorizar valores calculados a la propia función (Memoize)</title>
+    <style></style>
+    <script>
+      function esPrimer(valor) {
+        if (!esPrimer.cache) {
+          esPrimer.cache = {}; // si no hay cache de resultados, la creamos
+        }
+
+        if (esPrimer.cache[valor] != null) {
+          // Resultado ya calculadas
+          return '<b>' + esPrimer.cache[valor] + '<b>';
+        }
+
+        // hay que calcularlo Porque no Tenemos el Resultado
+
+        var primer = valor != 1; // 1 no es primero
+
+        // buscamos un divisor superior en 2 e inferior a valor
+        for (var i = 2; i < valor; i++) {
+          if (valor % i == 0) {
+            primer = false;
+            break;
+          }
+        }
+
+        esPrimer.cache[valor] = primer;
+        return primer;
+      }
+      document.write(esPrimer(5) + '<br/>'); // escriu: true
+      document.write(esPrimer(5)); //escribe: true en negrita
+    </script>
+  </head>
+  <body></body>
+</html>

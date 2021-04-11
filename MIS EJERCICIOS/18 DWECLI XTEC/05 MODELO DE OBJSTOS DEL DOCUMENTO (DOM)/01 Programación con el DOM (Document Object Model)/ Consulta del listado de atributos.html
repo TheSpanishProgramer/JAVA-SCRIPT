@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Consulta del listado de atributos</title>
+    <style></style>
+  </head>
+  <body>
+    <h1 id="titulo" class="rojo principal">Esta es la cabecera</h1>
+  </body>
+
+  <script>
+    var titulo = document.getElementById('titulo');
+
+    for (var i = 0; i < titulo.attributes.length; i++) {
+      console.log(
+        titulo.attributes[i].name + ': ' + titulo.attributes[i].value
+      );
+    }
+  </script>
+</html>

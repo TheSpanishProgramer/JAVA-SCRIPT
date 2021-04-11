@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aplicación Simple Google Maps II (Marcadores)</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.11.0/leaflet-providers.min.js"
+      integrity="sha512-TO+Wd5hbpDsACTmvzSqAZL83jMQCXGRFNoS4WZxcxrlJBTdgMYaT7g5uX49C5+Kbuxzlg2A+TFJ6UqdsXuOKLw=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #mapaid {
+        height: 500px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var elMeuMapa = L.map('mapaid').setView([41.390205, 2.154007], 11);
+
+        var OpenStreetMap_Mapnik = L.tileLayer(
+          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          {
+            maxZoom: 19,
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }
+        );
+
+        OpenStreetMap_Mapnik.addTo(elMeuMapa);
+        L.marker([41.390205, 2.154007], {title: 'Barcelona'}).addTo(elMeuMapa);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mapaid"></div>
+  </body>
+</html>

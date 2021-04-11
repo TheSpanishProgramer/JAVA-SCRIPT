@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function setColSpan() {
+        var x = document.getElementById('myTable').rows[0].cells;
+        x[0].colSpan = '2';
+        x[1].colSpan = '6';
+      }
+    </script>
+  </head>
+  <body>
+    <table id="myTable" border="1">
+      <tr>
+        <td colspan="4">celda 1</td>
+        <td colspan="4">celda 2</td>
+      </tr>
+      <tr>
+        <td>celda 3</td>
+        <td>celda 4</td>
+        <td>celda 5</td>
+        <td>celda 6</td>
+        <td>celda 7</td>
+        <td>celda 8</td>
+        <td>celda 9</td>
+        <td>celda 10</td>
+      </tr>
+    </table>
+    <form>
+      <input type="button" onclick="setColSpan()" value="variable de prueba" />
+    </form>
+  </body>
+</html>

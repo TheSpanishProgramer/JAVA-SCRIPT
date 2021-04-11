@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function selectMultiple() {
+        document.getElementById('mySelect').multiple = true;
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <select id="mySelect" size="4">
+        <option>manzana</option>
+        <option>Pera</option>
+        <option>plátano</option>
+        <option>naranja</option>
+      </select>
+      <input
+        type="button"
+        onclick="selectMultiple()"
+        value="Seleccionar varios"
+      />
+    </form>
+    <p>
+      Antes de hacer clic en el botón "Seleccionar varios", intente seleccionar
+      más de una opción (presionando la tecla Mayús o Ctrl). Luego intente hacer
+      clic en el botón "Seleccionar varios".
+    </p>
+  </body>
+</html>

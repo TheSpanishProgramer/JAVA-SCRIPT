@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Manipulacion de atributos</title>
+    <style>
+
+.rojo {
+  color:red;
+}
+
+    </style>
+
+  </head>
+  <body>
+
+<h1 id="titulo" class="rojo principal">Esta es la cabecera</div>
+  </body>
+  
+      <script>
+
+var titulo = document.getElementById('titulo');
+
+titulo.setAttribute('titulo', 'Esto se Muestra al poner el cursor Encima');
+titulo.removeAttribute('clase');
+console.log('El identificador es: ' + titulo.getAttribute('id'));
+
+    </script>  
+  
+</html>

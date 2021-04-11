@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Conversión de tipo parseInt</title>
+    <style></style>
+    <script>
+      var num1 = parseInt('10.33');
+      var num2 = parseInt('31 15 33');
+      var num3 = parseInt(' 36 ');
+      var num4 = parseInt('40 años');
+      var num5 = parseInt('tengo 35');
+      var num6 = parseInt('010');
+      var num7 = parseInt('10', 8);
+      var num8 = parseInt('0x10');
+      document.write(num1 + '<br>');
+      document.write(num2 + '<br>');
+      document.write(num3 + '<br>');
+      document.write(num4 + '<br>');
+      document.write(num5 + '<br>');
+      document.write(num6 + '<br>');
+      document.write(num7 + '<br>');
+      document.write(num8 + '<br>');
+      document.write('Operaciones con los números anteriores:<br>');
+      var sum = num1 + num2 + num3 + num4 + num6 + num7 + num8;
+      document.write('suma: ' + sum + '<br>');
+      document.write('Operaciones entre NaN:<br>');
+      document.write(sum + num5 + '<br>');
+    </script>
+  </head>
+  <body></body>
+</html>

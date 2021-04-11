@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script type="text/javascript">
+      function coordinates(event) {
+        x = event.screenX;
+        y = event.screenY;
+        alert('X=' + x + ' Y=' + y);
+      }
+    </script>
+  </head>
+  <body onmousedown="coordinates(event)">
+    <p>
+      Haga clic en una ubicación del documento. El cuadro de mensaje indicará
+      las coordenadas xey del puntero en relación con la pantalla.
+    </p>
+  </body>
+</html>

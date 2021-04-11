@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function padding() {
+        document.getElementById('myTable').cellPadding = '15';
+      }
+      function spacing() {
+        document.getElementById('myTable').cellSpacing = '15';
+      }
+    </script>
+  </head>
+  <body>
+    <table id="myTable" border="1">
+      <tr>
+        <td>100</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>300</td>
+        <td>400</td>
+      </tr>
+    </table>
+    <br />
+    <input
+      type="button"
+      onclick="padding()"
+      value="
+Modificar los márgenes de las celdas"
+    />
+    <input
+      type="button"
+      onclick="spacing()"
+      value="
+Modificar el espaciado de celdas"
+    />
+  </body>
+</html>

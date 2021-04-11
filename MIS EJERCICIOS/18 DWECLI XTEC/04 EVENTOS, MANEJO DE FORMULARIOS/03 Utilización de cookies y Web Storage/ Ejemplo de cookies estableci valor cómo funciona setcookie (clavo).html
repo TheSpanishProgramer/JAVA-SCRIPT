@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Ejemplo de cookies estableci valor cómo funciona setcookie (clavo)
+    </title>
+    <style></style>
+    <script>
+      function setCookie(key, value, options) {
+        var cookie = encodeURIComponent(key) + '=' + encodeURIComponent(value);
+
+        if (options) {
+          for (option in options) {
+            if (option === 'secure') {
+              cookie += '; ' + encodeURIComponent(option);
+            } else {
+              cookie +=
+                '; ' +
+                encodeURIComponent(option) +
+                '=' +
+                encodeURIComponent(options[option]);
+            }
+          }
+        }
+
+        document.cookie = cookie;
+      }
+
+      function getCookie(key) {
+        var patro = new RegExp('(?:' + key + ')=(.+?)(?=;|$)', 'g');
+        return patro.exec(document.cookie)[1];
+      }
+
+      // Añadimos una nueva cookie
+      setCookie('seu', 'Barcelona', {
+        'max-age': 300,
+        path: '/',
+        domain: 'codepen.io',
+      });
+
+      // mostramos por consola
+      console.log('Totes les galetes:', document.cookie);
+      console.log('Seu:', getCookie('seu'));
+    </script>
+  </head>
+  <body></body>
+</html>

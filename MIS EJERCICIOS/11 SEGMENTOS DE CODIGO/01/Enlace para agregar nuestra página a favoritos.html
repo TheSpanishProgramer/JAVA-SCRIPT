@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Agregar página a favoritos.</title>
+
+    <style type="text/css">
+      A.clase1:link {
+        /* Color del enlace no visitado */
+        text-decoration: none;
+        color: #0000ff;
+      }
+
+      A.clase1:visited {
+        /* Color del enlace visitado */
+        text-decoration: none;
+        color: #ff0000;
+      }
+
+      A.clase1:active {
+        /* Color que toma el ultimo enlace visitado */
+        text-decoration: none;
+        color: #99ff00;
+      }
+
+      A.clase1:hover {
+        /* Color que toma el enlace al pasar el raton sobre el */
+        text-decoration: underline;
+        color: #ffff00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a
+      href="javascript:window.external.AddFavorite('http://www.jpstudioweb.com',
+'JPSTUDIOWEB.COM Todo lo que necesitas para tu sitio Web');"
+      class="clase1"
+      >Agrégame a Favoritos</a
+    >
+  </body>
+</html>

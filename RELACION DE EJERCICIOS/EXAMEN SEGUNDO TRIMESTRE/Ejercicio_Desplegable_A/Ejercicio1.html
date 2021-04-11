@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>F A Q S</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 87.5%;
+            width: 650px;
+            margin: 0 auto;
+            border: 3px solid blue;
+            padding: 15px 25px;
+        }
+
+        h1 {
+            font-size: 150%;
+        }
+
+        h2 {
+            font-size: 120%;
+            padding: .25em 0 .25em 25px;
+            cursor: pointer;
+            background: url(images/plus.png) no-repeat left center;
+        }
+
+        h2.minus {
+            background: url(images/minus.png) no-repeat left center;
+        }
+
+        div {
+            display: none;
+        }
+
+        div.open {
+            display: block;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:focus,
+        a:hover {
+            color: blue;
+        }
+
+        ul {
+            padding-left: 45px;
+        }
+
+        li {
+            padding-bottom: .25em;
+        }
+
+        p {
+            padding-bottom: .25em;
+            padding-left: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main id="faqs">
+        <h1>JavaScript Menu</h1>
+        <h2><a href="#">Qué es JavaScript?</a></h2>
+        <div>
+            <p>JavaScript is a programming language that's built into the major web browsers.
+                It makes web pages more responsive and saves round trips to the server.
+            </p>
+        </div>
+        <h2><a href="#">¿Qué es Vue.js?</a></h2>
+        <div>
+            <p>Es un framework que facilita la construcción de sitios webs, haciendo especial fijación
+                en la lógica cliente y la incorporación de muchas herramientas.
+            </p>
+        </div>
+        <h2><a href="#">¿Por qué vue.js está empezando a ser popular?</a></h2>
+        <div>
+            <p>3 razones:</p>
+            <ul>
+                <li>Este es gratis.</li>
+                <li>Este permite hacer más en menos tiempo.</li>
+                <li>Todas sus funcionnes están optimizadas y coge lo mejor de Angular y React.</li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        div1 = document.getElementsByTagName("div");
+        el = document.getElementsByTagName("h2");
+        for (let i = 0; i < el.length; i++) {
+            el[i].addEventListener("click", mostrar);
+        }
+        function mostrar(e) {
+            let a = e.target;
+            let h2=a.parentNode;
+            let div = a.parentNode.nextElementSibling
+
+            for (let i = 0; i < div1.length; i++) {
+                if (div1[i] != div) {
+                    div1[i].style.display = "none";
+                   el[i].removeAttribute("class");
+                }
+
+            }
+
+            if (div.style.display != "block") {
+                div.style.display = "block";
+                h2.setAttribute("class", "minus");
+            }
+            else {
+                div.style.display = "none";
+                h2.removeAttribute("class");
+            }
+            console.log(div);
+        }
+    </script>
+</body>
+
+</html>

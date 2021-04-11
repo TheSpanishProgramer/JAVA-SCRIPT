@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body style="background: cadetblue;">
+    <h3 style="text-align: center;">Ejercicio 1</h3>
+    <script>
+
+        //  Apartado 1.1 : Realizar la clase y la herencia
+
+        //Creo la clase padre que seria Persona
+        class Persona {
+            //Constructor con los parametros
+            constructor(nombre, apellidos, edad) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.edad = edad;
+            }
+
+            //Metodos
+            //toString
+            toString() {
+                return `Esta persona tiene de nombre ${this.nombre} y apellidos ${this.apellidos} tiene ${this.edad} años de edad.`;
+            }
+        }   //Fin clase Persona
+
+        //Creamos la clase de Medico que hereda de Persona
+        class Medico extends Persona {
+            //Constructor con los datos
+            constructor(nombre, apellidos, edad, especialidad, aniosExper) {
+                super(nombre, apellidos, edad);
+                this.especialidad = especialidad;
+                this.aniosExper = aniosExper;
+            }
+
+            //Metodos
+            //toString
+            toString() {
+                return `${super.toString()} Tiene especialidad de ${this.especialidad} y ${this.aniosExper} años de experiencia.`;
+            }
+
+        }    //Fin clase Medico
+
+        //  Apartado 1.2 : Crear el Arrays con esos medicos
+        let medicos = [];
+
+        medicos[0] = new Medico("Juan", "Martinez", 26, "cardiologia", 1);
+        medicos[1] = new Medico("Ana", "Larra", 32, "infantil", 14);
+        medicos[2] = new Medico("Fran", "Sanchez", 26, "infantil", 7);
+
+        //  Apartado 1.3.1 : Suma de la esperiencia en infantil
+        let suma = medicos.filter((array) => {
+            if (array.especialidad == "infantil") {
+                return array
+            }
+        }).reduce(((valorAnterior, medicos)=>valorAnterior + medicos.aniosExper),0);
+
+        console.log("El total de experiencia en infantil es: "+suma);
+        
+        
+        //  Apartado 1.3.2: Medico con menos años de experiencia
+        let arrayanyos = medicos.map((medicos) => medicos.aniosExper)
+        let anyosOrdenado=arrayanyos.sort().reverse();
+
+        let filtro = medicos.filter((medicos) => {
+            if (medicos.aniosExper==anyosOrdenado[0]) {
+                return medicos;
+            }
+        })
+
+        console.log(filtro);
+
+
+    </script>
+</body>
+
+</html>

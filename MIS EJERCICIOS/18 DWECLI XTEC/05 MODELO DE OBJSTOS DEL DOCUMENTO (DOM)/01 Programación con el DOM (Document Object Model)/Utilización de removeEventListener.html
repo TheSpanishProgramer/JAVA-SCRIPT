@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Utilización de removeEventListener</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+        float: left;
+        margin: 5px;
+      }
+
+      span {
+        padding: 0 3px;
+      }
+
+      .seleccionar {
+        background-color: green;
+        color: white;
+      }
+
+      .proper {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      El cuadro clicable se Muestra de color <span class="proper">azul</span> y
+      el último cuadro clicada de color <span class="seleccionar">verde</span>
+    </p>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+  </body>
+
+  <script>
+    var quadreA = document.getElementById('a');
+    var quadreB = document.getElementById('b');
+    var quadreC = document.getElementById('c');
+
+    var seleccionarA = function () {
+      quadreA.className = 'seleccionar';
+      quadreB.className = 'proper';
+      quadreC.className = '';
+
+      quadreA.removeEventListener('click', seleccionarA);
+
+      quadreB.addEventListener('click', seleccionarB);
+      console.log(this);
+    };
+
+    var seleccionarB = function () {
+      quadreB.className = 'seleccionar';
+      quadreC.className = 'proper';
+      quadreA.className = '';
+      quadreB.removeEventListener('click', seleccionarB);
+      quadreC.addEventListener('click', seleccionarC);
+    };
+
+    var seleccionarC = function () {
+      quadreC.className = 'seleccionar';
+      quadreA.className = 'proper';
+      quadreB.className = '';
+      quadreC.removeEventListener('click', seleccionarC);
+      quadreA.addEventListener('click', seleccionarA);
+    };
+
+    var inicialitzar = function () {
+      quadreA.className = 'proper';
+      listenerA = quadreA.addEventListener('click', seleccionarA);
+    };
+
+    inicialitzar();
+  </script>
+</html>

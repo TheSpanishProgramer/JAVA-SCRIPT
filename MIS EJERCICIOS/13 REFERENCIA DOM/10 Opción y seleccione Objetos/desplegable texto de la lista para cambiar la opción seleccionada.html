@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>(laespañaprogramadora.com)</title>
+<script>
+function changeText(){
+	var x=document.getElementById("mySelect");
+	x.options[x.selectedIndex].text="melón";
+}
+</script>
+</head>
+<body>
+
+<form>
+Elige tu fruta favorita:
+<select id="mySelect">
+  <option>pera</option>
+  <option>manzana</option>
+  <option>melocoton</option>
+  <option>naranja</option>
+</select>
+<br><br>
+<input type="button" onclick="changeText()" value="Configura tus opciones">
+</form>
+
+</body>
+</html>

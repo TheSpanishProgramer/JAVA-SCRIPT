@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Creación de Objetos/ Constructor con Métodos y propiedades al prototipo
+    </title>
+    <style></style>
+    <script>
+      var Persona = function (nombre) {
+        this.nombre = nombre;
+      };
+
+      Persona.prototype.caminar = function () {
+        console.log(this.nombre + ' camina ' + this.moviment + ' metros');
+      };
+
+      Persona.prototype.moviment = 19;
+
+      var Forest = new Persona('Forest');
+      var patricia = new Persona('Patricia');
+
+      Forest.caminar();
+      patricia.caminar();
+    </script>
+  </head>
+  <body></body>
+</html>

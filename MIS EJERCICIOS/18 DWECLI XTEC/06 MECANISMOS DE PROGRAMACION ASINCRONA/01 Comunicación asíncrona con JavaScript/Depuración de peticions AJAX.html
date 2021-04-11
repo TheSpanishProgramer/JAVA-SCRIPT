@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Depuración de peticions AJAX</title>
+    <style></style>
+    <script>
+      httpRequest = new XMLHttpRequest();
+
+      httpRequest.onload = processarResposta;
+      httpRequest.open(
+        'GET',
+        'https://dades.eicub.net/api/1/fabriquescreacio-difusio',
+        true
+      );
+      httpRequest.overrideMimeType('text/plain');
+      httpRequest.send(null);
+
+      function processarResposta() {
+        console.log('Datos cargados correctamente');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

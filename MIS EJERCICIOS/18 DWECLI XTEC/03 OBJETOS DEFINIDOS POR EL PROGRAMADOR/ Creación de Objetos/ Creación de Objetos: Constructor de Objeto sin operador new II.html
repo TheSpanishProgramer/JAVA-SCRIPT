@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Creación de Objetos/ Constructor de Objeto sin operador new II
+    </title>
+    <style></style>
+    <script>
+      var Persona = function (nombre) {
+        this.nombre = nombre;
+      };
+
+      var Forest = Persona('Forest'); // no se ha añadido el operador new
+      console.log(Forest);
+      console.log(window.nombre);
+    </script>
+  </head>
+  <body></body>
+</html>

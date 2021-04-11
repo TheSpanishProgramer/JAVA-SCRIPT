@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prototipo/ aumentar Objeto predefinido (Número)</title>
+    <style></style>
+    <script>
+      var x = 9.5;
+
+      Number.prototype.duplicar = function () {
+        return this * 2;
+      };
+
+      var y = 21;
+
+      console.log(x.duplicar());
+      console.log(y.duplicar());
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Utilización como de removeEventListener Mejorada (contexto) copy
+    </title>
+    <style>
+      div#quadres div {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+        float: left;
+        margin: 5px;
+      }
+
+      span {
+        padding: 0 3px;
+      }
+
+      #quadres div.seleccionat {
+        background-color: green;
+        color: white;
+      }
+
+      #quadres div.proper {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      El cuadro clicable se Muestra de color <span class="proper">azul</span> y
+      el último cuadro clicada de color <span class="seleccionat">verde</span>
+    </p>
+    <div id="quadres">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+
+  <script>
+    var quadres = document.getElementById('quadres');
+    var darrerSeleccionat;
+
+    var seleccionar = function () {
+      var proper;
+      // Se elimina el estilo y el detector del seleccionado anterior
+      if (darrerSeleccionat) {
+        darrerSeleccionat.className = '';
+      }
+
+      // Se actualiza el elemento actual
+      this.removeEventListener('click', seleccionar);
+      this.className = 'seleccionat';
+      darrerSeleccionat = this;
+
+      // Se determina el Próximo cuadro y se Añade el detector  proper = seleccionarQuadreAleatori();
+      proper = seleccionarQuadreAleatori();
+      proper.className = 'proper';
+      proper.addEventListener('click', seleccionar);
+    };
+
+    var seleccionarQuadreAleatori = function () {
+      var maxIndex = quadres.childNodes.length - 1;
+
+      // Se Tienen que descartar el último nodo seleccionado miedo no repetir y los nodos de texto
+      do {
+        index = Math.floor(Math.random() * (maxIndex + 1));
+        proper = quadres.childNodes[index];
+      } while (proper.nodeName != 'DIV' || proper === darrerSeleccionat);
+      return proper;
+    };
+
+    seleccionar();
+  </script>
+</html>

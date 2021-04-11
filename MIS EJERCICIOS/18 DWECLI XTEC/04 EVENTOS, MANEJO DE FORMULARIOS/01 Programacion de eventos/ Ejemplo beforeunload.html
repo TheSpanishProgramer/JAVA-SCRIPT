@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo beforeunload</title>
+    <style></style>
+    <script>
+      window.onbeforeunload = function (e) {
+        return 'Estas seguro de querer abandonar la pàgina?';
+      };
+    </script>
+  </head>
+  <body>
+    <p>Recarga la página para ver el mensaje de Confirming.</p>
+  </body>
+</html>

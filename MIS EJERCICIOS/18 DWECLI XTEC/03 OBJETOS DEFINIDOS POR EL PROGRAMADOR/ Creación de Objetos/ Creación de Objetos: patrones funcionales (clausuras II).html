@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ patrones funcionales (clausuras II)</title>
+    <style></style>
+    <script>
+      var crearArmaAmbMunicio = function (_nombre, _potencia, _maxMunicion) {
+        var _municion = _maxMunicion;
+
+        var _restaMunicio = function () {
+          return _municion > 0;
+        };
+
+        var arma = {
+          recargar: function () {
+            console.log(_nombre + ' Se ha recargado');
+            _municion = _maxMunicion;
+          },
+          atacar: function (objetivo) {
+            if (_restaMunicio()) {
+              console.log(
+                'Bang! Se ha causado ' +
+                  _potencia +
+                  ' puntos de daño ' +
+                  objetivo
+              );
+              _municion--;
+            } else {
+              console.log('Click! Sin municion');
+            }
+          },
+          getMunicion: function () {
+            return _municion;
+          },
+          getNombre: function () {
+            return _nombre;
+          },
+        };
+
+        return arma;
+      };
+
+      var pistola = crearArmaAmbMunicio('Pistola', 3, 2); // Pistola con potencia 3 y dos balas de Capacidad
+
+      console.log('Nombre del arma: ' + pistola.getNombre());
+      console.log('Municion restante: ' + pistola.getMunicion());
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      console.log('Munición restante: ' + pistola.getMunicion());
+      pistola.recargar();
+      console.log('Munición restante: ' + pistola.getMunicion());
+      pistola.atacar('Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

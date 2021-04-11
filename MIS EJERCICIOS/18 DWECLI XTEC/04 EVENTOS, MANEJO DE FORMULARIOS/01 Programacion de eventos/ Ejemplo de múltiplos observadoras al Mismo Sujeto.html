@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de múltiplos observadoras al Mismo Sujeto</title>
+    <style></style>
+    <script>
+      var button = document.getElementById('test');
+
+      button.addEventListener('click', notificaObservadorClick);
+      button.addEventListener('dblclick', notificaObservadorDblClick);
+      button.addEventListener('mousedown', notificaObservadorMouseDown);
+      button.addEventListener('mouseup', notificaObservadorMouseUp);
+
+      function notificaObservadorClick() {
+        console.log('Se ha disparado el evento Click');
+      }
+
+      function notificaObservadorDblClick() {
+        console.log('Se ha disparado el evento DblClick');
+      }
+
+      function notificaObservadorMouseDown() {
+        console.log('Se ha disparado el evento Mouse Down');
+      }
+
+      function notificaObservadorMouseUp() {
+        console.log('Se ha disparado el evento Mouse Up');
+      }
+    </script>
+  </head>
+  <body>
+    <button id="test">test de múltiples eventos</button>
+  </body>
+</html>

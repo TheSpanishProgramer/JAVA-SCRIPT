@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Ejemplo para demostrar que hay Elementos que no disparan eventos de teclado</title>
+    <style>
+
+
+
+    </style>
+    <script>
+
+var element1 = document.getElementById('test1');
+var element2 = document.getElementById('test2');
+
+element1.addEventListener('keypress', notificaObservador1);
+element1.addEventListener('keydown', notificaObservador1);
+element1.addEventListener('keyup', notificaObservador1);
+
+element2.addEventListener('keypress', notificaObservador2);
+element2.addEventListener('keydown', notificaObservador2);
+element2.addEventListener('keyup', notificaObservador2);
+
+function notificaObservador1(e) {
+  console.log("
+Desde el <div> se ha disparada uno evento de tipo: ", e.type);
+}
+
+function notificaObservador2(e) {
+  console.log("Desde el <button> se ha disparada uno evento de tipo: ", e.type);
+}
+
+    </script>  
+  </head>
+  <body>
+
+
+<div id = "test1"> Este si el div observación que contiene un botón
+<button> Este un botón que no está siéndo observación </ div>
+<button id = "test2"> Este el botón que está siéndo observación < / button>
+
+  </body>
+</html>

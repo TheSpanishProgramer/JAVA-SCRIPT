@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aplicación Google Maps i Open Data</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.11.0/leaflet-providers.min.js"
+      integrity="sha512-TO+Wd5hbpDsACTmvzSqAZL83jMQCXGRFNoS4WZxcxrlJBTdgMYaT7g5uX49C5+Kbuxzlg2A+TFJ6UqdsXuOKLw=="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      #mapaCinema {
+        height: 500px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li b {
+        display: inline-block;
+        width: 75px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mapaCinema"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script>
+    var mapa;
+    var dades;
+    var marcadors = [];
+
+    $(document).ready(function () {
+      iniciarAplicacio();
+    });
+
+    var iniciarMapa = function () {
+      elMeuMapa = L.map('mapaCinema').setView([41.390205, 2.154007], 12);
+      var OpenStreetMap_Mapnik = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }
+      ).addTo(elMeuMapa);
+    };
+
+    var crearMarcadors = function () {
+      for (var i = 0; i < dades.length; i++) {
+        var marcador = crearMarcador(dades[i]);
+        marcadors.push(marcador);
+      }
+    };
+
+    var crearMarcador = function (dada) {
+      var marcador = L.marker([dada.Latitud, dada.Longitud], {
+        title: dada.Equipament,
+      });
+
+      marcador.bindPopup(
+        '<h3>' +
+          dada.Equipament +
+          '</h3>' +
+          '<ul>' +
+          '<li><b>Districte:</b>' +
+          dada.Districte +
+          '</li>' +
+          '<li><b>Titularitat:</b>' +
+          dada.Titularitat +
+          '</li>' +
+          '<li><b>Web:</b><a href="' +
+          dada.Web +
+          '">' +
+          dada.Web +
+          '</a></li>' +
+          '</ul>'
+      );
+
+      return marcador;
+    };
+
+    var afegirMarcadors = function () {
+      for (var i = 0; i < marcadors.length; i++) {
+        afegirMarcador(marcadors[i]);
+      }
+    };
+
+    var afegirMarcador = function (marcador) {
+      marcador.addTo(elMeuMapa);
+    };
+
+    var iniciarMarcadors = function () {
+      crearMarcadors();
+      afegirMarcadors();
+    };
+
+    var iniciarAplicacio = function () {
+      iniciarMapa();
+      carregarDades();
+    };
+
+    var carregarDades = function () {
+      $.ajax('https://dades.eicub.net/api/1/cinemes-inventari', {
+        dataType: 'json',
+        success: function (resposta) {
+          dades = resposta;
+          iniciarMarcadors();
+        },
+      });
+    };
+  </script>
+</html>

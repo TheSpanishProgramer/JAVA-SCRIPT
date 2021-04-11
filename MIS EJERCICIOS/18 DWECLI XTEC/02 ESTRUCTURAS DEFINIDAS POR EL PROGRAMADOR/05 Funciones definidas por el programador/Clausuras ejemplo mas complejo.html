@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clausuras ejemplo mas complejo</title>
+    <style></style>
+    <script>
+      var frase = 'Hola desarrolladores.';
+      var nova;
+
+      function estudiar() {
+        var frase2 = 'Mola mucho estudiar javascript';
+        function mostrarFrase() {
+          document.write('Global: ' + frase + '<br>');
+          document.write('Local: ' + frase2 + '<br>');
+        }
+        nova = mostrarFrase;
+      }
+
+      estudiar();
+      nova();
+    </script>
+  </head>
+  <body></body>
+</html>

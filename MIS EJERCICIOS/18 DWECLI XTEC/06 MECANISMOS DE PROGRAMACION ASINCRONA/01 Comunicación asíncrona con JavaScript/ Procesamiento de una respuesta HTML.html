@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Procesamiento de una respuesta HTML</title>
+    <style></style>
+  </head>
+  <body></body>
+
+  <script>
+    if (window.XMLHttpRequest) {
+      // Mozilla, Safari, IE7+
+      httpRequest = new XMLHttpRequest();
+      console.log('Creado el Objeto a partir de XMLHttpRequest.');
+    } else if (window.ActiveXObject) {
+      // IE 6 y anteriores
+      httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+      console.log('Creado el Objeto a partir de ActiveXObject.');
+    } else {
+      console.error('Error: Este navegador no admite AJAX.');
+    }
+
+    httpRequest.onload = processarResposta;
+    httpRequest.onprogress = mostrarProgres;
+
+    function mostrarProgres(event) {
+      if (event.lengthComputable) {
+        var progres = (100 * event.loaded) / event.total;
+        console.log('Completat: ' + progres + '%');
+      } else {
+        console.log('No se puede calcular el progreso');
+      }
+    }
+
+    httpRequest.open('GET', 'provincies.html', true);
+    httpRequest.overrideMimeType('text/html');
+    httpRequest.send(null);
+
+    function processarResposta() {
+      var resposta = httpRequest.responseText;
+      var contenidor = document.createElement('div');
+      contenidor.innerHTML = resposta;
+      document.body.appendChild(contenidor);
+    }
+  </script>
+</html>

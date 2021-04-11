@@ -1,0 +1,3 @@
+Entrega Ejercicio RamdomUser de clase
+
+Usando los código que hemos estado viendo en clase para hacer llamadas a servidor y traernos datos en formato json y mediante callbacks que no devuelva esos datos para poder parsearlos. Intenta traerte y pintar una foto de la librería ramdomuser la cual genera un usuario aleatorio. Pinta la foto al pulsar el botón haciendo uso de callbacks.

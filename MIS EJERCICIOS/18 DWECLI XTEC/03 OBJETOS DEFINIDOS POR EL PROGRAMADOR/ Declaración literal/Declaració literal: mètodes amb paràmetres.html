@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Declaració literal/ mètodes amb paràmetres</title>
+    <style></style>
+    <script>
+      var persona = {
+        nombre: 'Ricard',
+        hablar: function (mensaje, vacio) {
+          console.log(this.nombre + ' dice: ' + mensaje);
+          console.log('Contenido de vacío: ', vacio);
+          console.log("Contenido de 'argumentos: ", arguments);
+        },
+      };
+
+      persona.hablar('Buenos días!');
+    </script>
+  </head>
+  <body></body>
+</html>

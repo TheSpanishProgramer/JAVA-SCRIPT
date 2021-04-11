@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Métodos de window</title>
+    <style></style>
+    <script>
+      var miVentana;
+      var titulo;
+
+      miVentana = window.open(
+        'http://jprats.com',
+        '',
+        'width=300,height=300, left=300, top=300, resizable=1'
+      );
+      setTimeout(function () {
+        miVentana.close();
+        titulo = prompt('Pone el título de la ventana:', 'titulo');
+      }, 2000);
+
+      setTimeout(function () {
+        crearVentana(titulo);
+      }, 2000);
+
+      function crearVentana(titulo) {
+        var opcions = 'toolbar=0, location=0, directories=0, status=0,';
+        opcions += 'menubar=0, scrollbars=0, resizable=0, copyhistory=0,';
+        opcions += 'width=100,height=100';
+
+        window.open('', titulo, opcions);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>(laespañaprogramadora.com)</title>
+    <script type="text/javascript">
+      function whichElement(e) {
+        var targ;
+        if (!e) var e = window.event;
+        if (e.target) targ = e.target;
+        else if (e.srcElement) targ = e.srcElement;
+        if (targ.nodeType == 3) targ = targ.parentNode;
+        var tname;
+        tname = targ.tagName;
+        alert('You clicked on a ' + tname + ' element.');
+      }
+    </script>
+  </head>
+
+  <body onmousedown="whichElement(event)">
+    <p>
+      Haga clic en una ubicación del documento. El cuadro de mensaje le indicará
+      el nombre de la etiqueta en la que hizo clic.
+    </p>
+
+    <h3>Este es el titulo</h3>
+    <p>Este es un párrafo.</p>
+    <img src="eg_mouse2.jpg" />
+  </body>
+</html>

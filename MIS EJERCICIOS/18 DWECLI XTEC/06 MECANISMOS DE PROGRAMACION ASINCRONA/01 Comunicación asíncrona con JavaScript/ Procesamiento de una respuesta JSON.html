@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Procesamiento de una respuesta JSON</title>
+    <style></style>
+    <script>
+      if (window.XMLHttpRequest) {
+        httpRequest = new XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+        httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+      } else {
+        console.error('Error: Este navegador no admite AJAX.');
+      }
+
+      httpRequest.onload = processarResposta;
+      httpRequest.open(
+        'GET',
+        'https://api.idescat.cat/pob/v1/geo.json?q=bell',
+        true
+      );
+      httpRequest.send(null);
+
+      function processarResposta() {
+        var resposta = JSON.parse(httpRequest.responseText);
+        var llista = document.createElement('ul');
+        var municipis = resposta.feed.entry;
+
+        for (var i = 0; i < municipis.length; i++) {
+          var item = processarElement(municipis[i]);
+          llista.appendChild(item);
+        }
+
+        document.body.appendChild(llista);
+      }
+
+      function processarElement(munic) {
+        var item = document.createElement('li');
+        item.textContent = munic.title;
+        return item;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

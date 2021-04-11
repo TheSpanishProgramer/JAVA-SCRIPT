@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script language="javascript">
+      function twoframes() {
+        document.all('frame1').src = 'frame_c.htm';
+        document.all('frame2').src = 'frame_d.htm';
+      }
+    </script>
+  </head>
+
+  <body>
+    <iframe src="frame_a.htm" name="frame1"></iframe>
+    <iframe src="frame_b.htm" name="frame2"></iframe>
+    &lt;br&gt;
+    <form>
+      <input
+        type="button"
+        onclick="twoframes()"
+        value="Cambiar la URL de los dos iframes"
+      />
+    </form>
+  </body>
+</html>

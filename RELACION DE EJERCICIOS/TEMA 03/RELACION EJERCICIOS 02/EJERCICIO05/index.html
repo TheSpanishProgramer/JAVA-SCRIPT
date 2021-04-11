@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<script>
+//Solicitamos introducir el radio de la circunferencia
+var radio = prompt("Introduzca el valor del radio de la circunferencia: ", "");
+//Mostramos el radio de la circunferencia
+document.write("<p>El valor del radio de la circunferencia es: </p>"+radio);
+//Calculamos el diametro de la circunferencia
+var diametro= 2*radio;
+//Mostramos el diametro de la circunferencia
+document.write("<p>El valor del diametro de la circunferencia es: </p>"+diametro);
+//Calculamos el perimetro de la circunferencia
+var perimetro= (2*Math.PI)*radio;
+//Mostramos el perimetro de la circunferencia
+document.write("<p>El valor del perimetro de la circunferencia es: </p>"+perimetro);
+//Calculamos el area de la circunferencia
+var areac= Math.PI*(Math.pow(radio,2));
+//Mostramos el area de la circunferencia
+document.write("<p>El valor del area de la circunferencia es: </p>"+areac);
+//Calculamos el area de la esfera
+var areae= 4*Math.PI*(Math.pow(radio,2));
+//Mostramos el area de la esfera
+document.write("<p>El valor del area de la esfera es: </p>"+areae);
+//Calculamos el volumen de la esfera
+var volumen= (4/3)*Math.PI*Math.pow(radio,3);
+//Mostramos el volumen de la esfera
+document.write("<p>El valor del volumen de la esfera es: </p>"+volumen);
+</script>
+</body>
+</html>

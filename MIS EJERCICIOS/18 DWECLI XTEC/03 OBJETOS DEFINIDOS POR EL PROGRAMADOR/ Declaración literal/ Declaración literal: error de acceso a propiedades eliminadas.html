@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Declaración literal/ error de accesonido a propiedades eliminadas
+    </title>
+    <style></style>
+    <script>
+      var arma = {
+        nombre: 'Pistola',
+        sonido: function () {
+          consonidole.log('Bang!');
+        },
+      };
+
+      delete arma.nombre;
+      delete arma.sonido;
+
+      consonidole.log('Nombre del arma: ' + arma.nombre);
+      arma.sonido(); //Produce un error y se para la Ejecución
+      consonidole.log('Esta linea nunca se ejecuta');
+    </script>
+  </head>
+  <body></body>
+</html>

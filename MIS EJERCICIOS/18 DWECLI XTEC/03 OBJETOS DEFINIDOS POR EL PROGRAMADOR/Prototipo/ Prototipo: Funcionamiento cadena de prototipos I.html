@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prototipo/ Funcionamiento cadena de prototipos I</title>
+    <style></style>
+    <script>
+      // Constructor de armas
+      var Arma = function (nombre) {
+        this.nombre = nombre;
+        this.potencia = 1;
+      };
+
+      // Se Anadir los Métodos que serán compartidos por todas las armas
+
+      Arma.prototype.atacar = function (objectiu) {
+        console.log(
+          'Zap! causa ' + this.potencia + ' puntos de daño a ' + objectiu
+        );
+      };
+
+      Arma.prototype.equipar = function () {
+        console.log('Se ha equipado ' + this.nombre);
+      };
+
+      // Se crea la instancia de una nueva arma
+      var cuchillo = new Arma('Cuchillo');
+
+      //Se comprueba que, Efectivamente, se ha añadido el método atacar
+      cuchillo.equipar();
+      cuchillo.atacar('Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

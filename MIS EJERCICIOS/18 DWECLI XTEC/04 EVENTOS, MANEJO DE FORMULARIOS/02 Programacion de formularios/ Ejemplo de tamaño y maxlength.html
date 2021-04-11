@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de tamaño y maxlength</title>
+    <style>
+      label {
+        display: block; /* 
+esto evita haber de añadir un salto de línea */
+      }
+
+      .mida {
+        width: 5em;
+      }
+    </style>
+    <script></script>
+  </head>
+  <body>
+    <label>
+      Cuadro con size = "5"
+      <input type="text" size="5" />
+    </label>
+    <label>
+      Cuadro con estilo CSS width = "* 5em"
+      <input type="text" class="mida" />
+    </label>
+    <label
+      >Cuadro con size = "5" y maxlength = "5"
+      <input type="text" size="5" maxlength="5" />
+    </label>
+    <label>
+      Cuadro con estilo CSS width = "* 5em" y maxlength = "5"
+      <input type="text" class="mida" maxlength="5" />
+    </label>
+    <label
+      >Cuadro con size = "10" y maxlength = "5"
+      <input type="text" size="10" maxlength="5" />
+    </label>
+  </body>
+</html>

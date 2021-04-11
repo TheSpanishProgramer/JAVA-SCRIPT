@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ámbito de las variables y de las funciones</title>
+    <style></style>
+    <script>
+      if (window) {
+        var x = 213;
+      }
+      document.write(x);
+
+      if (window) {
+        var x = 213;
+      }
+      document.write('</BR>' + window.x);
+
+      function estudiar() {
+        return '<br>Mola estudiar javascript.<br>';
+      }
+
+      document.write('</BR>' + estudiar());
+      document.write(window.estudiar());
+
+      function estudiar() {
+        var frase = '<br>Mola estudiar javascript.<br>';
+        return frase;
+      }
+      document.write(window.estudiar());
+      document.write('<br>' + window.frase + '<br>'); //nos devuelve undefined
+
+      var frase = '<br>Mola estudiar javascript.<br>';
+      function estudiar() {
+        var frase = '<br>No me gusta estudiar.<br>';
+        return frase;
+      }
+      document.write(window.estudiar());
+      document.write(window.frase);
+
+      var frase = 'Mola estudiar javascript.<br>';
+      function estudiar() {
+        frase = 'No me gusta estudiar.<br>';
+        return frase;
+      }
+      document.write(window.estudiar());
+      document.write(window.frase);
+    </script>
+  </head>
+  <body></body>
+</html>

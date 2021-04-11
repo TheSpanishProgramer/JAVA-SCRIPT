@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Utilización como de addEventListener como atajo</title>
+    <style>
+
+label,
+small {
+  display: block;
+}
+
+.massa-curt-o-llarg {
+  color: red;
+}
+
+.curt {
+  color: orange;
+}
+
+.correcte {
+  color: green;
+}
+
+    </style>
+
+  </head>
+  <body>
+
+<div>
+  <label>Introduzca el contenido de la descripción meta</label>
+  <textarea name="meta-description" id="meta-description" placeholder="Introduce Hasta 156 caracteres" / cols="80" rows="3"></textarea>
+  <small>Numero de caracteres: <span id="comptador" class="massa-curt-o-llarg">0</span></small>
+</div>
+
+  </body>
+  
+      <script>
+
+var camp = document.getElementById('meta-description'),
+  comptador = document.getElementById('comptador');
+
+var actualitzarComptador = function() {
+  var llargaria = camp.value.length
+  comptador.textContent = llargaria;
+  if (llargaria > 156 || llargaria < 100) {
+    comptador.className = 'massa-curt-o-llarg';
+  } else if (llargaria < 150) {
+    comptador.className = 'curt';
+  } else {
+    comptador.className = 'correcte';
+  }
+}
+
+camp.oninput = actualitzarComptador;
+
+
+    </script>  
+    
+</html>

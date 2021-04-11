@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+  </head>
+  <body>
+    <img src="planets.gif" width="145" height="126" usemap="#planetmap" />
+    <map name="planetmap">
+      <area
+        id="venus"
+        shape="circle"
+        coords="124,58,8"
+        alt="Venus"
+        href="venus.htm"
+      />
+    </map>
+    <p>
+      Camino a la región de Venus:
+      <script>
+        document.write(document.getElementById('venus').pathname);
+      </script>
+    </p>
+    <p>
+      <b>注意:</b> Retorno del navegador IE y Opera
+      &quot;prueba/venus.htm&quot;, Y vuelven los navegadores Firefox, Chrome y
+      Safari &quot;/prueba/venus.htm&quot;.
+    </p>
+  </body>
+</html>

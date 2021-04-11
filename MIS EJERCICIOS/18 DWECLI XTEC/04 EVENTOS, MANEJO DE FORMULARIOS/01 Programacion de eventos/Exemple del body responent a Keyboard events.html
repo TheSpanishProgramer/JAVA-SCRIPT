@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Exemple del body responent a Keyboard events</title>
+    <style></style>
+    <script>
+      var element = document.getElementById('test');
+
+      element.addEventListener('keypress', notificaObservador);
+      element.addEventListener('keydown', notificaObservador);
+      element.addEventListener('keyup', notificaObservador);
+
+      function notificaObservador(e) {
+        console.log(
+          'Desde el <body> se ha disparado un evento de tipo: ',
+          e.type
+        );
+      }
+    </script>
+  </head>
+  <body id="test"></body>
+</html>

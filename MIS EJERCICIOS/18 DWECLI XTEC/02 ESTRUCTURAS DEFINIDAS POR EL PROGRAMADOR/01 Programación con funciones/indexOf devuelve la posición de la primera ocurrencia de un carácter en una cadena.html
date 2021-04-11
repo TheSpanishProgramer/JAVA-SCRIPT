@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      indexOf devuelve la posición de la primera ocurrencia de un carácter en
+      una cadena
+    </title>
+    <style></style>
+    <script>
+      var frase = 'Estudiar Javascript es muy divertido.';
+      var posicio = frase.indexOf('vas');
+      var posicio2 = frase.indexOf('p');
+      document.write('Posición de la palabra vas: ' + posicio + '<br>');
+      document.write('Posicion de la letra p: ' + posicio2 + '<br>');
+      var posicio = frase.lastIndexOf('t');
+      var posicio2 = frase.lastIndexOf('ñ');
+      document.write('Posicion de la letra t: ' + posicio + '<br>');
+      document.write(
+        'Posicion de la letra ñ: (no ha sido encontrada por eso devuelve) ' +
+          posicio2
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

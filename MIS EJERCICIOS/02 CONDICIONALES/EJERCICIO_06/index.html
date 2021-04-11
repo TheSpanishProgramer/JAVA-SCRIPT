@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<script> 
+ let marca,modelo,descuento =0; 
+ 
+{% comment %} Si la marca == ford Y el modelo ==fiesta el 
+descuento vale 5, SINO el descuento vale 10. {% endcomment %}
+
+ marca = prompt("Marca?", "0"); 
+ modelo = prompt("Modelo?", "0"); 
+ if (marca=="ford") 
+ if (modelo =="fiesta") 
+ { 
+ descuento = 5; 
+ } 
+ else 
+ { 
+ descuento = 10; 
+ } 
+ document.write(`<h3>Su descuento es ${descuento} </h3> `); 
+</script> 
+</head> 
+</html>

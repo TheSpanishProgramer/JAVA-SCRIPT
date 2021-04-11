@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Eventos de Procesamiento de la respuesta intermediando</title>
+    <style></style>
+    <script>
+      if (window.XMLHttpRequest) {
+        // Mozilla, Safari, IE7+
+        httpRequest = new XMLHttpRequest();
+        console.log('Creado el Objeto a partir de XMLHttpRequest.');
+      } else if (window.ActiveXObject) {
+        // IE 6 y anteriores
+        httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+        console.log('Creado el Objeto a partir de ActiveXObject.');
+      } else {
+        console.error('Error: Este navegador no soporta AJAX.');
+      }
+
+      httpRequest.onload = processarResposta;
+
+      httpRequest.open(
+        'GET',
+        'https://api.idescat.cat/emex/v1/dades.xml?id=080018&i=f171',
+        true
+      );
+      httpRequest.send(null);
+
+      function processarResposta() {
+        var elementDiv = document.createElement('div');
+        var resposta = httpRequest.responseXML;
+        elementDiv.innerHTML = resposta;
+        console.log(resposta);
+        document.body.appendChild(elementDiv);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

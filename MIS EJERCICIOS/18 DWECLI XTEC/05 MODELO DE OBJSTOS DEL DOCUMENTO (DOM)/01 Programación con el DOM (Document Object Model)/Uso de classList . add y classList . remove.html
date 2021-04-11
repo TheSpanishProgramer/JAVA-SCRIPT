@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Uso de classList . add y classList . remove</title>
+    <style>
+      .vermell {
+        color: red;
+      }
+
+      .negreta {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="para">parrafo de prueba</p>
+  </body>
+  <script>
+    var paragraf = document.getElementById('para');
+
+    paragraf.classList.add('vermell');
+    paragraf.classList.add('negreta');
+
+    alert(
+      'Hemos añadido los estilos rojo y negrita. Ahora eliminaremos el estilo rojo. Pulsa una tecla para continuar'
+    );
+
+    paragraf.classList.remove('vermell');
+
+    alert(
+      'Hemos suprimida el estilo rojo. Ahora eliminaremos també negrita. Pulsa una tecla para continuar.'
+    );
+
+    paragraf.classList.remove('negreta');
+  </script>
+</html>

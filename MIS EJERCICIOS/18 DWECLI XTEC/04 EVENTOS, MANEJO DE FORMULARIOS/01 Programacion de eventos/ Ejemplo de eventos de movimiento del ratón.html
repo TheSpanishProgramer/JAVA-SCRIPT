@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de eventos de movimiento del ratón</title>
+    <style>
+      div {
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        margin: 50px auto;
+      }
+
+      div > div {
+        position: relative;
+        top: -25px;
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+      }
+    </style>
+    <script>
+      var element = document.getElementById('test');
+
+      element.addEventListener('mouseenter', notificaObservador);
+
+      element.addEventListener('mouseleave', notificaObservador);
+
+      element.addEventListener('mousemove', notificaObservador);
+
+      element.addEventListener('mouseout', notificaObservador);
+
+      element.addEventListener('mouseover', notificaObservador);
+
+      function notificaObservador(e) {
+        console.log('Se ha disparado un evento de tipo: ', e.type);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="test">
+      <div></div>
+    </div>
+  </body>
+</html>

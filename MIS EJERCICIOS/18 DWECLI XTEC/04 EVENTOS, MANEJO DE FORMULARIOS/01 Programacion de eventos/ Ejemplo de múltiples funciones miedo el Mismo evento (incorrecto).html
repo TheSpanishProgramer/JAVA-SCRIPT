@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Ejemplo de múltiples funciones miedo el Mismo evento (incorrecto)
+    </title>
+    <style></style>
+    <script>
+      // Guardamos el elemento en una variable
+      var primerElement = document.getElementById('primer');
+
+      // Asignamos al elemento una funcionaria que será gritada Cuando se haga clic
+      primerElement.onclick = function () {
+        alert('Primera funció');
+      };
+
+      // Asignamos otra funcionaria al elemento que també será gritada Cuando se haga clic
+      primerElement.onclick = function (e) {
+        alert('Segona funció');
+      };
+    </script>
+  </head>
+  <body>
+    <button id="primer">haz click aqui!</button>
+  </body>
+</html>

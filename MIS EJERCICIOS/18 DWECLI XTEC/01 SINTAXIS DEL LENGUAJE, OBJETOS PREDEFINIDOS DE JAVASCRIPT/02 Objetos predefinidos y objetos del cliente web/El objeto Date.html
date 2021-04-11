@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>El objeto Date</title>
+    <style></style>
+    <script>
+      var data = new Date(); //Fecha del sistema
+      console.log(data);
+      var data = new Date(34885453664); //genera un fecha que representa los milisegundos que han Pasado desde el 1 de enero de 1970
+      console.log(data);
+      data = new Date('2016/05/23');
+      console.log(data);
+      data = new Date(2016, 5, 23, 12, 15, 24, 220); //año, mes, día, hora, minutos, segundos, milisegundos
+      console.log(data);
+
+      var data = new Date(); //fecha del sistema
+      console.log(data.getTime()); //milisegundos
+      console.log(
+        'Desde 1970 han Pasado ' +
+          data.getTime() / 1000 / 3600 / 24 / 365 +
+          ' años aproximadamente'
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

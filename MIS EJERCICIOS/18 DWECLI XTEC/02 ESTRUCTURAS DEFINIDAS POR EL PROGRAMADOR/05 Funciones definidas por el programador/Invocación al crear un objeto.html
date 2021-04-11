@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Invocación al crear un objeto</title>
+    <style></style>
+    <script>
+      function Cotxe() {
+        this.matricula = 'ABCD';
+      }
+
+      /*cridem a la funció utilitzant la paraula new:*/
+      var cotxe1 = new Cotxe();
+      document.write(cotxe1.matricula + '<br>');
+      document.write(window.matricula + '<br>');
+      document.write('-------------------------<br>');
+
+      /*cridem a la funció sense utilitzar la paraula new:*/
+      var cotxe2 = Cotxe();
+      document.write(
+        'Al no utilizar new this apunta a window . Se ha creado una nueva propiedad Dentro del Objeto window llamada matrícula al gritar a la funcionaria Coche () sin Poner new : <br>'
+      );
+
+      document.write(window.matricula + '<br>');
+      document.write(
+        'cotxe2 como Objeto no existe por eso no funciona Cuando Queremos acceder a sobre propiedades.'
+      );
+      document.write(cotxe2.matricula + '<br>');
+    </script>
+  </head>
+  <body></body>
+</html>

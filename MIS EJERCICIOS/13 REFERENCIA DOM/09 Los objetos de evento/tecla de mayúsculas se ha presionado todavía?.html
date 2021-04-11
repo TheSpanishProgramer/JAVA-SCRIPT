@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function isKeyPressed(event) {
+        if (event.shiftKey == 1) {
+          alert(' shift Esta presionado!');
+        } else {
+          alert(' shift No esta presionado!');
+        }
+      }
+    </script>
+  </head>
+  <body onmousedown="isKeyPressed(event)">
+    <p>
+      Haga clic en el párrafo, una ventana emergente le preguntará si debe
+      presionar la tecla Mayús.
+    </p>
+  </body>
+</html>

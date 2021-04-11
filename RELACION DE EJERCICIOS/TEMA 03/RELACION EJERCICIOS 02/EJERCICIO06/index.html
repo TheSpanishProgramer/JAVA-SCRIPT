@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title></title>
+
+<script>
+	</script>
+</head>
+
+<body>
+
+<script language="JavaScript">
+    var nombre = prompt("Dime tu nombre");
+    var cadMinusculas=nombre.toLowerCase();
+    var cadMayusculas=nombre.toUpperCase();
+
+    document.write("0 El nombre introducido es: "+nombre+"<br/>");
+    document.write("<br/>");
+    function lenWithoutSpaces(str) {
+      return str.replace( /\s/g, '' ).length;
+    }
+    var nombreSinEspacios= lenWithoutSpaces (nombre);
+   
+    document.write("1. El tamaño del nombre mas los apellidos (sin contar espacios): " + nombreSinEspacios+"<br/>" );
+    document.write("<br/>");
+    document.write("2.1. La cadena en minusculas: " + cadMinusculas+"<br/>" );
+    document.write("<br/>");
+    document.write("2.2. La cadena en mayusculas: " + cadMayusculas+"<br/>" );
+    document.write("<br/>");
+    //Vamos a dividir en nombre y apellidos
+    var arraynombre = nombre.split(" ");
+    var longitud = arraynombre.length;
+    var name;
+    var ape1="";
+    var ape2="";
+    var espacio= " ";
+    var priApellido=0;
+    for (var i=0; i < arraynombre.length; i++) {
+
+      if (longitud>=4 && i<2){
+
+        name= arraynombre [0]+" "+arraynombre [1];
+        
+      }
+      if (longitud < 4 && i>=1 && priApellido==0){
+        name= arraynombre [0];
+        ape1=ape1+" "+arraynombre [i];
+        priApellido=1;
+        i++;
+
+      } 
+      
+      if (longitud < 4 && i>=1 && priApellido==1) {
+
+        ape2=ape2+" "+arraynombre [i];
+
+      }
+      if (longitud>=4 && i>1&& priApellido==0){
+
+        ape1=ape1+" "+arraynombre [i];
+        priApellido=1;
+         i++;
+      }
+      
+      if (longitud>=4 && i>1&& priApellido==1){
+
+        ape2=ape2+" "+arraynombre [i];
+
+      }
+
+     
+   }
+    
+    document.write("3. Que divida el nombre y los apellidos y los muestre en 3 lineas: <br/>" );
+    document.write("Nombre: "+name+"<br/>");
+    document.write("1er Apellido: "+ape1+"<br/>");
+    document.write("2do Apellido: "+ape2+"<br/>");
+
+    document.write("<br/>");
+
+    //Propuestas de nombre compuesto por la inicial del nombre, el primer apellido y la
+    //inicial del segundo apellido: ej. Para Laura Folgado Galache sería lfolgadog
+    var propuesta1=name.charAt(0)+ape1+ape2.charAt(1);
+	  propuesta1 = propuesta1.replace(/ /g, "");
+	  document.write("La primera propuesta de nombre de usuario es: "+propuesta1+"<br/>");
+    
+    // Una propuesta de nombre de usuario compuesto por las tres primeras letras del nombre y de los dos
+    //apellidos: ej. Laufolgal
+
+    document.write("<br/>");
+    
+    var propuesta2=name.substr(0,3)+ape1.substr(1,3)+ape2.substr(1,3);
+    document.write("La segunda propuesta de nombre de usuario es: "+propuesta2+"<br/>");
+
+</script>
+</body>
+</html>

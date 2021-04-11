@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 5 - Búsqueda de datos abiertas para utilizar en aplicaciones web</title>
+    <script src="pokeAPI.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="header-container" class="ui inverted segment">
+        <div class="ui inverted secondary menu">
+           <h1 id="header-text">Listado de Pokemon del 1 al 151</h1>
+        </div>
+    </div>
+    <div id="container">
+        <div id="contenedorPokemon" class="ui cards">
+                <!-- Aparecerán a partir de aquí las cartas de los Pokemon recuperados en la llamada de la API -->
+                <button id="generarPokemon" class="ui secondary button">Mostrar Pokemon</button>
+        </div>
+    </div>
+    <div id="delete-container">
+        <button id="botonEliminar" class="ui red button">Limpiar Listado</button>
+    </div>
+</body>
+</html>

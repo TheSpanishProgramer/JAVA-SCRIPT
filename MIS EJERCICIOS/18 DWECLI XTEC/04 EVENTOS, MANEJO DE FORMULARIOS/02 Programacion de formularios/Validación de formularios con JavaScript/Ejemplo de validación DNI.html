@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de validación DNI</title>
+    <style></style>
+    <script>
+      function validar() {
+        var dni = document.getElementById('dni');
+        return comprovarDni(dni.value);
+      }
+
+      function comprovarDni(dni) {
+        var nombre,
+          letraIntroduida,
+          letraEsperada,
+          correcto = false;
+
+        nombre = dni.substr(0, dni.length - 1); // Extraemos el nombre
+        letraIntroduida = dni.substr(dni.length - 1, 1); // Extraemos la letra
+        nombre = nombre % 23;
+        letraEsperada = 'TRWAGMYFPDXBNJZSQVHLCKET'; // Posibles valores de la letra ordenados por la posición correspondiente
+        letraEsperada = letraEsperada.substring(nombre, nombre + 1);
+
+        if (letraEsperada === letraIntroduida.toUpperCase()) {
+          correcto = true;
+          alert('DNI correcto: ' + dni);
+        } else {
+          alert('DNI incorrecto: ' + dni);
+        }
+
+        return correcto;
+      }
+    </script>
+  </head>
+  <body>
+    <form action="test.php" method="GET" onsubmit="return validar();">
+      <input
+        name="dni"
+        id="dni"
+        type="text"
+        maxlength="9"
+        minlength="9"
+        size="9"
+        placeholder="DNI"
+        pattern="^\d{8}[a-zA-Z]"
+      />
+      <button>Enviar</button>
+    </form>
+  </body>
+</html>

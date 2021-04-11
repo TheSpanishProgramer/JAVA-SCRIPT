@@ -1,0 +1,62 @@
+<!-- Probado en Firefox y Chrome. En el primero no encuentro la manera de hacer que funcione. -->
+<!-- En el segundo, a través de la consola, puedes hacer que te permita una excepción -->
+<!-- mediante acceso temporal -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio 04</title>
+
+	<script>
+		const proxyurl = "https://cors-anywhere.herokuapp.com/";
+		const url = "http://dades.eicub.net/api/1/festivals-assistents?Any=2015&format=json.xml";
+	
+
+	   fetch(proxyurl + url, {
+		   method: 'GET',
+		   headers: new Headers({
+			   'Content-Type': 'application/json',
+			   'Access-Control-Allow-Origin': '*',
+		   }),
+	   })
+		   .then((response) => response.json())
+		   .then((data) => procesarRespuesta(data))
+		   .catch((err) => console.log(err));
+
+		function procesarRespuesta(responseText) {
+			let resposta = responseText;
+			let lista = document.createElement('ul');
+			console.log(resposta);
+
+			for (let i = 0; i < resposta.length; i++) {
+				let item = processarDada(resposta[i]);
+				lista.appendChild(item);
+			}
+
+			document.body.appendChild(lista);
+		}
+
+		function processarDada(dada) {
+			var item = document.createElement('li');
+			var enllac = document.createElement('a');
+			enllac.textContent = dada.Nom_activitat;
+
+			if (dada.Web) {
+				enllac.setAttribute('href', dada.Web);
+			}
+
+			enllac.setAttribute('title', dada.Organitzador);
+			item.appendChild(enllac);
+
+			return item;
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Festivals 2015</h1>
+</body>
+
+</html>

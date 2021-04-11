@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		let promesa = new Promise(function (resolve, reject) {
+			let script = document.createElement('script');
+			script.src = 'lodash.js';
+
+			script.onload = () => resolve("El script ha sido completamente cargado. ");
+			script.onerror = () => reject("Error al cargar el Script.");
+
+			document.head.append(script);
+		});
+
+		promesa
+			.then((resultado) => console.log(resultado))
+			.catch((error) => console.log(error));
+
+	</script>
+</body>
+
+</html>

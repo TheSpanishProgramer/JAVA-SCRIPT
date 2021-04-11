@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de observador</title>
+    <style></style>
+    <script>
+      var subjecte = {
+        observadorsRegistrats: [],
+
+        registrarObservador: function (observador) {
+          this.observadorsRegistrats.push(observador);
+        },
+
+        desregistrarObservador: function (observador) {
+          var index = this.observadorsRegistrats.indexOf(observador);
+          this.observadorsRegistrats.splice(index, 1);
+        },
+
+        notificaObservadors: function (missatge) {
+          console.log(
+            'Iniciamos la notificación se del mensaje a los observadores'
+          );
+          for (var i = 0; i < this.observadorsRegistrats.length; i++) {
+            this.observadorsRegistrats[i].notificar(missatge);
+          }
+          console.log('Fin de las notificaciones');
+        },
+
+        saludar: function () {
+          this.notificaObservadors('Hola ');
+        },
+      };
+
+      var observador1 = {
+        notificar: function (missatge) {
+          console.log(
+            'Soy el observador 1 y he recibido el mensaje: ' + missatge
+          );
+        },
+      };
+
+      var observador2 = {
+        notificar: function (missatge) {
+          console.log(
+            'Soy el observador 2 y tambien muestra el mensaje : ' + missatge
+          );
+        },
+      };
+
+      // Grabamos los dos observadores al Sujeto
+      subjecte.registrarObservador(observador1);
+      subjecte.registrarObservador(observador2);
+
+      // Comprobamos que funciona Enviando un mensaje
+      subjecte.saludar();
+
+      // Desenregistrem a un observador y volvemos a saludar
+      subjecte.desregistrarObservador(observador1);
+      subjecte.saludar();
+
+      // Desenregistrem a un observador y volvemos a saludar, como que ya no hay más observadores no hara nada
+      subjecte.desregistrarObservador(observador2);
+      subjecte.saludar();
+    </script>
+  </head>
+  <body>
+    <p>
+      <b> Importante! </b> el Resultado de este Código se mostrará por la
+      consola <b> </b>, tenerse acceso a ella desde las herramientas de
+      desarrollador de Vuestro navegador.
+    </p>
+  </body>
+</html>

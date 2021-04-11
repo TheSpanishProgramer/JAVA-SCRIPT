@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bucles while, do / while</title>
+    <style></style>
+    <script>
+      var str = 'Bucles while, do / while';
+      var cad = '';
+      var i = 0;
+      var res = '';
+
+      while (res != 'i') {
+        res = str.charAt(i);
+        cad += res;
+        i++;
+      }
+
+      console.log(cad);
+
+      str = 'Bucles while, do / while';
+      cad = '';
+      i = 0;
+      res = '';
+
+      do {
+        res = str.charAt(i);
+        cad += res;
+        i++;
+      } while (res != 'i');
+
+      console.log(cad);
+
+      // =======================
+
+      str = 'Bucles while, do / while';
+      cad = '';
+      i = 0;
+      res = str.charAt(i);
+
+      while (res != 'c') {
+        //no entramos en el bucle
+        cad += res;
+        i++;
+        res = str.charAt(i);
+      }
+
+      console.log(cad);
+
+      str = 'Bucles while, do / while';
+      cad = '';
+      i = 0;
+      res = str.charAt(i);
+
+      do {
+        cad += res;
+        i++;
+        res = str.charAt(i);
+      } while (res != 'c');
+
+      console.log(cad);
+
+      // =======================
+
+      str = 'Bucles while, do / while';
+      cad = '';
+      i = 0;
+      res = '';
+
+      while (res != 'i') {
+        res = str.charAt(i);
+        if (res == 'a') break;
+        cad += res;
+        i++;
+      }
+
+      console.log(cad);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+
+  <title>Ejercicio 10</title>
+
+</head>
+
+<body>
+
+<p><b>^3[47][0-9]{13}$(American Express)</b>
+<p>^3 << La primera debe ser un 3.
+<p>[47] << La siguiente cifra debe estar entre el rango del 4 al 7.
+<p>[0-9]{13}$ << Comprueba si los trece números siguientes están en un rango del 0 al 9
+<p>------------------------------------------------------------------------------------
+<p><b>^3(?:0[0-5]|[68][0-9])[0-9]{11}$(Diner's Club)</b>
+<p>^3 << La primera debe ser un 3.
+<p>?:0 << Especifica el grupo pasivo 0
+<p>[0-5]|[68] << Encuentra el siguiente dígito de 0 a 5 O de 6 a 8
+<p>[0-9]<< siguiente dígito debe ser de 0 a 9
+<p>[0-9]{11}$ << Las 11 últimas cifras deben estar compuestas por dígitos del 0 al 9
+<p>------------------------------------------------------------------------------------
+<p><b>^6(?:011|5[0-9]{2})[0-9]{12}$ (Discover)</b>
+<p>^6 << La primera cifra debe empezar en 6
+<p>?:011|5 << Grupo pasivo O 5
+<p>[0-9]{2} << Dos dígitos que van del 0 al 9
+<p>[0-9]{12}$ << Los doce últimos dígitos que comprendan números del 0 al 9
+<p>------------------------------------------------------------------------------------
+<p><b>5[1-5][0-9]{14}$ (Mastercard)</b>
+<p>5 << El primer número es 5 obligatoriamente
+<p>[1-5] << El siguiente puede ser un dígito entre 1 o 5
+<p>[0-9]{14}$ << Los catorce últimos dígitos lo componen números cuyas cifras están comprendida entre 0 y 9
+<p>------------------------------------------------------------------------------------
+<p><b>^3[47][0-9]{13}$ (Visa)</b>
+<p>^3[47] << Empieza por 34 o 37
+<p>[0-9]{13}$ << Los 13 dígitos siguientes son cifras de números entre 0 y 9
+<p>------------------------------------------------------------------------------------
+<p><b>^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$ (Visa, Mastercard, Discover)</b>
+<p> Pueden existir los siguientes ejemplos:
+<p> · Contiene 16 dígitos empezando por 4
+<p> · Contiene 4 dígitos empezando por 4
+<p> · Contiene 16 dígitos empezando por 51 hasta el 55
+<p> · Contiene 15 dígitos empenzando por 60011
+</body>
+</html>

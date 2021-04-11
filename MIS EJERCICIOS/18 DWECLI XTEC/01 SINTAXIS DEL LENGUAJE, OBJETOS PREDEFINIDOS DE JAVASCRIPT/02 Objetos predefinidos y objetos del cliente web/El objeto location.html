@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>El objeto location</title>
+    <style></style>
+    <script type="text/javascript">
+      function assign_url() {
+        document.location.assign('http://www.jprats.com');
+      }
+      function reload_url() {
+        document.location.reload();
+      }
+      function replace_url() {
+        document.location.replace('http://www.jprats.com');
+        /*<!-- OJO no tenemos el historico de echar atras -->*/
+      }
+      console.log('location.hash: ' + location.hash);
+      console.log('location.hostname: ' + location.hostname);
+      console.log('location.href: ' + location.href);
+      console.log('location.origin: ' + location.origin);
+
+      console.log('location.pathname: ' + location.pathname);
+      console.log('location.port: ' + location.port);
+      console.log('location.protocol: ' + location.protocol);
+      console.log('location.search: ' + location.search);
+    </script>
+  </head>
+  <body>
+    <a href="http://jprats.com">JPRATS.COM</a><br />
+    <img
+    src="https://images.vexels.com/media/users/3/153781/isolated/preview/53b5a3e15f663bd6129aadbe940a10c7-icono-de-trazo-de-color-de-lupa-by-vexels.png"
+    /img><br />
+    <button onclick="assign_url();">Método location . assign</button>
+    <button onclick="reload_url();">Método location.reload</button>
+    <button onclick="replace_url();">Método location.replace</button>
+  </body>
+</html>

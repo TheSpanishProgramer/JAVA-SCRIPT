@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Manipulación de números de clases (avanzado)</title>
+    <style>
+      .principal {
+        background-color: grey;
+      }
+
+      .rojo {
+        color: red;
+      }
+
+      .important {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="principal">Primera cabecera</h1>
+    <p id="contingut" class="principal paragraf" title="Aqui va un paràgraf">
+      Un parrafo
+    </p>
+  </body>
+
+  <script>
+    Element.prototype.afegirClasse = function (classe) {
+      var trobada = false;
+      for (var i = 0; i < this.classList.length; i++) {
+        if (this.classList[i] == classe) {
+          trobada = true; // Ya Se encuentra al elemento, no hay que añadirla
+        }
+      }
+      if (!trobada) {
+        this.className += ' ' + classe;
+      }
+    };
+
+    Element.prototype.eliminarClasse = function (classe) {
+      var nouClassName = '';
+      for (var i = 0; i < this.classList.length; i++) {
+        if (this.classList[i] != classe) {
+          nouClassName += this.classList[i] + ' ';
+        }
+      }
+      this.className = nouClassName;
+    };
+
+    var elementH1 = document.getElementsByTagName('h1')[0];
+    var elementP = document.getElementsByTagName('p')[0];
+
+    elementH1.afegirClasse('rojo');
+    elementH1.afegirClasse('rojo');
+    console.log(elementH1.className); // No se duplica
+
+    elementH1.eliminarClasse('principal');
+  </script>
+</html>

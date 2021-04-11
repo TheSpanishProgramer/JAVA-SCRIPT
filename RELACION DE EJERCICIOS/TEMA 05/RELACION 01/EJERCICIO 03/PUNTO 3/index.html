@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+<script
+  type="text/javascript">
+
+function palabras () {
+  
+  var nodo = document.getElementsByClassName('parrafo');
+  //console.log(nodo[0].textContent);  //accedo al primer elemento
+  //console.log(nodo[1].textContent);  //accedo al segundo elemento
+  
+  var parrafo1=nodo[0].textContent;
+  
+  var parrafo2=nodo[1].textContent;
+  
+  var parrafo1Palabras= parrafo1.split (' ').length;
+  var parrafo2Palabras= parrafo2.split (' ').length;
+  var totalPalabras= parrafo1Palabras+parrafo2Palabras;
+  
+  document.getElementById('resultadoPalabras').innerHTML = totalPalabras+" Palabras hay en los parrafos";
+
+}
+
+</script>
+</head>
+<body onload="palabras()">
+  <h1 id="resultadoPalabras"></h1>
+<p class="parrafo">
+  No comas ajos ni cebollas, porque no saquen por el olor tu villanería. Anda
+  despacio; habla con resposo; pero no de manera que parezca que te escuchas a ti
+  mismo; que toda afectación es mala. Come poco y cena más poco; que la salud de
+  todo el cuerpo se fragua en la oficina del estómago. Sé templado en el beber,
+  considerando que el vino demasiado ni guarda secreto, ni cumple palabra. Ten
+  cuenta, Sancho, de no mascar a dos carrillos, ni de erutar delante de nadie.
+</p>
+</br>
+<p class="parrafo">
+  La libertad, Sancho, es uno de los más preciosos dones que a los hombres
+  dieron los cielos; con ella no pueden igualarse los tesoros que encierra la
+  tierra ni el mar encubre; por la libertad, así como por la honra se puede y debe
+  aventurar la vida, y, por el contrario, el cautiverio es el mayor mal que puede
+  venir a los hombres
+</p>
+
+
+
+</body>
+</html>

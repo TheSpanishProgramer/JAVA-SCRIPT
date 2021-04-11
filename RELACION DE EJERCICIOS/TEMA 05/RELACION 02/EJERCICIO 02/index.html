@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Documento</title>
+<style>
+	div {
+		width: 100px;
+			height: 100px;
+			border: 1px solid black;
+		}
+		.blanco {
+			background-color: white;
+		}
+		.rojo {
+			background-color: red;
+		}
+		.amarillo {
+			background-color: yellow;
+		}
+</style>
+<script>
+	
+
+	document.addEventListener('keydown', (event) => {
+		  const keyName = event.key;
+		  //alert('keydown event\n\n' + 'key: ' + keyName);
+		  
+		  if (keyName == 'r' || keyName == 'R') {
+			document.getElementById("prueba").style.backgroundColor= "red";
+		  }
+		  
+		  if (keyName == 'w' || keyName == 'W') {
+			  document.getElementById("prueba").style.backgroundColor= "white";
+			}
+			
+		if (keyName == 'b' || keyName == 'B') {
+			document.getElementById("prueba").style.backgroundColor= "blue";
+		  }
+		  
+		if (keyName == 'y' || keyName == 'y') {
+			document.getElementById("prueba").style.backgroundColor= "yellow";
+		  }
+		});
+	 
+	
+	</script>
+</head>
+<body>
+	<div id="prueba" tabindex=1></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión del stock de una tienda</title>
+    <style></style>
+    <script>
+      var productos = [];
+      function verStock() {
+        var listar = '<ul>';
+        for (x = 0; x < productos.length; x++) {
+          listar +=
+            '<li>El producto numero ' +
+            x +
+            ' tiene ' +
+            productos[x] +
+            ' unidades';
+        }
+        listar += '</ul>';
+        document.getElementById('listar').innerHTML = listar;
+      }
+      onload = function () {
+        for (x = 0; x < 10; x++) {
+          productos[x] = Math.floor(Math.random() * 100);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div>Gestión del stock de una tienda</div>
+    <button onclick="verStock()">Ver stock</button>
+    <div id="listar"></div>
+  </body>
+</html>

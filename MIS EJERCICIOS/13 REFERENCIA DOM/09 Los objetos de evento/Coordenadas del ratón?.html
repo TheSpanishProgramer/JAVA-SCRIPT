@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function show_coords(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        alert('X coords: ' + x + ', Y coords: ' + y);
+      }
+    </script>
+  </head>
+  <body>
+    <p onmousedown="show_coords(event)">
+      Haga clic en el documento. Un cuadro de mensaje le indicará las
+      coordenadas xey del puntero del mouse.
+    </p>
+  </body>
+</html>

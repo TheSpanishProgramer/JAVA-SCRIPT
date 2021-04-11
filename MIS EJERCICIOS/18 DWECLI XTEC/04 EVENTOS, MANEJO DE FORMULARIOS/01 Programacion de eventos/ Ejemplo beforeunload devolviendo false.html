@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo beforeunload devolviendo false</title>
+    <style></style>
+    <script>
+      window.onbeforeunload = function (e) {
+        return false;
+      };
+    </script>
+  </head>
+  <body>
+    <p>Recarga la página para ver el mensaje de Confirming.</p>
+  </body>
+</html>

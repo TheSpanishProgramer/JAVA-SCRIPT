@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Respuesta JSON especificando el método</title>
+    <style></style>
+    <script>
+      $.ajax({
+        method: 'get',
+        url: 'https://api.idescat.cat/pob/v1/geo.json?q=cabell',
+        dataType: 'json',
+        success: processarResposta,
+        error: processarError,
+      });
+
+      function processarResposta(dades, statusText, jqXHR) {
+        console.log(dades, statusText);
+      }
+
+      function processarError(jqXHR, statusText, error) {
+        console.log(error, statusText);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

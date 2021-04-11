@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Declaració literal/ mètodes amb canvi de context (clausura i bind)
+    </title>
+    <style></style>
+    <script>
+      var persona = {
+        nombre: 'Ricard',
+        entrar: function (tiempo) {
+          setTimeout(
+            function () {
+              console.log(this.nombre + ' entra en la sala ' + tiempo + 's');
+            }.bind(this),
+            tiempo * 1000
+          );
+        },
+        sortir: function (tiempo) {
+          var that = this;
+
+          setTimeout(function () {
+            console.log(
+              that.nombre + ' sale de la sala ' + tiempo + 's despues'
+            );
+          }, tiempo * 1000);
+        },
+      };
+
+      persona.entrar(1);
+      persona.sortir(3);
+    </script>
+  </head>
+  <body></body>
+</html>

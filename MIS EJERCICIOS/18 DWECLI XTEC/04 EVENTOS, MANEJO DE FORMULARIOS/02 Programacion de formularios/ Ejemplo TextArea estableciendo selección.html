@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo TextArea estableciendo selección</title>
+    <style></style>
+    <script>
+      var text = document.getElementById('text'),
+        busca = document.getElementById('Lorem');
+
+      function buscar() {
+        var mot = busca.value,
+          start = text.value.indexOf(mot);
+
+        if (start > 0) {
+          text.selectionStart = start;
+          text.selectionEnd = start + mot.length;
+          text.focus(); //Necesario en Algunos navegadores (pe en Firefox) para que se visualice la selección
+        } else {
+          alert('No se ha encontrado la palabra');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <label
+      >texto a buscar:
+      <input type="search" id="mot" /> </label
+    ><button onclick="buscar();">buscar</button><br />
+    <textarea id="text" readonly cols="150" rows="7">
+»—Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis odio in sem pretium tristique a ac nisi. Praesent sed nibh cursus, lacinia quam quis, cursus eros. Vestibulum maximus volutpat lorem ut tempor. Ut sed elementum lorem. Suspendisse potenti. Ut eget est in libero accumsan placerat id quis felis. Pellentesque ac iaculis neque, a ultricies lectus. Mauris venenatis nisl at leo tristique laoreet. Suspendisse sollicitudin, urna sit amet sollicitudin fringilla, dolor odio posuere urna, id sollicitudin tortor ligula eget leo. Proin venenatis leo ut nulla hendrerit tincidunt. Nam et ante at metus lacinia facilisis fringilla vitae massa. Praesent interdum tortor ut fermentum feugiat. Cras rhoncus tempor leo, vitae convallis augue pharetra eu. Vivamus porttitor est sapien, sed sodales arcu sodales.
+
+
+</textarea
+    >
+  </body>
+</html>

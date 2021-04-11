@@ -1,0 +1,18 @@
+<script>
+	function validar_contrasena(form) {
+		if(form.campo_contrasena_2.value == form.campo_contrasena_1.value) { 
+			alert("CORRECTO"); 
+		}else{
+			alert("La contrasena no coincide \n Intentalo de nuevo.");
+			form.campo_contrasena_2.value = ""; form.campo_contrasena_2.focus(); 
+			return true;
+		}
+	}
+</script>
+<form name="formulario_didesweb" method="POST">
+	<p>contrasena: </p>
+	<input type="password" name="campo_contrasena_1"><br>
+	<p>Repetir contrasena: </p>
+	<input type="password" name="campo_contrasena_2"><br>
+	<input type="button" value="Registrarse" onClick="validar_contrasena(this.form)">
+</form>

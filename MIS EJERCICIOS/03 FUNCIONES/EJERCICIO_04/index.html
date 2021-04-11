@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    {% comment %} Funciones Arrow (flecha) otra forma de 
+    representar funciones. 
+    Teoría en : https://frontendlabs.io/3410--funciones￾flecha-arrow-es6-javascript-tutorial-ecmascript-6
+    {% endcomment %}
+    
+    <script>
+      let multipli = function (x, y) {
+        return x * y;
+      };
+
+      let expon = function (x, y) {
+        return Math.pow(x, y);
+      };
+
+      let suma = (x, y) => {
+        return x + y;
+      };
+
+      var result = multipli(5, 2);
+      alert(result);
+
+      result = suma(3, 4);
+      alert(result);
+    </script>
+  </body>
+</html>

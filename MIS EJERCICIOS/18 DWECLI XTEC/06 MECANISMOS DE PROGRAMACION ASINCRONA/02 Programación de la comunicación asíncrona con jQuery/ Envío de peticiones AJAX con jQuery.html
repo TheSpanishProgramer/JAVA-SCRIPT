@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Envío de peticiones AJAX con jQuery</title>
+    <style></style>
+    <script>
+      $.ajax('https://api.idescat.cat/emex/v1/geo.xml?tipus=com', {
+        success: processarResposta,
+        error: processarError,
+      });
+
+      function processarResposta(dades, statusText, jqXHR) {
+        console.log(dades, statusText);
+      }
+
+      function processarError(jqXHR, statusText, error) {
+        console.log(error, statusText);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

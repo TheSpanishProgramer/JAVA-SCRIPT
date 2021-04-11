@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Añadir nodos</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="contenedor"></div>
+  </body>
+
+  <script>
+    var contenedor = document.getElementById('contenedor');
+
+    contenedor.appendChild(document.createElement('p'));
+    contenedor.appendChild(document.createElement('div'));
+    contenedor.insertBefore(
+      document.createElement('h1'),
+      contenedor.firstChild
+    );
+
+    console.log(
+      'El contenedor contiene Otros nodos: ' + contenedor.hasChildNodes()
+    );
+
+    console.log('contiene ' + contenedor.childNodes.length + ' nodos');
+
+    for (var i = 0; i < contenedor.childNodes.length; i++) {
+      console.log(
+        'Encontrado un nodo de tipo ' +
+          contenedor.childNodes[i].nodeType +
+          ': ' +
+          contenedor.childNodes[i].nodeName
+      );
+    }
+  </script>
+</html>

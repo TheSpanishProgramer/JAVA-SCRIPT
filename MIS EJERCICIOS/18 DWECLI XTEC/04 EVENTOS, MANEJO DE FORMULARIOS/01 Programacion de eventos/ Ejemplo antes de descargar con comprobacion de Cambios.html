@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo antes de descargar con comprobacion de Cambios</title>
+    <style></style>
+    <script>
+      var comptador = 0;
+      var element = document.getElementById('test');
+
+      element.onclick = function () {
+        comptador++;
+        console.log('Comptador:', comptador);
+      };
+
+      window.onbeforeunload = function (e) {
+        if (comptador > 0) {
+          return 'El contador a cambiado, seguro que quieres seguir?';
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <button id="test">aumenta contador</button>
+  </body>
+</html>

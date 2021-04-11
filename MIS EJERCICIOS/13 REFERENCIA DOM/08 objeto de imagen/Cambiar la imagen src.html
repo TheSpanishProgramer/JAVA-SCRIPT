@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function changeSrc() {
+        document.getElementById('myImage').src = 'hackanm.gif';
+      }
+    </script>
+  </head>
+  <body>
+    <img id="myImage" src="compman.gif" width="107" height="98" />
+    <br /><br />
+    <input type="button" onclick="changeSrc()" value="修改图片" />
+    <p>
+      <b>Nota: </b> src Los atributos se pueden modificar en cualquier momento.
+      Pero si la nueva imagen no especifica la altura y el ancho, la nueva
+      imagen adoptará la altura y el ancho de la imagen anterior.
+    </p>
+  </body>
+</html>

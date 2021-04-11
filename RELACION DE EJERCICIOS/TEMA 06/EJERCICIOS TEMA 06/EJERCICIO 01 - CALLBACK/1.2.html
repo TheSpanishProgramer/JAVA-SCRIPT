@@ -1,0 +1,63 @@
+EJERCICIO 1 - Callback
+A partir de una página html simple y de obtener mensajes a través de la consola, vamos a tratar de controlar
+mediante el uso de “callback” 3 llamadas “anidadas” a una función la cual simulará una llamada a un
+servidor. Esta simulación será simplemente un “setTimeout()” con X segundos de retraso. La primera
+llamada tardará 2 segundos en terminar de ejecutarse, la segunda 3 segundos y la tercera llamada 4
+segundos.
+La función “callback” deberá NO ser anónima, y además deberá de tener 2 parámetros: uno para el objeto
+Error, y otro con el valor que trae desde su llamada (vamos a devolver el tiempo de espera, por ejemplo)
+
+function llamadaServidor( numSegundos , callback);
+{
+	setTimeout( function() { console.log(`Llamada al servidor de ${numSegundos} sg.`);
+	}, numSegundos );
+}
+
+E1.2. Debe de forzar un error en la tercera llamada al servidor, y controlar que ha dado un error debido a que la llamada tarda más de 4 segundos (este es el motivo que debemos de programar, es decir, si una llamada al servidor tarda más de 4 segundos, que devuelva un error), además de emitir un mensaje de error por consola
+
+<script>
+
+	numSegundos=2000;
+	
+	
+	
+	function llamadaServidor(numSegundos,respuestaServidor)
+	{
+		if (numSegundos<=4000) {
+			setTimeout( function() { 
+				console.log(`Llamada al servidor de ${numSegundos} sg.`);
+				respuestaServidor(numSegundos);
+			}, numSegundos );
+		}if (numSegundos>4000) {
+			setTimeout( function() { 
+				console.log(`La tercera llamada excedido el tiempo de hespera ${numSegundos}`);
+				console.log(`Llamada al servidor de ${numSegundos} sg.`);
+				console.log(`Hemos terminado: Ha ocurrido un error en la llamada numero ${cont-1}por exceder el tiempo de espera.`);
+				respuestaServidor(numSegundos);
+			}, numSegundos );
+		} 
+		
+	}
+	function respuestaServidor(numSegundos) {
+		if (numSegundos===2000) {
+			console.log(`La primera llamada a tardado ${numSegundos}`);
+		}else if (numSegundos===3000) {
+			console.log(`La segunda llamada a tardado ${numSegundos}`);
+		}else if (numSegundos===4000) {
+			console.log(`La tercera llamada a tardado ${numSegundos}`);
+			console.log(`Hemos terminado todo perfecto`);
+		}
+	}
+	
+	cont=1
+	
+	while (cont<4) {
+		
+		llamadaServidor(numSegundos,respuestaServidor);
+		cont++;
+		numSegundos=numSegundos+1000;
+		if (numSegundos===4000) {
+			numSegundos=numSegundos+1000;
+		}
+	}
+</script>

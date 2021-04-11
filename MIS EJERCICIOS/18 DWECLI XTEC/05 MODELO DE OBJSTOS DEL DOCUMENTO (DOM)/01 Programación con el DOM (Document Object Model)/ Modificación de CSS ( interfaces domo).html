@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Modificación de CSS ( interfaces domo)</title>
+    <style></style>
+  </head>
+  <body>
+    <p id="parrafo" style="color: red; font-weight: bold">Parrafo</p>
+  </body>
+
+  <script>
+    var mostrarEstils = function (element) {
+      var estil = element.style;
+      var css = window.getComputedStyle(parrafo, null);
+      for (var i = 0; i < estil.length; i++) {
+        console.log(estil[i] + ':' + css[estil[i]] + ';');
+      }
+    };
+
+    var afegirEstil = function (element, clau, valor) {
+      element.style[clau] = valor;
+    };
+
+    var eliminarEstil = function (element, clau) {
+      afegirEstil(element, clau, null);
+    };
+
+    var actualitzarEstil = function (element, clau, valor) {
+      afegirEstil(element, clau, valor);
+    };
+
+    var parrafo = document.getElementById('parrafo');
+
+    console.log('-- Estilo original --');
+    mostrarEstils(parrafo);
+    afegirEstil(parrafo, 'font-size', '30px');
+    eliminarEstil(parrafo, 'color');
+    actualitzarEstil(parrafo, 'font-weight', 'lighter');
+
+    console.log('-- Estilo modificado --');
+    mostrarEstils(parrafo);
+  </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de com prevenir el comportament habitual</title>
+    <style></style>
+    <script>
+      var element = document.getElementById('test');
+
+      element.addEventListener('keypress', notificaObservador);
+      element.addEventListener('keydown', notificaObservador);
+      element.addEventListener('keyup', notificaObservador);
+
+      function notificaObservador(e) {
+        console.log(
+          'Disparado ',
+          e.type,
+          ' por la tecla con codigo: ',
+          e.key || e.keyIdentifier
+        );
+        e.preventDefault();
+      }
+    </script>
+  </head>
+  <body id="test">
+    <textarea></textarea>
+  </body>
+</html>

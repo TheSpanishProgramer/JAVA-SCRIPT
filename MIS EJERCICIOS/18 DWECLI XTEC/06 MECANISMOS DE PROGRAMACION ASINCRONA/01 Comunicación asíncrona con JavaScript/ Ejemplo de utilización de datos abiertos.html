@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de utilización de datos abiertos</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      fieldset {
+        width: 400px;
+        margin: 0 auto;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        font-weight: bold;
+      }
+      span {
+        display: inline-block;
+        width: 250px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Actividades de difusión de las fábricas de creación</h1>
+    <fieldset>
+      <select id="identificador">
+        <option>Selecciona un identificador</option>
+      </select>
+      <ul>
+        <li><label>Año:</label><span id="any"></span></li>
+        <li><label>Equipamiento:</label><span id="equipament"></span></li>
+        <li><label>Distrito:</label><span id="districte"></span></li>
+        <li><label>Ambito:</label><span id="ambit"></span></li>
+        <li><label>Asistentes:</label><span id="asistents"></span></li>
+        <li><label>Notas:</label><span id="notes"></span></li>
+        <li>
+          <label>Tipo de equipación:</label><span id="tipusEquipament"></span>
+        </li>
+
+        <li><label>Titularidad:</label><span id="titularitat"></span></li>
+      </ul>
+    </fieldset>
+  </body>
+
+  <script>
+    if (window.XMLHttpRequest) {
+      httpRequest = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+      httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+    } else {
+      console.error('Error: Este navegador no admite AJAX.');
+    }
+
+    var dades = {}; // Diccionario donde se guardan los datos
+
+    httpRequest.onload = processarResposta;
+    httpRequest.open(
+      'GET',
+      'https://dades.eicub.net/api/1/fabriquescreacio-difusio',
+      true
+    );
+    httpRequest.overrideMimeType('text/plain');
+    httpRequest.send(null);
+
+    function processarResposta() {
+      var resposta = JSON.parse(httpRequest.responseText);
+      var llistaDesplegable = document.getElementById('identificador');
+
+      for (var i = 0; i < resposta.length; i++) {
+        var item = processarDada(resposta[i], i);
+        dades[i] = resposta[i];
+        llistaDesplegable.appendChild(item);
+      }
+
+      llistaDesplegable.onchange = actualitzarDadesMostrades;
+    }
+
+    function processarDada(dada, pos) {
+      var item = document.createElement('option');
+      item.setAttribute('value', pos);
+      item.textContent = pos;
+      return item;
+    }
+
+    function actualitzarDadesMostrades(event) {
+      var llistaDesplegable = document.getElementById('identificador');
+      var dada = dades[llistaDesplegable.value];
+
+      console.log(dada);
+      actualitzarDadaMostrada('any', dada.Any);
+      actualitzarDadaMostrada('equipament', dada.Equipament);
+      actualitzarDadaMostrada('districte', dada.Nom_Districte);
+      actualitzarDadaMostrada('ambit', dada.Ambit);
+      actualitzarDadaMostrada('asistents', dada.Assistents);
+      actualitzarDadaMostrada('notes', dada.Notes_Dades || 'No hi ha cap nota');
+      actualitzarDadaMostrada('tipusEquipament', dada.TipusEquipament);
+      actualitzarDadaMostrada('titularitat', dada.Titularitat);
+    }
+
+    function actualitzarDadaMostrada(nom, valor) {
+      document.getElementById(nom).textContent = valor;
+    }
+  </script>
+</html>

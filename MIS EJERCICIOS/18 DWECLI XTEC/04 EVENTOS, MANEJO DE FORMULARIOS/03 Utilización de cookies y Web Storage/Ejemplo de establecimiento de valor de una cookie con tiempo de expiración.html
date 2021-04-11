@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Ejemplo de establecimiento de valor de una cookie con tiempo de expiración
+    </title>
+    <style></style>
+    <script>
+      function setCookie(key, value, options) {
+        var cookie = encodeURIComponent(key) + '=' + encodeURIComponent(value);
+
+        if (options) {
+          for (option in options) {
+            if (option === 'secure') {
+              cookie += '; ' + encodeURIComponent(option);
+            } else {
+              cookie +=
+                '; ' +
+                encodeURIComponent(option) +
+                '=' +
+                encodeURIComponent(options[option]);
+            }
+          }
+        }
+
+        document.cookie = cookie;
+      }
+
+      function getCookie(key) {
+        var patro = new RegExp('(?:' + key + ')=(.+?)(?=;|$)', 'g');
+        return patro.exec(document.cookie)[1];
+      }
+
+      // Añadimos una nueva cookie
+      setCookie('seu', 'Barcelona', {
+        'max-age': 60 * 60 * 24 * 30,
+      });
+
+      // Mostramos los datos por consola
+      console.log('Totes les cookies:', document.cookie);
+      console.log('Seu:', getCookie('seu'));
+    </script>
+  </head>
+  <body></body>
+</html>

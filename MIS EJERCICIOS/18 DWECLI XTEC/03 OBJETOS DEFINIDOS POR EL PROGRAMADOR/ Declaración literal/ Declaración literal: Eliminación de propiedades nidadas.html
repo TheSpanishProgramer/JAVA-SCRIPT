@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Declaración literal/ Eliminación de propiedades nidadas</title>
+    <style></style>
+    <script>
+      var mochila = {
+        armas: [
+          {
+            nombre: 'pistola',
+            ataques: 1,
+            abast: 60,
+          },
+          {
+            nombre: 'cuchillo',
+            ataques: 2,
+          },
+        ],
+      };
+
+      var mostrarinventarioo = function (inventario) {
+        for (var i = 0; i < inventario.armas.length; i++) {
+          for (propiedad in inventario.armas[i]) {
+            console.log(propiedad + ': ' + inventario.armas[i][propiedad]);
+          }
+          console.log('----------');
+        }
+      };
+
+      console.log('Mostrando inventario:');
+      mostrarinventarioo(mochila);
+
+      delete mochila.armas[0]['Alcance'];
+
+      console.log('Mostrar inventario:');
+      mostrarinventarioo(mochila);
+    </script>
+  </head>
+  <body></body>
+</html>

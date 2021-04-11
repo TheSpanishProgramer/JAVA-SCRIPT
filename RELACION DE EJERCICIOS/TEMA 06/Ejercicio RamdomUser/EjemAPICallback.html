@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EjemAPICallback</title>
+    <!--<script type="text/javascript" src="https://educacionadistancia.juntadeandalucia.es/ruxitagentjs_ICA2SVfhqru_10205201218101503.js" data-dtconfig="rid=RID_2083281009|rpid=1484813643|domain=juntadeandalucia.es|reportUrl=/rb_ff94954a-6c99-4a24-a824-477d78373cea|app=5e7445692bcd30b0|featureHash=ICA2SVfhqru|rdnt=1|uxrgce=1|bp=2|cuc=rpvxpcq5|dpvc=1|md=mdcc1=a#actionmenuaction-1|lastModification=1610107415973|dtVersion=10205201218101503|tp=500,50,0,1|uxdcw=1500|vs=2|agentUri=/ruxitagentjs_ICA2SVfhqru_10205201218101503.js"></script>-->
+</head>
+<body>
+    <button id="boton">Usuarios</button>
+    <br>
+    <br>
+    <br>
+    <img id="avatar" src="" alt="">
+    <br>
+    <!--<script src="https://educacionadistancia.juntadeandalucia.es/centros/almeria/pluginfile.php/726527/mod_assign/introattachment/0/api.js"></script>-->
+    <script src="./api.js"></script>
+    <script>
+        function asignarImagenUsuario(datos) {
+            if(datos && datos.results)
+            {
+                //PARSEAR - DESGRANAR
+                let usuarios = datos.results;
+                let usuario = usuarios[0];
+
+                let imagenUsuario = usuario.picture.large;
+
+                document.getElementById("avatar").setAttribute("src", imagenUsuario);
+            }
+            else
+            {
+                console.log("Houston, ha habido un problema cargando datos del servidor");
+            }
+        }
+
+        document.getElementById("boton").addEventListener("click", function(){
+            llamadaGetAPI ("https://randomuser.me/api/", asignarImagenUsuario);
+        });
+
+    </script>
+</body>

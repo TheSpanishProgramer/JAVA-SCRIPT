@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Respuesta / texto</title>
+    <style></style>
+    <script>
+      $.ajax({
+        url: 'https://api.idescat.cat/pob/v1/geo.txt?sug=por',
+        success: processarResposta,
+        dataType: 'text',
+      });
+
+      function processarResposta(dadesText, statusText, jqXHR) {
+        var municipis = dadesText.split('\n');
+        var $llista = $('<ul>');
+
+        for (var i = 0; i < municipis.length; i++) {
+          var $item = $('<li>');
+          $item.html(municipis[i]);
+          $llista.append($item);
+        }
+
+        $('body').append($llista);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

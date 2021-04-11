@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo multiples listeners miedo el Mismo evento</title>
+    <style></style>
+    <script>
+      // Guardamos el elemento en una variable
+      var primerElement = document.getElementById('primer');
+
+      // Creamos las funcion que Queremos que sea gritada
+      function mostrarMissatge1() {
+        alert('primera funció');
+      }
+
+      function mostrarMissatge2() {
+        alert('segona funció');
+      }
+
+      // Subscribimos el elemento que responda con las dos funciones
+      primerElement.addEventListener('click', mostrarMissatge1);
+
+      primerElement.addEventListener('click', mostrarMissatge2);
+    </script>
+  </head>
+  <body>
+    <button id="primer">Haz click aqui!</button>
+  </body>
+</html>

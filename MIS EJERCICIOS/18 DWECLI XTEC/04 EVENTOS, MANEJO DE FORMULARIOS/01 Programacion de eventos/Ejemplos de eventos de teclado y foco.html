@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplos de eventos de teclado y foco</title>
+    <style></style>
+    <script>
+      var element1 = document.getElementById('test1');
+
+      var element2 = document.getElementById('test2');
+
+      element1.addEventListener('keypress', notificaObservador);
+      element1.addEventListener('keydown', notificaObservador);
+      element1.addEventListener('keyup', notificaObservador);
+
+      element2.addEventListener('keypress', notificaObservador);
+      element2.addEventListener('keydown', notificaObservador);
+      element2.addEventListener('keyup', notificaObservador);
+
+      function notificaObservador(e) {
+        console.log('Se ha disparado un evento de tipo: ', e.type);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="test1">Este elemento no puede Recibir el foco</div>
+    <button id="test2">
+      Cuando tengo el foco puedo disparar los eventos de teclado
+    </button>
+  </body>
+</html>

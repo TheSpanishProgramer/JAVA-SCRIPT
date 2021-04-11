@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Untitled 2</title>
+    <style></style>
+    <script>
+      var persona = {
+        nombre: 'Ricard',
+        atacar: function (enemigo) {
+          console.log('- ' + this.nombre + ' da un puñetazo ' + enemigo);
+        },
+      };
+
+      console.log('Personaje ataca desarmado:');
+      persona.atacar('Zombi');
+
+      console.log('Se encuentra una pistola y la equipa:');
+      persona.atacar = function (enemigo) {
+        console.log('- ' + this.nombre + ' dispara dos tiros a: ' + enemigo);
+      };
+
+      console.log('Utiliza la nueva arma:');
+      persona.atacar('Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

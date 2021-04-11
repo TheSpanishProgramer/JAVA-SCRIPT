@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ Literal (Prototipo)</title>
+    <style></style>
+    <script>
+      var arma = {
+        nnombre: 'Arma',
+        potencia: 1,
+        atacar: function (objetivo) {
+          console.log(
+            this.nnombre +
+              ' causa ' +
+              this.potencia +
+              ' puntos de daño a ' +
+              objetivo
+          );
+        },
+      };
+
+      var cuchillo = Object.create(arma); // Ahora cuchillo referencia al Mismo Objeto que arma
+      cuchillo.nnombre = 'cuchillo';
+      cuchillo.atacar('Gato Zombi');
+      arma.atacar('perro Zombi');
+
+      console.log('Prototipo de arma:', arma.prototype);
+      console.log('Prototipo de cuchillo:', cuchillo.prototype);
+    </script>
+  </head>
+  <body></body>
+</html>

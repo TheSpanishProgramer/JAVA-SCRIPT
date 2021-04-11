@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> TextArea con contador de caracteres</title>
+    <style>
+
+label,
+small {
+  display: block;
+}
+
+.massa-curt-o-llarg {
+  color: red;
+}
+
+.curt {
+  color: orange;
+}
+
+.correcte {
+  color: green;
+}
+
+    </style>
+
+  </head>
+  <body>
+
+<div>
+  <label>Introduzca el contenido de la descripción meta</label>
+  <textarea name="meta-description" id="meta-description" placeholder="Introdueix fins a 156 caràcters" / cols="80" rows="3"></textarea>
+  <small>Nombre de caràcters: <span id="contador" className="curt">0</span></small>
+</div>
+
+  </body>
+  
+      <script>
+
+var camp = document.getElementById('meta-description'),
+  contador = document.getElementById('contador');
+
+var actualitzarContador = function() {
+  var longitud = camp.value.length
+  contador.textContent = longitud;
+  if (longitud > 156 || longitud < 100) {
+    contador.className = 'massa-curt-o-llarg';
+  } else if (longitud < 150) {
+    contador.className = 'curt';
+  } else {
+    contador.className = 'correcte';
+  }
+}
+
+camp.addEventListener('input', actualitzarContador);
+
+    </script>  
+  
+</html>

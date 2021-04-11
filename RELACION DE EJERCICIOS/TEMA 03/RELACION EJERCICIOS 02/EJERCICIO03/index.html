@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Que hora es</title>
+
+<script>
+
+  var f = new Date();
+  
+  document.write("<p>La fecha actual es: </p>"+f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+  
+  // El formato americano lo pondrá en AM/PM
+  document.write("<p>La hora actual en formato 24h es: </p>"+f.toLocaleTimeString('en-US'));
+  
+  // El formato español lo pondrá en un formato 24h
+  document.write("<p>La hora actual en formato español es: </p>"+f.toLocaleTimeString('es-ES'));
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

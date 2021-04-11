@@ -1,0 +1,174 @@
+{
+  "assets": {
+    "images": [
+      {
+        "id": "bg_layer_1",
+        "path": "assets/images/layer1.png"
+      },
+      {
+        "id": "bg_layer_2",
+        "path": "assets/images/layer2.png"
+      },
+      {
+        "id": "bg_layer_3",
+        "path": "assets/images/layer3.png"
+      },
+      {
+        "id": "bg_layer_4",
+        "path": "assets/images/layer4.png"
+      },
+      {
+        "id": "bg_layer_1_green",
+        "path": "assets/images/layer1_green.png"
+      },
+      {
+        "id": "bg_layer_2_green",
+        "path": "assets/images/layer2_green.png"
+      },
+      {
+        "id": "bg_layer_3_green",
+        "path": "assets/images/layer3_green.png"
+      },
+      {
+        "id": "bg_layer_4_green",
+        "path": "assets/images/layer4_green.png"
+      },
+      {
+        "id": "spaceship",
+        "path": "assets/images/spaceship.png"
+      },
+      {
+        "id": "alien_a",
+        "path": "assets/images/alien_sprite_a.png"
+      },
+      {
+        "id": "alien_b",
+        "path": "assets/images/alien_sprite_b.png"
+      },
+      {
+        "id": "alien_c",
+        "path": "assets/images/alien_sprite_c.png"
+      },
+      {
+        "id": "alien_d",
+        "path": "assets/images/alien_sprite_d.png"
+      },
+      {
+        "id": "bullet_player_1",
+        "path": "assets/images/blast_sprite_1.png"
+      },
+      {
+        "id": "bullet_player_2",
+        "path": "assets/images/blast_sprite_2.png"
+      },
+      {
+        "id": "bullet_enemy",
+        "path": "assets/images/alien_blast_sprite.png"
+      },
+      {
+        "id": "explosion_enemy",
+        "path": "assets/images/enemy_explosion_sprite.png"
+      },
+      {
+        "id": "explosion_player",
+        "path": "assets/images/player_explosion_sprite.png"
+      }
+    ],
+    "sprites": [
+      {
+        "id": "bullet_enemy",
+        "numberOfFrames": 4,
+        "ticksPerFrame": 16
+      },
+      {
+        "id": "bullet_player_1",
+        "numberOfFrames": 2,
+        "ticksPerFrame": 8
+      },
+      {
+        "id": "bullet_player_2",
+        "numberOfFrames": 2,
+        "ticksPerFrame": 6
+      },
+      {
+        "id": "explosion_enemy",
+        "numberOfFrames": 8,
+        "ticksPerFrame": 6,
+        "loop": false
+      },
+      {
+        "id": "explosion_player",
+        "numberOfFrames": 8,
+        "ticksPerFrame": 6,
+        "loop": false
+      },
+      {
+        "id": "spaceship",
+        "numberOfFrames": 1,
+        "ticksPerFrame": 1
+      },
+      {
+        "id": "alien_a",
+        "numberOfFrames": 6,
+        "ticksPerFrame": 4
+      },
+      {
+        "id": "alien_b",
+        "numberOfFrames": 4,
+        "ticksPerFrame": 6
+      },
+      {
+        "id": "alien_c",
+        "numberOfFrames": 3,
+        "ticksPerFrame": 8
+      },
+      {
+        "id": "alien_d",
+        "numberOfFrames": 2,
+        "ticksPerFrame": 12
+      }
+    ],
+    "sounds": [
+      {
+        "id": "shoot",
+        "path": "assets/sounds/shoot.mp3",
+        "volume": 0.15
+      },
+      {
+        "id": "laser",
+        "path": "assets/sounds/laser.mp3",
+        "volume": 0.15
+      },
+      {
+        "id": "player_explosion",
+        "path": "assets/sounds/large_explosion.mp3",
+        "volume": 0.35
+      },
+      {
+        "id": "enemy_explosion",
+        "path": "assets/sounds/explosion.mp3",
+        "volume": 0.25
+      }
+    ],
+    "music": [
+      {
+        "id": "defense-line",
+        "path": "assets/sounds/defense-line.mp3",
+        "loop": true,
+        "volume": 0.25
+      },
+      {
+        "id": "game-over",
+        "path": "assets/sounds/game-over.mp3",
+        "loop": false,
+        "volume": 1
+      },
+      {
+        "id": "star-commander",
+        "path" : "assets/sounds/star-commander-1.mp3",
+        "loop" : true,
+        "volume": 0.25
+      }
+    ]
+  }
+}

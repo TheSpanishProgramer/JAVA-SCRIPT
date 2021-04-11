@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ Constructor de Objeto con número</title>
+    <style></style>
+    <script>
+      function Persona(nombre) {
+        this.nombre = nombre;
+      }
+
+      Persona.prototype.saludar = function () {
+        console.log('Hola, me llamo ' + this.nombre);
+      };
+
+      var Forest = new Persona('Forest Gump');
+      Forest.saludar();
+    </script>
+  </head>
+  <body></body>
+</html>

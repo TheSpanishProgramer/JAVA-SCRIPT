@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ Constructor con Métodos al prototipo</title>
+    <style></style>
+    <script>
+      var Persona = function (nombre) {
+        this.nombre = nombre;
+      };
+
+      Persona.prototype.caminar = function (distancia) {
+        console.log(this.nombre + ' camina ' + distancia + ' metros');
+      };
+
+      var Forest = new Persona('Forest');
+      var patricia = new Persona('Patricia');
+
+      Forest.caminar(19);
+      patricia.caminar(42);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de descarga</title>
+    <style></style>
+    <script>
+      var element = document.getElementById('test');
+
+      element.onunload = function () {
+        console.log('Descarga de documento');
+      };
+    </script>
+  </head>
+  <body id="test"></body>
+</html>

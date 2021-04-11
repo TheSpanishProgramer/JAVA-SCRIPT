@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Busca de Elementos seguncadios de una lista con selectoras</title>
+    <style></style>
+  </head>
+  <body>
+    <ul>
+      <li>Primer elemento de la lista</li>
+      <li id="central">
+        <ul data-quantitat="0">
+          <li data-quantitat="0">Primer elemento de la sublista</li>
+          <li data-quantitat="19">Segundo elemento de la sublista</li>
+          <li data-quantitat="0">Tercer elemento de la sublista</li>
+        </ul>
+      </li>
+      <li data-quantitat="0">Tercer elemento de la lista</li>
+    </ul>
+  </body>
+
+  <script>
+    var central = document.getElementById('central');
+    var elementsSubLista = central.querySelectorAll('li[data-quantitat="0"]');
+
+    for (var i = 0; i < elementsSubLista.length; i++) {
+      console.log(
+        elementsSubLista[i].textContent +
+          ' (data-quantitat=' +
+          elementsSubLista[i].getAttribute('data-quantitat') +
+          ')'
+      );
+    }
+  </script>
+</html>

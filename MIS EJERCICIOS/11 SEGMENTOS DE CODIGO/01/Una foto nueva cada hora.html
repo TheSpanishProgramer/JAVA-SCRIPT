@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Con este script se puede mostrar una pagina nueva cada hora</title>
+    <script>
+      var hora = new Array();
+
+      hora[00] = 'http://www.jpstudioweb.com/imagen0.jpg';
+      hora[01] = 'http://www.jpstudioweb.com/imagen1.jpg';
+      hora[02] = 'http://www.jpstudioweb.com/imagen2.jpg';
+      hora[03] = 'http://www.jpstudioweb.com/imagen3.jpg';
+      hora[04] = 'http://www.jpstudioweb.com/imagen4.jpg';
+      hora[05] = 'http://www.jpstudioweb.com/imagen5.jpg';
+
+      hora[06] = 'http://www.jpstudioweb.com/imagen6.jpg';
+      hora[07] = 'http://www.jpstudioweb.com/imagen7.jpg';
+      hora[08] = 'http://www.jpstudioweb.com/imagen8.jpg';
+      hora[09] = 'http://www.jpstudioweb.com/imagen9.jpg';
+      hora[10] = 'http://www.jpstudioweb.com/imagen10.jpg';
+      hora[11] = 'http://www.jpstudioweb.com/imagen11.jpg';
+
+      hora[12] = 'http://www.jpstudioweb.com/imagen12.jpg';
+      hora[13] = 'http://www.jpstudioweb.com/imagen13.jpg';
+      hora[14] = 'http://www.jpstudioweb.com/imagen14.jpg';
+      hora[15] = 'http://www.jpstudioweb.com/imagen15.jpg';
+      hora[16] = 'http://www.jpstudioweb.com/imagen16.jpg';
+      hora[17] = 'http://www.jpstudioweb.com/imagen17.jpg';
+
+      hora[18] = 'http://www.jpstudioweb.com/imagen18.jpg';
+      hora[19] = 'http://www.jpstudioweb.com/imagen19.jpg';
+      hora[20] = 'http://www.jpstudioweb.com/imagen20.jpg';
+      hora[21] = 'http://www.jpstudioweb.com/imagen21.jpg';
+      hora[22] = 'http://www.jpstudioweb.com/imagen22.jpg';
+      hora[23] = 'http://www.jpstudioweb.com/imagen23.jpg';
+
+      var myDate = new Date();
+      var foto_hora = myDate.getHours();
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <a
+        href="jpstudioweb"
+        onClick="window.location=hora[foto_hora];return false"
+      >
+        <font face="Verdana" size="2"><b>ENLACE CADA HORA</b></font></a
+      >
+    </center>
+
+    <center>
+      <a
+        href="jpstudioweb"
+        onClick="window.location=hora[foto_hora];return false"
+      >
+        <img border="0" src="imagen.jpg" width="125" height="125"
+      /></a>
+    </center>
+
+    <center>
+      <input
+        type="button"
+        value="ENLACE CADA HORA"
+        onClick="window.location=hora[foto_hora];return false"
+      />
+    </center>
+  </body>
+</html>

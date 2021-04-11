@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ Constructor con clausura</title>
+    <style></style>
+    <script>
+      var ArmaAmbMunicio = function (_nom, _maxMunicio) {
+        var _municion = _maxMunicio;
+        var _potencia = 2;
+
+        this.getNom = function () {
+          return _nom;
+        };
+
+        this.getMunicio = function () {
+          return _municion;
+        };
+
+        this.recarregar = function () {
+          _municion = _maxMunicio;
+        };
+
+        this.atacar = function (objetivo) {
+          if (_municion > 0) {
+            console.log(
+              'Bang! Se ha causado ' +
+                _potencia +
+                ' puntos de daño a ' +
+                objetivo
+            );
+            _municion--;
+          } else {
+            console.log('Click! Sin municion');
+          }
+        };
+      };
+
+      var pistola = new ArmaAmbMunicio('Pistola', 2);
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.recarregar();
+      pistola.atacar('Zombi');
+      console.log(
+        'Se puede acceder a la munición?',
+        pistola._municion !== undefined
+      );
+      console.log('Se puede acceder al nombre?', pistola._nom !== undefined);
+      console.log(
+        'Accediendo a munición invocando el método público:',
+        pistola.getMunicio()
+      );
+      console.log(
+        'Accediendo a número invocando el método público:',
+        pistola.getNom()
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

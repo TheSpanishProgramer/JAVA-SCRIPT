@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <title>Gestion de stock</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <h1>Gestion de stock de una tienda</h1>
+    <h2>Funcionalidades del comerciante:</h2>
+    <br />
+    <button onclick="verStock()">Ver Stock</button>
+    <button onclick="ampliarStock()">Ampliar Stock</button>
+    <button onclick="nuevoProducto()">Añadir nuevo producto</button>
+    <button onclick="eliminarProducto()">Eliminar producto</button>
+    <button onclick="ordenarproduct()">
+      Ordenar productos Según el stock que queda
+    </button>
+    <br />
+    <h2>Funcionalidades del comprador:</h2>
+    <br />
+    <label for="numProducte">Numero del producto que va a comprar:</label>
+    <input type="text" id="numProducte" size="10" />
+    <button onclick="comprar(document.getElementById('numProducte').value);">
+      Comprar Producto
+    </button>
+    <br />
+    <h2>Lista de productos:</h2>
+    <div id="lista"></div>
+    <br />
+    <h2>Los productos mas vendidos son:</h2>
+    <div id="ventas"></div>
+  </body>
+
+  <script>
+    var product = [];
+    var vendidos = [];
+    function verStock() {
+      var lista = '<ul>';
+      for (var x in product) {
+        lista += '<li>El producto ' + x + ' tiene ' + product[x] + ' unidades';
+      }
+      lista += '</ul>';
+      document.getElementById('lista').innerHTML = lista;
+    }
+
+    onload = function () {
+      product = demanarproduct(10);
+    };
+
+    function ampliarStock() {
+      var nouEstoc = demanarproduct();
+      product = product.concat(nouEstoc);
+      verStock();
+    }
+
+    function demanarproduct(num) {
+      if (arguments.length === 0) {
+        num = Math.floor(Math.random() * 5 + 1);
+      }
+      var p = [];
+      while (num !== 0) {
+        p.push(Math.floor(Math.random() * 100));
+        num--;
+      }
+      return p;
+    }
+
+    function comprar(numproducte) {
+      if (product[numproducte] !== undefined) {
+        product[numproducte]--;
+        if (product[numproducte] !== -1) {
+          if (vendidos[numproducte] === undefined) {
+            vendidos[numproducte] = 0;
+          }
+          vendidos[numproducte]++;
+        } else {
+          product[numproducte] = 0;
+        }
+        ranquing();
+        verStock();
+      }
+    }
+
+    function nuevoProducto() {
+      product.push(Math.floor(Math.random() * 100));
+      verStock();
+    }
+
+    function eliminarProducto() {
+      product.pop();
+      verStock();
+    }
+
+    //Funcion auxiliar que ayuda a ordenar los productos
+    function sortNumber(a, b) {
+      return a - b;
+    }
+
+    function ordenarproduct() {
+      product.sort(sortNumber);
+      verStock();
+    }
+    //funcion para ordenar segun las ventas del producto
+
+    function sortProducte(a, b) {
+      var aa = a.split('-')[0];
+      var bb = b.split('-')[0];
+      return aa - bb;
+    }
+    function ranquing() {
+      var aux = [];
+
+      for (var numproducte in vendidos) {
+        aux.push(vendidos[numproducte] + '-' + numproducte);
+      }
+
+      //ordenar los productos segun las unidades vendidas
+      //Funcion de ordenacion para separar las unidades vendidas del numproducte.
+
+      aux.sort(sortProducte).reverse();
+
+      //llistar los productos ordenados
+
+      var lista = '<ul>';
+      for (var index in aux) {
+        var arr = aux[index].split('-');
+
+        lista +=
+          "<li>s'Ha vendido " +
+          arr[0] +
+          ' unidades del producto ' +
+          arr[1] +
+          '</li>';
+      }
+
+      lista += '</ul>';
+
+      document.getElementById('ventas').innerHTML = lista;
+    }
+  </script>
+</html>

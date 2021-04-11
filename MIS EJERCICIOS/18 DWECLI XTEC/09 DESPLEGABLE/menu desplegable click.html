@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>menu desplegable click</title>
+    <style>
+
+/*Botón*/
+.drop-button{
+  background-color:  #8DEBF7;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/*Botón hover y focus*/
+.drop-button:hover, drop-buttton:hover{
+  background-color: #2EABAB;
+}
+
+/*Posición del contenedor*/
+.dropdown{
+  position: relative;
+  display: inline-block;
+ }
+
+/*submenu*/
+.dropdown-content{
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a{
+  color: #207878;
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown-content a:hover{
+  background-color: #f1f1f1
+}
+.show {
+  display: block;
+}
+
+
+
+
+    </style>
+    <script>
+
+/*Cuando se hace click en el botón, muestra el submenu*/
+function myFunction() {   
+  //Añade una clase al elemento que tenga el id myDropdown
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+//Cierra el submenu si se clica fuera
+window.onclick = function(event){
+  if(!event.target.matches('.drop-button')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0;  i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      //Busca dentro de drop-content los elementos con la clase show
+      if (openDropdown.classList.contains('show')){
+        //elimina la clase show de los elementos dentro de drop-content
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+    </script>  
+  </head>
+  <body>
+
+		<div class="dropdown">
+   <button onclick="myFunction()" class="drop-button">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
+  </body>
+</html>

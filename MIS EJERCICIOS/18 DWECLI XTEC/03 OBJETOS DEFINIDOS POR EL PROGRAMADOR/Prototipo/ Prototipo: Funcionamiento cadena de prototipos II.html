@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prototipo/ Funcionamiento cadena de prototipos II</title>
+    <style></style>
+    <script>
+      // Constructor de armas
+      var Arma = function (nombre) {
+        this.nombre = nombre;
+        this.potencia = 1;
+      };
+
+      //Se Anadir los Métodos que serán compartidos por todas las armas
+      Arma.prototype.atacar = function (objetivo) {
+        console.log(
+          'Zap! causa ' + this.potencia + ' puntos de daño a ' + objetivo
+        );
+      };
+
+      Arma.prototype.equipar = function () {
+        console.log('Se ha equipado ' + this.nombre);
+      };
+
+      // Se Instancia un nuevo arma
+      var cuchillo = new Arma('cuchillo');
+
+      // Se comprueba que Efectivamente se ha añadido el método atacar
+      cuchillo.equipar();
+      cuchillo.atacar('Zombi');
+
+      // Constructor por un tipo Especializado de armas
+      var ArmaAmbmunicionn = function (nombre, maxmunicionn) {
+        // Se Tiene que llaar en la clase padre, pasando como Contexto this y el número del arma como parámetros
+        Arma.call(this, nombre);
+
+        // Se ida o modifican las propiedades necesarias
+        this.potencia = 2;
+        this.maxmunicionn = maxmunicionn;
+        this.municion = maxmunicionn;
+      };
+
+      // Se establece como prototipo el prototipo de Arma
+      ArmaAmbmunicionn.prototype = Object.create(Arma.prototype);
+
+      // Se corrige el constructor del prototipo Porque apunte al de este constructor
+      ArmaAmbmunicionn.prototype.constructor = ArmaAmbmunicionn.constructor;
+
+      // Añadimos un nuevo método en el prototipo
+      ArmaAmbmunicionn.prototype.atacar = function (objetivo) {
+        if (this.municion > 0) {
+          this.municion--;
+          console.log(
+            'Bang! causa ' + this.potencia + ' puntos de daño a  ' + objetivo
+          );
+        } else {
+          console.log('Click! no queda munición!');
+        }
+      };
+
+      ArmaAmbmunicionn.prototype.recarregar = function () {
+        this.municion = this.maxmunicionn;
+        console.log(this.nombre + ' recarregada');
+      };
+
+      var pistola = new ArmaAmbmunicionn('Pistola', 2);
+      pistola.equipar();
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.recarregar();
+      pistola.atacar('Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

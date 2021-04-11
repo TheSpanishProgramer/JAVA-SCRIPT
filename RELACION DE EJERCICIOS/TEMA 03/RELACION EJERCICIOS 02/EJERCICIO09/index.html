@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+
+  <title>Haciendo uso de expresiones regulares, valida el formato de un email</title>
+
+</head>
+
+<body>
+
+<script>
+
+<!-- En la línea de de incio de la condición de la función se tiene en consideración que: -->
+<!-- · Debe empezar por letra o número -->
+<!-- · Puede contener puntos, guiones además de letras y números -->
+<!-- Insertaremos toda la combinación entre paréntesis -->
+<!-- \w+([\.-]?\w+)* -->
+<!-- El dominio irá al final tras el punto. Se han insertado los dominios -->
+<!-- de hotmail, outlook, yahoo, live y gmail. Todo aquello que no recoja estos -->
+<!-- dominios no será válido -->
+<!-- @(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|es)+$/ -->
+
+function validarEmail(valor) { // Inicio de la función
+  if (/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|es)+$/.test(valor)){
+   alert("La dirección de email " + valor + " es correcta."); // Caso de que sea correcto, mostrará mensaje de confirmación
+  } else {
+   alert("La dirección de email es incorrecta.");  // Caso de que sea incorrecto, mostrará mensaje de error
+  }
+}
+validarEmail(prompt("Introduzca un mail válido")); // Llamada a la función con petición de entrada por teclado al usuario
+</script>
+
+</body>
+</html>

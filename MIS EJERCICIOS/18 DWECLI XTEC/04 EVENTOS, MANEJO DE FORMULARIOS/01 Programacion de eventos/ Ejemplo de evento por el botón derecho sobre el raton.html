@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de evento por el botón derecho sobre el raton</title>
+    <style></style>
+    <script>
+
+      var button = document.getElementById('test');
+
+      button.addEventListener('click', notificaObservador);
+      button.addEventListener('dblclick',notificaObservador);
+      button.addEventListener('mouseup', notificaObservador);
+      button.addEventListener('mousedown',notificaObservador;
+
+      function notificaObservador(e) {
+        console.log("Se ha disparado el evento de tipo: ", e.type, "con esta información: ", e);
+      }
+    </script>
+  </head>
+  <body>
+    <button id="test">test de múltiples eventos</button>
+  </body>
+</html>

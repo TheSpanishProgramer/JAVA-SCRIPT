@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>instrucciones condicionales</title>
+    <style></style>
+    <script>
+      var a = 99,
+        b = 98;
+      if (a % 3 == 0) console.log(a + ' es divisible por 3');
+
+      if (b % 2 == 0) {
+        console.log(b + ' es divisible por 2');
+        console.log(b + ' es par');
+      }
+
+      if (b % 2 == 0) {
+        console.log(b + ' es divisible por 2');
+        console.log(b + ' es par');
+      } else {
+        console.log(b + ' es impar');
+      }
+
+      if (b % 4 == 0) {
+        console.log(b + ' es divisible por 4');
+        console.log(b + ' es par');
+      } else if (b % 3) {
+        console.log(b + ' es divisible por 3');
+      } else if (b % 2) {
+        console.log(b + ' es divisible por 2');
+        console.log(b + ' es par');
+      } else {
+        console.log('otro ejemplo');
+      }
+
+      var year = 2016;
+      mostrar_info(year);
+
+      var d = new Date();
+      year = d.getFullYear();
+      mostrar_info(year);
+
+      var num = 2500 * Math.random();
+      year = parseInt(num);
+      mostrar_info(year);
+
+      function mostrar_info(year) {
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+          console.log(
+            'El año ' +
+              year +
+              ' es un año bisiesto.Para esto no Quiere Decir que todos los años bisiestos Sean divisibles por 4. año 2000 no fué un año bisiesto!'
+          );
+          document.write(
+            'El año ' +
+              year +
+              ' es un año bisiesto. Pero esto no Quiere Decir que todos los años bisiestos Sean divisibles por 4. El año 2000 no fué un año bisiesto! <br/>'
+          );
+        } else {
+          console.log('El año  ' + year + ' NO es un año bisiesto.');
+          document.write('El año ' + year + ' NO es un año bisiesto.');
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

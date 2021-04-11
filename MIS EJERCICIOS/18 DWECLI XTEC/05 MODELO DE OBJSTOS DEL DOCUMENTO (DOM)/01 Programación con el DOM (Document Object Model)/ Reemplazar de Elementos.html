@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Reemplazar de Elementos</title>
+    <style>
+
+
+
+    </style>
+ 
+  </head>
+  <body>
+
+<div id="contenidor1">
+  <h1 id="titol1">parrafo 1<h1>
+</div>
+<div id="contenidor2">
+    <h1 id="titol2">parrafo 2<h1>
+</div>
+
+  </body>
+  
+      <script>
+
+var contenidor1 = document.getElementById('contenidor1');
+var contenidor2 = document.getElementById('contenidor2');
+
+var titol1 = document.getElementById('titol1');
+var titol2 = document.getElementById('titol2');
+
+var refNode = contenidor1.replaceChild(titol2, titol1);
+contenidor2.appendChild(refNode);
+
+    </script> 
+  
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Utilitzación de la variable this</title>
+    <style></style>
+    <script>
+      var obj = {
+        nom: 'Ramon',
+        cognom: 'Llull',
+        naixement: '1232',
+        isMallorqui: true,
+        nomSencer: this.nom + ' ' + this.cognom,
+      };
+      document.write(obj.nom + '<br>'); // Ramón
+      document.write(obj.isMallorqui + '<br>'); // true
+      document.write(obj.nom + '<br>'); // Ramón
+      document.write(obj.nomSencer + '<br><br><br><br>'); // ?
+
+      var obj = {
+        nom: 'Ramon',
+        cognom: 'Llull',
+        naixement: '1232',
+        isMallorqui: true,
+        nomSencer: function () {
+          return this.nom + ' ' + this.cognom;
+        },
+      };
+      document.write(obj.nom + '<br>'); // Ramon
+      document.write(obj.isMallorqui + '<br>'); // true
+      document.write(obj.nom + '<br>'); // Ramon
+      document.write(obj.nomSencer() + '<br>'); // Ramon Llull?
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <style type="text/css">
+      #contenedor {
+        position: relative;
+        background-color: #c0c0c0;
+      }
+      #globo {
+        background-color: #00aaff;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 500px;
+        top: 500px;
+      }
+    </style>
+
+    <script>
+      let objGlobo = (function () {
+        var posY;
+        var tam;
+
+        return {
+          subir(obj) {
+            if (posY > 50) {
+              posY = posY - 50;
+              tam = tam + 20;
+            } else {
+              alert('explota');
+              //obj.style.style.img = "explosion.jpg"
+            }
+          },
+
+          obtenerValores(obj) {
+            let valor = parseInt(obj.style.top);
+            if (isNaN(valor)) valor = 400; // valor inicial
+            posY = valor;
+
+            let valor2 = parseInt(obj.style.width);
+            if (isNaN(valor)) valor2 = 50; // valor inicial
+            tam = valor2;
+          },
+
+          colocar(obj) {
+            obj.style.top = posY + 'px';
+            obj.style.width = tam + 'px';
+          },
+          salirTam(obj) {
+            document.getElementById('salida').innerHtmml = 'Tamaño:' + tam;
+          },
+        };
+      })();
+
+      function programa(nom) {
+        objGlobo.obtenerValores(nom);
+        objGlobo.subir(nom);
+        objGlobo.colocar(nom);
+        objGlobo.salirTam(nom);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="contenedor">
+      <div id="globo"></div>
+    </div>
+
+    <div id="salida">
+      <input
+        type="button"
+        value="Sube"
+        onclick="programa(document.getElementById('globo'))"
+      />
+    </div>
+  </body>
+</html>

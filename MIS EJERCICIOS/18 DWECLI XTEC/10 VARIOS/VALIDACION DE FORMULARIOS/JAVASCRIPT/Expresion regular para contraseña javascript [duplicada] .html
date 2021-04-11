@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Regex javascript password</title>
+    <style></style>
+  </head>
+  <body></body>
+
+  <script>
+    var cantidades = {
+      números_o_símbolos: 1,
+      mayúsculas: 1,
+      minúsculas: 1,
+      letras: 1,
+      longitud_contraseña: 1,
+    };
+    var número = '\\d';
+    var símbolos = '$@';
+    var número_o_símbolo = '(' + número + '|[' + símbolos + '])';
+    var números_o_símbolos =
+      '(?:.*' + número_o_símbolo + '){' + cantidades.números_o_símbolos + '}';
+    var mayúsculas = '(?:.*[A-Z]){' + cantidades.mayúsculas + '}';
+    var minúsculas = '(?:.*[a-z]){' + cantidades.minúsculas + '}';
+    var cadena =
+      '^' +
+      '(?=' +
+      números_o_símbolos +
+      ')' +
+      '(?=' +
+      mayúsculas +
+      ')' +
+      '(?=' +
+      minúsculas +
+      ')' +
+      '\\S{' +
+      cantidades.longitud_contraseña +
+      ',}' +
+      '$';
+    console.log(cadena);
+    var expresión_regular = new RegExp(cadena, 'g');
+
+    var pruebas = [
+      'contraseña',
+      'contraseñaCONTRASEÑA',
+      'contraseñaCONTRASEÑAnúm3r0s',
+      'contraseñaCONTRASEÑAnúmero$',
+    ];
+    for (var i in pruebas) {
+      var encontrados = pruebas[i].match(expresión_regular);
+      var encuentra = encontrados != null;
+      console.log(
+        'La contraseña "' +
+          pruebas[i] +
+          '"' +
+          (!encuentra ? ' no' : '') +
+          ' es válida'
+      );
+    }
+  </script>
+</html>

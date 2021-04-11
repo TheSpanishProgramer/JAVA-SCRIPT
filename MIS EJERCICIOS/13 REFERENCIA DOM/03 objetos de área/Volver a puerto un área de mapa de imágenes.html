@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+  </head>
+  <body>
+    <img src="planets.gif" width="145" height="126" usemap="#planetmap" />
+    <map name="planetmap">
+      <area
+        id="venus"
+        shape="circle"
+        coords="124,58,8"
+        alt="Venus"
+        href="venus.htm"
+      />
+    </map>
+    <p>
+      Puerto de la zona "Venus":
+      <script>
+        document.write(document.getElementById('venus').port);
+      </script>
+    </p>
+    <p>
+      <b>Nota:</b>Si no se especifica la parte del puerto de la URL, o 80
+      (predeterminado), algunos navegadores mostrarán 0 o nada.
+    </p>
+  </body>
+</html>

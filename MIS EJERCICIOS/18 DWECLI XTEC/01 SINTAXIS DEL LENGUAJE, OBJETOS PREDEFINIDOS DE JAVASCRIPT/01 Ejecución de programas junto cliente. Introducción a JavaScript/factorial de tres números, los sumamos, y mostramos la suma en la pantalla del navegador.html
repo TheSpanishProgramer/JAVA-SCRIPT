@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      factorial de tres números, los sumamos, y mostramos la suma en la pantalla
+      del navegador
+    </title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Funció factorial recursiva</h1>
+    <p id="p1"></p>
+  </body>
+
+  <script>
+    var num1 = factorialRecursiu(5);
+    var num2 = factorialRecursiu(6);
+    var num3 = factorialRecursiu(7);
+
+    document.getElementById('p1').innerHTML = num1 + num2 + num3;
+
+    function factorialRecursiu(n) {
+      if (n == 0) {
+        return 1;
+      }
+      return n * factorialRecursiu(n - 1);
+    }
+  </script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de como obtener el codigo de la tecla</title>
+    <style></style>
+    <script>
+      var element = document.getElementById('test');
+
+      element.addEventListener('keypress', notificaObservador);
+      element.addEventListener('keydown', notificaObservador);
+      element.addEventListener('keyup', notificaObservador);
+
+      function notificaObservador(e) {
+        console.log(
+          'Disparada ',
+          e.Type,
+          ' por la tecla con código: ',
+          e.key || e.keyIdentifier
+        );
+      }
+    </script>
+  </head>
+  <body id="test"></body>
+</html>

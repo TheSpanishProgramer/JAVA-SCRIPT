@@ -1,0 +1,152 @@
+body {
+    color: white;
+    background-color: gray;
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+canvas {
+    margin: 0 auto;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    color: red;
+    padding: 15px;
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 40px;
+    color: #FFD700;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    color: white;
+}
+
+li {
+    font-family: 'Exo', sans-serif;
+}
+
+a {
+    color: cornflowerblue;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+#game-background {
+    position: relative;
+    margin: 0 auto;
+    width: 1024px;
+    height: 512px;
+    border: 1px solid black;
+    -webkit-box-shadow: 3px 5px 10px 2px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 3px 5px 10px 2px rgba(0, 0, 0, 0.39);
+    box-shadow: 3px 5px 10px 2px rgba(0, 0, 0, 0.39);
+    background-color: black;
+}
+
+#background {
+    z-index: -2;
+}
+
+.ui {
+    margin: 0 auto;
+    width: 1024px;
+    position: relative;
+    top: 0;
+}
+
+.score, .distance {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #FFF;
+    cursor: default;
+    width: 150px;
+    text-align: left;
+    font-family: 'Exo', sans-serif;
+}
+
+.score span, .distance span {
+    float: right;
+}
+
+.distance {
+    top: 20px;
+}
+
+.game-over, .messages {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    right: 0;
+    color: red;
+    font-size: 40px;
+    cursor: default;
+}
+
+.game-over span, .messages span {
+    font-size: 20px;
+    position: relative;
+}
+
+.game-over span {
+    cursor: pointer;
+}
+
+.game-over {
+    z-index: 100;
+    display: none;
+    cursor: default;
+}
+
+.game-over span:hover, .messages {
+    color: #FFD700;
+}
+
+.fadeable {
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+    opacity: 0;
+}
+
+.credits {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.credits div {
+    width: 33%;
+    float: left;
+}
+
+.footer {
+    font-size: smaller;
+    font-family: 'Exo', sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

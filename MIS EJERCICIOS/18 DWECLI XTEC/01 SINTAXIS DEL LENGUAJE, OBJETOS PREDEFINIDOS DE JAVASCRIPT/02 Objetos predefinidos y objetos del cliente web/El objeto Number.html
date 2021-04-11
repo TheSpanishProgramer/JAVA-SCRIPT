@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>El objeto Number</title>
+    <style></style>
+    <script>
+      var a = 20;
+      var b = -2.718;
+      var c = 1e4;
+      var d = 2.23e-3;
+
+      console.log(0b1010);
+      console.log(0xff);
+
+      var num = 76;
+      console.log(num.toString(16) + ' en hexadecimal');
+      console.log(num.toString(8) + ' en octal');
+      console.log(num.toString(2) + ' en binario');
+
+      console.log(5 / 0); //devuelve infinito
+
+      console.log(3 * 'a'); //NaN. Recordemos que 3+"a" devuelve "3a"
+
+      console.log(isNaN(3 * 4)); //false
+      console.log(isNaN(3 * 'a')); //true
+
+      var x = 25; //tipo primitivo
+      var y = new Number(25); //objeto
+      console.log(typeof x); //numero
+      console.log(typeof y); //objeto
+
+      console.log(x == y); //true
+    </script>
+  </head>
+  <body></body>
+</html>

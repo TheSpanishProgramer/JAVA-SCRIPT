@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Apertura y cierre de ventanas secundarias.</title>
+
+    <script language="javascript">
+      function Ventana_001(URL) {
+        window.open(
+          URL,
+          'jpstudio',
+          'width=800,height=600,top=20,left=40,scrollbars=NO,titlebar=NO,menubar=YES,toolbar=NO,directories=YES,location=YES,status=NO,resizable=NO'
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    <p>
+      <a href="javascript:Ventana_001('http://www.jpstudioweb.com')">
+        Ventana Secundaria</a
+      >
+    </p>
+
+    <p>
+      <input
+        type="button"
+        value="Ventana Secundaria"
+        onclick="Ventana_001('http://www.jpstudioweb.com')"
+      />
+    </p>
+
+    <p>
+      <a href="javascript:Ventana_001('http://www.jpstudioweb.com')">
+        <img
+          border="0"
+          src="http://www.jpstudioweb.com"
+          width="125"
+          height="125"
+      /></a>
+    </p>
+  </body>
+</html>

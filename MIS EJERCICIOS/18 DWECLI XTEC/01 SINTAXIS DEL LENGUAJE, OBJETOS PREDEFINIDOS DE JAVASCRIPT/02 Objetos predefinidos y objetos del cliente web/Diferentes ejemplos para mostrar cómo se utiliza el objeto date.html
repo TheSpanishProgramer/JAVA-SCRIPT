@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Diferentes ejemplos para mostrar cómo se utiliza el objeto date
+    </title>
+    <style></style>
+    <script>
+      var data = new Date();
+      var array_mes = [
+        'Enero',
+        'febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre',
+      ];
+      var array_dias_semana = [
+        'Domingo',
+        'Lunes',
+        'Martes',
+        'Miercoles',
+        'Jueves',
+        'Viernes',
+        'Sabado',
+      ];
+      console.log(
+        'Hoy es: ' +
+          array_dias_semana[data.getDay()] +
+          ', ' +
+          data.getDate() +
+          ' de ' +
+          array_mes[data.getMonth()] +
+          ' de ' +
+          data.getFullYear()
+      );
+
+      //para ver el número de milisegundos desde el origen de los tiempos (1 de gener de 1970 00:00:00):
+      var data = new Date();
+      console.log(data.getTime());
+      // y tambien:
+      console.log(Date.now());
+
+      var d1 = Date.parse('23 March 2016'); //parse sabe interpretar diferentes formatos de fecha, pero en inglés.
+      var d2 = Date.parse('28 May 2016');
+      console.log(d1);
+      console.log(d2);
+      console.log(d1 > d2); //Podemos comparar las Fechas para saber cual es la más grande
+
+      var data = new Date();
+      console.log(data.getHours()); //por ej, 14, hora real de un reloj local.
+      console.log(data.getUTCHours()); //por ej, 12, hora UTC
+
+      var d = new Date();
+
+      //Dia del Trabajo
+      d.setDate(1);
+      d.setMonth(4); //representa el mes de Mayo
+      d.setFullYear(2016);
+      console.log(d);
+      console.log(d.toDateString()); //Sun May 01 2016
+      console.log(d.toLocaleDateString()); //1/5/2016
+
+      //como que toLocaleDateString () devuelve una cadena, ya puedo utilizar las funciones de cadena:
+
+      var array_data = d.toLocaleDateString().split('/');
+
+      console.log(array_data[0]); //dia
+      console.log(array_data[1]); //mes
+      console.log(array_data[2]); //año
+
+      var d = new Date();
+      console.log(d.toLocaleString()); // 2/5/2016, 14:44:37
+      console.log(d.toLocaleDateString()); // 2/5/2016
+      console.log(d.toLocaleTimeString()); // 14:44:37
+    </script>
+  </head>
+  <body></body>
+</html>

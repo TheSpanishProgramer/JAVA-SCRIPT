@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Atajo $. get</title>
+    <style></style>
+    <script>
+      $.get({
+        url: 'https://api.geekdo.com/xmlapi2/search',
+        data: {query: 'dixit', type: 'boardgame'},
+        success: processarResposta,
+        dataType: 'xml',
+      });
+
+      function processarResposta(dades, statusText, jqXHR) {
+        console.log(dades);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

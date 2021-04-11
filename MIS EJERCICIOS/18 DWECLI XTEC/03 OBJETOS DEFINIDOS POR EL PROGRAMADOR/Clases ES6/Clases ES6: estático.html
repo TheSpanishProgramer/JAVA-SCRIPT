@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clases ES6/ estático</title>
+    <style></style>
+    <script>
+      class FactoriaArmes {
+        static crearArma(params) {
+          var arma;
+
+          switch (params.tipus) {
+            case 'simple':
+              arma = new Arma(params.nom, params.potencia);
+              break;
+            case 'arma de fuego':
+              arma = new ArmaAmbMunicio(
+                params.nom,
+                params.potencia,
+                params.maxMunicio
+              );
+              break;
+            default:
+              console.error('No existe este tipo de arma:' + params.tipus);
+          }
+
+          return arma;
+        }
+      }
+
+      class Arma {
+        constructor(nom, potencia) {
+          this.nom = nom;
+          this.potencia = potencia;
+          this.so = 'Zas!';
+        }
+
+        atacar(objectiu) {
+          console.log(
+            this.so +
+              ' Se han causado ' +
+              this.potencia +
+              ' puntos de daño a ' +
+              objectiu
+          );
+        }
+      }
+
+      class ArmaAmbMunicio extends Arma {
+        constructor(nom, potencia, maxMunicio) {
+          super(nom, potencia);
+          this.municio = maxMunicio;
+          this.maxMunicio = maxMunicio;
+          this.so = 'Bang!';
+        }
+
+        atacar(objectiu) {
+          if (this.municio > 0) {
+            this.municio--;
+            super.atacar(objectiu);
+          } else {
+            console.log('Click! no tengo municion!');
+          }
+        }
+      }
+
+      var cuchillo = FactoriaArmes.crearArma({
+        tipus: 'simple',
+        nom: 'Cuchillo',
+        potencia: 1,
+      });
+
+      var pistola = FactoriaArmes.crearArma({
+        tipus: 'arma de fuego',
+        nom: 'Pistola',
+        maxMunicio: 2,
+        potencia: 2,
+      });
+
+      cuchillo.atacar('Zombi');
+      pistola.atacar('Gos Zombi');
+      pistola.atacar('Gos Zombi');
+      pistola.atacar('Gos Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

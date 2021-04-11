@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo de eventos por com s'apilen els</title>
+    <style></style>
+    <script>
+      var element1 = document.getElementById('test1');
+      var element2 = document.getElementById('test2');
+
+      element1.addEventListener('keypress', notificaObservador1);
+      element1.addEventListener('keydown', notificaObservador1);
+      element1.addEventListener('keyup', notificaObservador1);
+
+      element2.addEventListener('keypress', notificaObservador2);
+      element2.addEventListener('keydown', notificaObservador2);
+      element2.addEventListener('keyup', notificaObservador2);
+
+      function notificaObservador1(e) {
+        console.log(
+          'Desde el <body> se ha disparado un evento de tipo: ',
+          e.type
+        );
+      }
+
+      function notificaObservador2(e) {
+        console.log(
+          'Desde el <textarea> se ha disparado un evento de tipo: ',
+          e.type
+        );
+      }
+    </script>
+  </head>
+  <body id="test1">
+    <textarea id="test2"></textarea>
+  </body>
+</html>

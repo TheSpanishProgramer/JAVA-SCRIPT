@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function formReset() {
+        document.getElementById('frm1').reset();
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      Ingrese algo de texto en el cuadro de entrada a continuación, y luego
+      presione el botón "Restablecer formulario" para restablecer el formulario.
+    </p>
+    <form id="frm1">
+      Nombre: <input type="text" name="fname" /><br />
+      Apellidos: <input type="text" name="lname" /><br /><br />
+      <input
+        type="button"
+        onclick="formReset()"
+        value="Restablecer formulario"
+      />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Procesamiento de una respuesta XML</title>
+    <style></style>
+    <script>
+      if (window.XMLHttpRequest) {
+        httpRequest = new XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+        httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+      } else {
+        console.error('Error: Este navegador no admite AJAX.');
+      }
+
+      httpRequest.onload = processarResposta;
+      httpRequest.open(
+        'GET',
+        'https://api.idescat.cat/emex/v1/geo.xml?tipus=com',
+        true
+      );
+      httpRequest.send(null);
+
+      function processarResposta() {
+        var resposta = httpRequest.responseXML;
+        var elements = resposta.getElementsByTagName('v');
+        var llista = document.createElement('ul');
+
+        for (var i = 0; i < elements.length; i++) {
+          var item = processarElement(elements[i]);
+          llista.appendChild(item);
+        }
+
+        document.body.appendChild(llista);
+      }
+
+      function processarElement(element) {
+        var ident = element.getAttribute('id');
+        var municipi = element.textContent;
+        var item = document.createElement('li');
+        item.textContent = municipi + ' (ID: ' + ident + ')';
+        return item;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Utilización como de removeEventListener Mejorada (relaciones)</title>
+    <style>
+
+div#quadres div {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  float: left;
+  margin: 5px;
+}
+
+span {
+  padding: 0 3px;
+}
+
+#quadres div.seleccionat {
+  background-color: green;
+  color:white;
+}
+
+#quadres div.proper {
+  background-color: blue;
+    color:white;
+}
+
+    </style>
+  </head>
+  <body>
+
+<p>El cuadro clicable se Muestra de color <span class="proper">azul</span> y el último cuadro clicada de color <span class="seleccionado">verde</span></p>
+<div id="quadres">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+  </body>
+  
+      <script>
+
+var quadres = document.getElementById('quadres');
+var seleccionat;
+var proper;
+
+var seleccionar = function() {
+  // Se elimina el estilo y el detector del seleccionado anterior
+  console.log(seleccionat, proper);
+  seleccionat.className = '';
+  seleccionat.removeEventListener('click', seleccionar);
+
+  // Se actualiza el seleccionado el proximo cuadro
+  seleccionat = proper;
+  seleccionat.className = 'seleccionat';
+
+  // Se determina el Próximo cuadro y se Añade el detector
+  proper = seleccionat.nextElementSibling;
+  if (!proper) {
+    proper = quadres.firstElementChild;
+  }
+  proper.className = 'proper';
+  proper.addEventListener('click', seleccionar);
+}
+
+var inicialitzar = function() {
+  seleccionat = quadres.firstElementChild;
+  proper = seleccionat.nextElementSibling;
+  seleccionar();
+}
+
+inicialitzar();
+
+    </script>  
+
+</html>

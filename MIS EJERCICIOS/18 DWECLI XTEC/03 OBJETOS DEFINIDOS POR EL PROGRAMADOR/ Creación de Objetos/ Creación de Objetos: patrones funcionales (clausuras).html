@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ patrones funcionales (clausuras)</title>
+    <style></style>
+    <script>
+      var crearPersona = function (_nombre) {
+        // El Parámetros son propiedades privadas
+        var persona = {
+          mostrarNombre: function () {
+            // metodo publico
+            console.log('Mi nombre es ' + _nombre);
+          },
+        };
+
+        return persona;
+      };
+
+      var Forest = crearPersona('Forest');
+
+      console.log(
+        'Es accesible la propiedad _nombre (privada)?',
+        Forest._nombre !== undefined
+      );
+      console.log(
+        'Existe el método mostrarNombre (públic)?',
+        Forest.mostrarNombre !== undefined
+      );
+      Forest.mostrarNombre();
+    </script>
+  </head>
+  <body></body>
+</html>

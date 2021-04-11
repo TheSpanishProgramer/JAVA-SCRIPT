@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clases ES6/ Herencia (comprobación de la cadena de prototipo)</title>
+    <style></style>
+    <script>
+      class Criatura {
+        constructor(nom) {
+          this.nom = nom;
+          this.moviment = 10;
+          this.potencia = 1;
+        }
+
+        caminar() {
+          console.log(this.nom + ' camina ' + this.moviment + ' metros');
+        }
+
+        atacar(objectiu) {
+          console.log(
+            this.nom +
+              ' ataca a ' +
+              objectiu.nom +
+              ' y le causa ' +
+              this.potencia +
+              ' puntos de daño'
+          );
+        }
+      }
+
+      class Gos extends Criatura {
+        constructor() {
+          super('Gos');
+          this.potencia = 2;
+        }
+
+        saltar() {
+          console.log(this.nom + ' salta ' + this.moviment / 5 + ' metros');
+        }
+      }
+
+      class GosZombi extends Gos {
+        constructor() {
+          super();
+          this.nom = 'Gos Zombi';
+        }
+
+        saltar() {
+          console.log(this.nom + ' intenta saltar... pero no puede');
+        }
+      }
+
+      var gos = new Gos(),
+        gosZombi = new GosZombi();
+
+      gos.caminar();
+      gos.atacar(gosZombi);
+      gos.saltar();
+      gosZombi.atacar(gos);
+      gosZombi.saltar();
+      gosZombi.caminar();
+
+      console.log(
+        "GosZombie és una instància d'Object?",
+        gosZombi instanceof Object
+      );
+      console.log(
+        "GosZombie és una instància d'Criatura?",
+        gosZombi instanceof Criatura
+      );
+      console.log("GosZombie és una instància d'Gos?", gosZombi instanceof Gos);
+      console.log(
+        "GosZombie és una instància d'GosZombie?",
+        gosZombi instanceof GosZombi
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

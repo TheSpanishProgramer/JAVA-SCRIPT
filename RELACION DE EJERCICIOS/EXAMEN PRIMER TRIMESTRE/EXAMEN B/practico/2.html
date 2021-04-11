@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body style="background: cadetblue;">
+    <h3 style="text-align: center;">Ejercicio 2</h3>
+    <script>
+        let mayorFecha=([
+            "2015/02/01",
+            "2015/02/02",
+            "2015/01/03"
+        ]);
+
+        //Creo os objetos fechas con lo anterior dado
+        let f1=new Date(mayorFecha[0]);
+        let f2=new Date(mayorFecha[1]);
+        let f3=new Date(mayorFecha[2]);
+
+        //Las pas a tiempo unix y las ordeno para tener el mayor
+        let arraycomparador=[Date.parse(f1),Date.parse(f2),Date.parse(f3)];
+        arraycomparador.sort().reverse();
+        
+        //Creo el objeto con el mayor del array que es la posicion 0 al ordenarlo
+        let mayor=new Date(arraycomparador[0]);
+        
+        //Lo muestro en ese formato mas legible(la pongo +1 porque empiezan en 0)
+        console.log("La mayor de las 3 fechas es: "+mayor.getFullYear()+"/"+(mayor.getMonth()+1)+"/"+(mayor.getUTCDay()+1));
+
+    </script>
+</body>
+
+</html>

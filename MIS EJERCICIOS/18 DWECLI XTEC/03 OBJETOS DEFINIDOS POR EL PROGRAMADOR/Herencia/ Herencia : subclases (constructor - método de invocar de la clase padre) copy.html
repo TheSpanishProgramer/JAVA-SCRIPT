@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Herencia / subclases (constructor - método de invocar de la clase padre)
+      copy
+    </title>
+    <style></style>
+    <script>
+      var Arma = function (nombre) {
+        this.nombre = nombre;
+        this.so = 'Zas!';
+        this.potencia = 1;
+      };
+
+      Arma.prototype.atacar = function (objetivos) {
+        console.log(
+          this.so +
+            " S'han causat " +
+            this.potencia +
+            ' punts de dany a ' +
+            objetivos
+        );
+      };
+
+      var ArmaAmbMunicio = function (nombre, maxMunicio) {
+        Arma.call(this, nombre);
+        this.municio = maxMunicio;
+        this.so = 'Bang!';
+        this.potencia = 2;
+      };
+
+      // Se relaciona el prototipo del padre y se corrige el constructor
+      ArmaAmbMunicio.prototype = Object.create(Arma);
+      ArmaAmbMunicio.prototype.constructor = ArmaAmbMunicio;
+
+      ArmaAmbMunicio.prototype.parent = Arma.prototype; // Se guarda la referencia al padre
+
+      ArmaAmbMunicio.prototype.atacar = function (objetivos) {
+        if (this.municio > 0) {
+          this.municio--;
+          ArmaAmbMunicio.prototype.parent.atacar.call(this, objetivos);
+        } else {
+          console.log('Click! no queda munición!');
+        }
+      };
+
+      var cuchillo = new Arma('cuchillo');
+      var pistola = new ArmaAmbMunicio('Pistola', 2);
+
+      cuchillo.atacar('Zombi');
+      pistola.atacar('PerroZombi');
+      pistola.atacar('PerroZombi');
+      pistola.atacar('PerroZombi');
+    </script>
+  </head>
+  <body></body>
+</html>

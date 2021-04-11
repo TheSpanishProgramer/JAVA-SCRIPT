@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Forma de atributo de ejemplo</title>
+    <style></style>
+    <script></script>
+  </head>
+  <body>
+    <form id="principal" action="test.php" method="GET">
+      <input type="text" name="element-intern" value="interno" />
+      <input type="submit" value="enviar" />
+    </form>
+    <input type="text" name="element-extern" value="externo" form="principal" />
+  </body>
+</html>

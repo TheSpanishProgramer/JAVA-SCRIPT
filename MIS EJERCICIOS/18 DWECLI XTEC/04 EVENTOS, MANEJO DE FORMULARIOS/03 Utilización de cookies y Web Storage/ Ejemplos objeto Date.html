@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplos objeto Date</title>
+    <style></style>
+    <script>
+      var ara = new Date(),
+        mes,
+        proximMes,
+        navidad;
+
+      console.log("La data d'avui en UTC", ara.toUTCString());
+
+      mes = ara.getMonth();
+      console.log('Quin és el mes actual?', mes);
+
+      proximMes = (mes + 1) % 12;
+      ara.setMonth(proximMes);
+      console.log(
+        'Quina és la data corresponent al pròxim mes?',
+        ara.toUTCString()
+      );
+
+      nadal = new Date(2016, 11, 25);
+      console.log('Quin dia es nadal el 2016?', navidad.toUTCString());
+
+      console.log(
+        'Desfas horari per la nostra localització (en minuts):',
+        navidad.getTimezoneOffset()
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

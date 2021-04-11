@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Almacenar información con Session Storage 01</title>
+    <style>
+
+
+
+    </style>
+    <script>
+
+		function guardar() {
+			var animal = document.getElementById("nomAnimal").value;
+			/*Guardamos los datos en sessionStorage*/
+			sessionStorage.setItem("animal", animal);
+			/* limpiamos el campos */
+			document.getElementById("nomAnimal").value = "";
+			document.getElementById("lblanimal").value = "";
+			document.getElementById("lblvegetal").value = "";
+		};  
+		
+		function carregar() {
+			var animal = sessionStorage.getItem("animal");
+			var vegetal = sessionStorage.getItem("vegetal");
+			document.getElementById("lblanimal").innerHTML = animal;
+			document.getElementById("lblvegetal").innerHTML = vegetal;
+		}
+
+    </script>  
+  </head>
+  <body>
+
+	<center>
+	
+	<h1>Ejemplo sessionStorage Animal</h1>
+	<input type="text"  placeholder="nom animal" id="nomAnimal"><br/>
+	<button onclick="guardar()">Guardar</button>
+	<button onclick="carregar()">cargar</button><br/>
+	Animal: <label id="lblanimal"></label><br/>
+	Vegetal: <label id="lblvegetal"></label><br/>
+
+  </body>
+</html>

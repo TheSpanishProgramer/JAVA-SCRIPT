@@ -1,0 +1,33 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#container {
+    margin: auto;
+}
+
+#contenedorPokemon {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+#header-container {
+    border-radius: 0px !important;
+}
+
+#header-text{
+    margin: 0 auto;
+}
+
+#generarPokemon {
+    margin: 0 auto;
+}
+
+#botonEliminar {
+    position: absolute;
+    left: 85%;
+    display: none;
+    margin-bottom: 5%;
+}

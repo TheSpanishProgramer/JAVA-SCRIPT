@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo TextArea 4</title>
+    <style></style>
+    <script>
+      var textarea = document.getElementById('test');
+
+      textarea.innerHTML = 'Valor establecido via codigo e innerHTML';
+
+      function mostrarValor() {
+        alert(textarea.value);
+      }
+    </script>
+  </head>
+  <body>
+    <textarea id="test" value="Aquest és el valor del camp"></textarea>
+    <br />
+    <button onclick="mostrarValor();">Mostrar valor</button>
+  </body>
+</html>

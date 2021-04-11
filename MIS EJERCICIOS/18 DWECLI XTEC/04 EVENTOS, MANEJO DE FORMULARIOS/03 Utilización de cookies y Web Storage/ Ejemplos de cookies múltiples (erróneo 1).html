@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplos de cookies múltiples (erróneo 1)</title>
+    <style></style>
+    <script>
+      // añadiendo cookies
+      document.cookie = 'seu=Barcelona';
+      document.cookie = 'seu=Tarragona';
+      document.cookie = 'seu=Lleida';
+      document.cookie = 'seu=Girona';
+
+      // recuperamos todas las cookies
+      var galletas = document.cookie;
+
+      // Mostramos las cookies
+      console.log(galletas);
+    </script>
+  </head>
+  <body></body>
+</html>

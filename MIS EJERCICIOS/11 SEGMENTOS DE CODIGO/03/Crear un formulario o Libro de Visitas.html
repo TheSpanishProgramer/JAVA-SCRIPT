@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Libro de Visitas</title>
+  </head>
+  <body>
+    <h2>Libro de Visitas</h2>
+    <form action="mailto:nombre@servidor.com" method="post">
+      <table>
+        <tr>
+          <td align="left">Nombre:</td>
+          <td><input type="text" size="36" name="nombre" /></td>
+        </tr>
+        <tr>
+          <td align="left">Dirección E-mail:</td>
+          <td><input type="text" size="36" name="direccion" /></td>
+        </tr>
+        <tr>
+          <td align="left">Quien te recomendo esta página?:</td>
+          <td><input type="text" size="36" name="procedencia" /></td>
+        </tr>
+        <tr>
+          <td align="left">Comentarios:</td>
+          <td><textarea rows="5" cols="30" name="comentarios"></textarea></td>
+        </tr>
+      </table>
+      <input type="reset" value="Borrar" /><input
+        type="submit"
+        value="Enviar"
+      />
+    </form>
+  </body>
+</html>

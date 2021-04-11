@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+  </head>
+  <body>
+    <a id="w3s" charset="ISO-8859-1" href="http://www.jpstudioweb.com/"
+      >JpStudioWeb</a
+    ><br />
+    <script>
+      document.write('Devolver juego de caracteres vinculado: ');
+      document.write(document.getElementById('w3s').charset);
+      document.write('<br><br>');
+    </script>
+    <a id="google" href="http://www.google.com/">Google</a><br />
+    <script>
+      document.getElementById('google').charset = 'utf-8';
+      document.write('Establecer juego de caracteres vinculado: ');
+      document.write(document.getElementById('google').charset);
+    </script>
+  </body>
+</html>

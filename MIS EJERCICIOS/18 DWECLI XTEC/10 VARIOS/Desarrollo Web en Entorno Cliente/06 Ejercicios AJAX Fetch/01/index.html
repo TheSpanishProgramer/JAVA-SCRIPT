@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ejercicio 01</title>
+</head>
+
+<body>
+  <table id="tablaMostrar"></table>
+  <script>
+    function cargaXML() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          funcionParaXML(this);
+        }
+      };
+      xmlhttp.open("GET", "alumnos.xml", true);
+      xmlhttp.send();
+    }
+
+    function funcionParaXML(xml) {
+      var i;
+      var ficheroXML = xml.responseXML;
+      var tabla = "<tr><th>Nombre</th><th>Apellido</th><th>Nota</th></tr>";
+      var x = ficheroXML.getElementsByTagName("alumno");
+      for (i = 0; i < x.length; i++) {
+        tabla += "<tr><td>" +
+          x[i].getElementsByTagName("nombre")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("apellido")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("nota")[0].childNodes[0].nodeValue +
+          "</td></tr>";
+      }
+      document.getElementById("tablaMostrar").innerHTML = tabla;
+    }
+    cargaXML();
+  </script>
+
+</body>
+
+</html>

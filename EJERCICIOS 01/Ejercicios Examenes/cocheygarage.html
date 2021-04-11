@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+       <!-- Creado Por Juan Jose Fernandez Romero -->
+        <meta charset="UTF-8">
+        <title>Coche y garage</title>
+        
+        <style>
+            
+            #contenedor {
+                
+                position: relative;
+                border-bottom: 50px solid black;
+                height: 250px;
+                                
+                
+            }
+        
+            #garage {
+                
+                width: 200px;
+                height: 125px;
+                background-image: url(images/garage.png);
+                background-size: cover;
+                position: absolute;
+                left: 950px;
+                top: 125px;
+                
+            
+            }
+            
+            #puerta {
+                
+                width: 15px;
+                height: 175px;
+                background-image: url(images/puerta.png);
+                background-size: cover;
+                position: absolute;
+                left: 940px;
+                top: 100px;
+            }
+            
+            #coche {
+                
+                width: 150px;
+                height: 53px;
+                background-image: url(images/coche.png);
+                background-size: cover;
+                position: absolute;
+                top: 200px;
+            }
+            
+            #botonera {
+                
+                margin-top: 20px;
+            }
+            
+            #controlCoche {
+                
+                display: inline-block;
+                margin-left: 200px;
+                
+            }
+            
+            #controlPuerta {
+                
+                display: inline-block;
+                margin-left: 500px;
+                
+            }
+            
+            #GameOver {
+                
+                position: fixed;
+                margin: auto;
+                top: 10%;
+                left: 20%;
+                visibility: hidden;
+                color: black;
+                font-size: 100px;
+            }
+            
+            
+        </style>
+        
+        <script>
+            
+            window.onload = function () {
+                
+                // Asignamos funcion al boton retroceder
+                document.getElementById("retroceder").setAttribute("onclick", "retroceder()");
+                
+                // Asignamos funcion al boton avanzar
+                document.getElementById("avanzar").setAttribute("onclick", "avanzar()");
+                
+                // Asignamos funcion al boton frenar
+                document.getElementById("frenar").setAttribute("onclick", "frenar()");
+                
+                // Asignamos funcion al boton subir
+                document.getElementById("subir").setAttribute("onclick", "subir()");
+                
+                // Asignamos funcion al boton bajar
+                document.getElementById("bajar").setAttribute("onclick", "bajar()");
+                
+                // Asignamos la variable coche
+                coche = document.getElementById("coche");
+                
+                // Asignamos la variable puerta
+                puerta = document.getElementById("puerta");
+                
+                // asignamos la variable garage
+                garage = document.getElementById("garage");
+                
+                //Lanzamos el mover horizontal
+                controlCoche(coche.id, velocidad);
+                // Lanzamos el chequeo de colision
+                chequeoDeColision(coche.id);
+                
+            }
+            
+            
+            
+            var coche; // Variable global para el elemento coche
+            var puerta; // Variable global para el elemento puerta
+            var garage; // Variable global para el elemento garage
+            
+            var estaBajada = true; // Variable booleana para saber si la puerta esta bajada o no
+            
+            var velocidad = 0; // Variable para la velocidad px
+            var intervaloCoche = undefined; // Variable para el intervalo del coche
+            var intervaloPuerta = undefined; // Variable para el intervalo de la puerta
+            
+            
+            // Funcion para aumentar la velocidad
+            function avanzar() {
+                
+                // Creamos la aceleracion, con una velocidad maxima de 3
+                if (velocidad < 3) {
+                    velocidad += 1; 
+                
+                }
+            }
+            
+            // Funcion para frenar el coche en seco
+            function frenar() {
+                
+                velocidad = 0;
+                
+            }
+            
+            // Funcion para disminuir velocidad
+            function retroceder() {
+                
+                // Creamos la deceleracion
+                if (velocidad > -3) {
+                    velocidad -= 1;
+                }
+                
+            }
+            
+            // Funcion para subir la puerta
+            function subir() {
+                
+                controlPuerta(puerta.id, -1);
+                
+            }
+            
+            // Funcion para subir la puerta
+            function bajar() {
+                
+                controlPuerta(puerta.id, 1);
+                
+            }
+            
+            
+            // Con esta funcion chequearemos la posicion del coche y si colisiona
+            // o no con la puerta o la pared del fondo. Esta continuamente chequeando
+            // desde el comienzo
+            function chequeoDeColision (cocheId) {
+                
+                // Cogemos el elemento coche y lo metemos en una variable
+                var coche = document.getElementById(cocheId);
+                
+                // Aqui tenemos que tener en cuenta varias cosas:
+                // La posicion de la puerta y si esta bajada o subida
+                // La posicion de la pared del garage
+                // La posicion del coche y el espacio que ocupa
+                
+                var posicionCoche = coche.offsetLeft;
+                var posicionPuerta = puerta.offsetLeft;
+                
+                // Posicion de la pared del fondo: 
+                // La formula es: Posicion = "Parte Delantera" + (Anchura - pared del fondo) con esto tenemos
+                var posicionGarage = garage.offsetLeft + (200 - 5); 
+                
+                // Este if es el intervalo de la colision, basicamente dice que si el largo del coche esta en la posicion
+                // de la puerta y ademas esta está bajada (estara bajada cuando la altura de la puerta sea menor que la altura
+                // del coche ref en controlesPuerta())  
+                if (posicionCoche > (posicionPuerta - 150) && posicionCoche < (posicionPuerta + 14) && estaBajada) {
+                    
+                    // Limpiamos el Timeout del coche para pararlo
+                    clearTimeout(intervaloCoche);
+                    // Limpiamos el Timeout de la puerta para pararla
+                    clearTimeout(intervaloPuerta);
+                    
+                    // Desactivamos los botones bajar y subir de la puerta
+                    document.getElementById('bajar').disabled = true;
+                    document.getElementById('subir').disabled = true;
+                    
+                    // Hacemos aparecer el cartel de Game Over
+                    document.getElementById('GameOver').style.visibility = "visible";
+                    
+                    // Salimos de la funcion para que no siga el Timeout
+                    return;
+                    
+                }
+                
+                // Si la posicion del coche + el largo del coche es mayor que
+                // la posicion del muro del garage, choca
+                if (posicionCoche + 150 > posicionGarage) {
+                    
+                    // Limpiamos el Timeout del coche para pararlo
+                    clearTimeout(intervaloCoche);
+                    // Limpiamos el Timeout de la puerta para pararla
+                    clearTimeout(intervaloPuerta);
+                    
+                    // Desactivamos los botones bajar y subir de la puerta
+                    document.getElementById('bajar').disabled = true;
+                    document.getElementById('subir').disabled = true;
+                    
+                    // Hacemos aparecer el cartel de Game Over
+                    document.getElementById('GameOver').style.visibility = "visible";
+                    
+                    // Salimos de la funcion para que no siga el Timeout
+                    return;
+                    
+                }
+                
+                // TimeOut para volver a la funcion y chequear                
+                setTimeout("chequeoDeColision('" + cocheId + "')", 1);
+                
+                
+            }
+            
+            // Funcion para mover un elemento a la izquierda o derecha
+            // Si ponemos distancia negativa nos moveremos hacia la izquierda
+            // Si ponemos distancia positiva nos moveremos hacia la derecha
+            function controlCoche (elementoId, distancia) {
+                
+                var elemento = document.getElementById(elementoId);
+                
+                elemento.style.left = (elemento.offsetLeft + distancia) + "px";
+                
+                intervaloCoche = setTimeout("controlCoche('" + elemento.id + "', " + velocidad + ")", 8);
+                
+            }
+
+
+            // Funcion para mover un elemento hacia arriba o hacia abajo
+            // Si ponemos distancia negativa nos moveremos hacia arriba
+            // Si ponemos distancia positiva nos moveremos hacia abajo
+            function controlPuerta (elementoId, distancia) {
+                
+                var elemento = document.getElementById(elementoId);
+                
+                elemento.style.top = (elemento.offsetTop + distancia) + "px";
+                
+                // Determinamos si la puerta esta subida o bajada
+                if (elemento.offsetTop < 53) {
+                    estaBajada = false;
+                } else {
+                    estaBajada = true;
+                    
+                }
+                
+                // Ponemos los limites a la puerta
+                if (elemento.offsetTop > 0 && distancia < 0) {
+                    
+                    intervaloPuerta = setTimeout("controlPuerta('" + elemento.id + "', " + distancia + ")", 1);
+                    document.getElementById('bajar').disabled = false;
+                    document.getElementById('subir').disabled = true;
+                    
+                } else if (elemento.offsetTop < 100 && distancia > 0) {
+                    
+                    intervaloPuerta = setTimeout("controlPuerta('" + elemento.id + "', " + distancia + ")", 1);
+                    document.getElementById('bajar').disabled = true;
+                    document.getElementById('subir').disabled = false;
+                    
+                }
+                
+                
+            }
+            
+            
+            //////////
+            // Creado por Juan Jose Fernandez Romero
+            /////////
+            
+        </script>
+    </head>
+    <body>
+        <div id="GameOver">Game Over</div>
+       
+        <div id="contenedor">
+            <div id="coche"></div>
+		    <div id="puerta"></div>
+		    <div id="garage"></div>
+        </div>
+        
+        <div id="botonera">
+            <div id="controlCoche">
+                <button id="retroceder">Retroceder</button>
+                <button id="frenar">Frenar</button>
+                <button id="avanzar">Avanzar</button>
+            </div>
+            <div id="controlPuerta">
+                <button id="subir">Subir</button>
+                <button id="bajar">Bajar</button>
+            </div>
+        </div>
+   
+    </body>
+</html>

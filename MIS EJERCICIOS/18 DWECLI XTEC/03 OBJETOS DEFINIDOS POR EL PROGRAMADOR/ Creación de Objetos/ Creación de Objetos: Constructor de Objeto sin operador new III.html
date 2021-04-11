@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Creación de Objetos/ Constructor de Objeto sin operador new III
+    </title>
+    <style></style>
+    <script>
+      var contextGlobal = {
+        Persona: function (nombre) {
+          this.nombre = nombre;
+        },
+      };
+
+      contextGlobal.Persona('Forest');
+      console.log(contextGlobal);
+    </script>
+  </head>
+  <body></body>
+</html>

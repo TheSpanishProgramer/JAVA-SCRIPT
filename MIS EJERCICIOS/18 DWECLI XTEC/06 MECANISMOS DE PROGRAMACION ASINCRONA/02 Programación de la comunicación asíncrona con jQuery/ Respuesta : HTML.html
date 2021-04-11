@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Respuesta / HTML</title>
+    <style></style>
+    <script>
+      $.ajax({
+        url: 'provincies.html',
+        beforeSend: function (jqXHR) {
+          jqXHR.overrideMimeType('text/html');
+        },
+        success: processarResposta,
+        dataType: 'html',
+      });
+
+      function processarResposta(dadesHTML, statusText, jqXHR) {
+        var $branca = $(dadesHTML);
+        $('body').append($branca);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

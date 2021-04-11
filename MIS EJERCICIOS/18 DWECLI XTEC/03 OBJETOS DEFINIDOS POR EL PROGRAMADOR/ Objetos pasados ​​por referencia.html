@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Objetos pasados ​​por referencia</title>
+    <style></style>
+    <script>
+      var pistola = {
+        municion: 19,
+      };
+
+      var recargar = function (arma) {
+        arma.municion = 42;
+      };
+
+      console.log('Municion actual del arma: ', pistola.municion);
+      recargar(pistola);
+      console.log('Municion actual de la pistola: ', pistola.municion);
+    </script>
+  </head>
+  <body></body>
+</html>

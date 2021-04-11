@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 05</title>
+</head>
+<body>
+<input type="button" value="Empezar" id="boton">
+<script>
+
+var boton = document.getElementById("boton");
+
+boton.onclick = function() {
+	nuevaVentana = window.open('', '_blank', "width=400,height=400");
+	posicionX = nuevaVentana.screenX;
+	posicionY = nuevaVentana.screenY;
+	var randomX = Math.floor(Math.random()*posicionX);
+	var randomY = Math.floor(Math.random()*posicionY);
+	nuevaVentana.moveTo(randomX*10, randomY*10);
+	setInterval(reducir, 1000);
+}
+
+function reducir () {
+	if (nuevaVentana.innerWidth >= 60 && nuevaVentana.innerHeight >= 60){
+	nuevaVentana.resizeBy(-40,-40);
+	}else {
+	clearInterval(reducir);
+	setInterval(aumentar,1000);
+	}
+}
+
+function aumentar () {
+	if (nuevaVentana.innerWidth <= 400 && nuevaVentana.innerHeight <= 400){
+	nuevaVentana.resizeBy(40,40);
+	}else {
+	clearInterval(aumentar);
+	setInterval(reducir,1000);
+	}
+}
+</script>
+
+</body>
+</html>

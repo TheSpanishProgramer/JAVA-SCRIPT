@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creació d'objectes/ patró funcional (clausures IV)</title>
+    <style></style>
+    <script>
+      var crearArma = function (_nombre, _potencia) {
+        var arma = {
+          potencia: _potencia,
+          potenciar: function () {
+            _potencia++;
+            console.log(
+              _nombre + ' ha Sido potenciada, potencia actual: ' + this.potencia
+            );
+            console.log('Valor de potencia:', _potencia);
+          },
+        };
+
+        return arma;
+      };
+
+      var cuchillo = crearArma('cuchillo', 2);
+      cuchillo.potenciar();
+      cuchillo.potenciar();
+      cuchillo.potenciar();
+    </script>
+  </head>
+  <body></body>
+</html>

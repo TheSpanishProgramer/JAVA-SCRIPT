@@ -1,0 +1,63 @@
+CASO 1: ------------------------------------------
+<html>
+  <head>
+    <title>Direccionamiento sin demora.</title>
+
+    <script type="text/javascript">
+      <!--
+      window.location = 'http://www.uterra.com';
+      -->
+    </script>
+  </head>
+
+  <body>
+    Esta página te envia de manera inmediata a www.uterra.com
+  </body>
+</html>
+
+CASO: 2 ------------------------------------------
+<html>
+  <head>
+    <title>Direccionamiento con demorado en milesimas de segundo</title>
+
+    <script type="text/javascript">
+      <!--
+      var pagina = 'http://www.uterra.com';
+      var segundos = 5000; // 5000 milesimas de segundo son 5 segundos
+
+      function redireccion() {
+        document.location.href = pagina;
+      }
+      setTimeout('redireccion()', segundos);
+      -->
+    </script>
+  </head>
+
+  <body>
+    Esta página te llevará a otra pasados 5 segundos, concretamente a
+    www.uterra.com
+  </body>
+</html>
+
+CASO: 3 ------------------------------------------
+<html>
+  <head>
+    <title>Direccionamiento hacia la pagina anterior.</title>
+
+    <script type="text/javascript">
+      <!--
+      var pagina = 'javascript:history.go(-1)'; /* unica linea modificada */
+      var segundos = 5000; // 5000 milesimas de segundo son 5 segundos
+
+      function redireccion() {
+        document.location.href = pagina;
+      }
+      setTimeout('redireccion()', segundos);
+      -->
+    </script>
+  </head>
+
+  <body>
+    Esta página te direccionará a la pagina anterior pasados 5 segundos.
+  </body>
+</html>

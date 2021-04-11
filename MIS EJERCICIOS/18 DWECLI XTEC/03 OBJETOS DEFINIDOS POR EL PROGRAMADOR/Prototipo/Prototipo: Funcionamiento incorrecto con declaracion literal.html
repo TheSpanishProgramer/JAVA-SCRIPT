@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prototipo/ Funcionamiento incorrecto con declaracion literal</title>
+    <style></style>
+    <script>
+
+      var persona = {
+        nombre = 'Patricia'
+      };
+
+      persona.prototype.saludar = function () {
+        console.log('Hola, me llamo ' + this.nombre);
+      };
+
+      persona.saludar();
+    </script>
+  </head>
+  <body></body>
+</html>

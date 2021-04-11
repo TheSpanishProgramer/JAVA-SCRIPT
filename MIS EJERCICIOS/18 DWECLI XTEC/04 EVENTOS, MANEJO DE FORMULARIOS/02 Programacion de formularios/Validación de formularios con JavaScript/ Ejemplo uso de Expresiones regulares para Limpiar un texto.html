@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo uso de Expresiones regulares para Limpiar un texto</title>
+    <style></style>
+    <script>
+      var original = document.getElementById('original'),
+        net = document.getElementById('net');
+
+      function Limpiar() {
+        var text = original.innerHTML,
+          patro = /\s+/g;
+        net.innerHTML = text.replace(patro, ' ');
+      }
+    </script>
+  </head>
+  <body>
+    <pre id="original">
+»Y en este
+punto
+se
+hizó desliguar
+la çimolsa , que no la quis más levantarse, con Mucha melancolía que le resto, pero no · n
+hizó Demostración alguna.
+</pre
+    >
+    <button onclick="Limpiar()">Limpiar</button>
+    <pre id="net"></pre>
+  </body>
+</html>

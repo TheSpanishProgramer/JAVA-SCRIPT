@@ -1,0 +1,17 @@
+<script>
+	function submit_oculto_n(form) {
+		if ((form.nombre.value != "") && (form.apellido.value != "")) { 
+			form.enviar.style.visibility = "visible"; 
+		}else{
+			form.enviar.style.visibility = "hidden";
+		}
+	}
+</script>
+<form name="formulario_didesweb2" method="POST" action="">
+	<p>Nombre: </p>
+	<input type="text" name="nombre" size="20" onKeyUp="submit_oculto_n(this.form)">
+	<p>Apellido: </p>
+	<input type="text" name="apellido" size="20" onKeyUp="submit_oculto_n(this.form)">
+	<br>
+	<input type="submit" name="enviar" value="Enviar" style="visibility: hidden">
+</form>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Declaración literal/ Métodos con cambio de contexto</title>
+    <style></style>
+    <script>
+      var persona = {
+        nombre: 'Ricard',
+        salir: function (tiempo) {
+          setTimeout(function () {
+            console.log(
+              this.nombre + ' salio de la sala ' + tiempo + 'despues'
+            );
+          }, tiempo * 1000);
+        },
+      };
+
+      persona.salir(3);
+    </script>
+  </head>
+  <body></body>
+</html>

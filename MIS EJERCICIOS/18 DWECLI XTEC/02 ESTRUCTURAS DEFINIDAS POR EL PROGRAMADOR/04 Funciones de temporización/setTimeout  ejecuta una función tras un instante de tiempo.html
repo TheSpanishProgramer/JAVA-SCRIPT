@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>setTimeout ejecuta una función tras un instante de tiempo</title>
+    <style></style>
+    <script>
+      var timeoutID;
+
+      function funcioRetardada() {
+        timeoutID = setTimeout(alerta, 2000);
+      }
+
+      function alerta() {
+        alert('Hola Mundo!');
+      }
+
+      function cancelaFuncio() {
+        clearTimeout(timeoutID);
+        alert('Alerta cancelada!');
+      }
+    </script>
+  </head>
+  <body>
+    <p>Ejemplo de funcion setTimeOut:</p>
+    <button onclick="funcioRetardada();">
+      MMuestra una alerta con Retraso
+    </button>
+    <p></p>
+    <button onclick="cancelaFuncio();">
+      Cancela la alerta antes de que se produzca
+    </button>
+  </body>
+</html>

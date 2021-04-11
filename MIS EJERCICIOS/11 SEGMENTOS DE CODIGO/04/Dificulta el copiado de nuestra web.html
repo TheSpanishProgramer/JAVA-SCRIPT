@@ -1,0 +1,23 @@
+ficulta el copiado de nuestra webJavaScript
+<script language="JavaScript">
+  functionright(e);
+  {
+    if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)) {
+      alert('Coloca mensaje aquí');
+      return false;
+    }
+    elseif(
+      navigator.appName == 'Microsoft Internet Explorer' &&
+        (event.button == 2 || event.button == 3)
+    );
+    {
+      alert('Coloca mensaje aquí');
+      return false;
+    }
+    return true;
+  }
+
+  document.onmousedown = right;
+  if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+  window.onmousedown = right;
+</script>

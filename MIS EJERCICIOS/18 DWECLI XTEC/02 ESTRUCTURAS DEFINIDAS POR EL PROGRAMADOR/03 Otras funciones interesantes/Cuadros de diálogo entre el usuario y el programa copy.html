@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cuadros de diálogo entre el usuario y el programa copy</title>
+    <style></style>
+    <script>
+      function dialogos() {
+        var nom = prompt('Cómo te llamas?');
+        var resposta = confirm('Quieres saber la hora ' + nom + '?');
+        if (resposta) {
+          alert(new Date());
+        } else {
+          alert('oooh.');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Ejemplo de uso de diálogos para comunicarse con el usuario</p>
+    <button onclick="dialogos();">Iniciar el ejemplo</button>
+  </body>
+</html>

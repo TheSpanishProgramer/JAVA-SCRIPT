@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Declaración literal/ enumeración de propiedades</title>
+    <style></style>
+    <script>
+      var ocupaciones = [
+        'Sin Ocupación',
+        'Policia',
+        'Militar',
+        'Médico',
+        'Tecnico',
+        'Mecanico',
+        'Delincuente',
+      ];
+
+      var superviventes = {
+        Barcelona: 23140,
+        Madrid: 6789,
+        Almeria: 11298,
+        Malaga: 19830,
+      };
+
+      console.log('Lista de profesiones');
+      for (var i in ocupaciones) {
+        console.log(ocupaciones[i]);
+      }
+
+      console.log('Listado de supervivientes por provincias');
+      for (var provincia in superviventes) {
+        console.log(provincia, ':', superviventes[provincia]);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

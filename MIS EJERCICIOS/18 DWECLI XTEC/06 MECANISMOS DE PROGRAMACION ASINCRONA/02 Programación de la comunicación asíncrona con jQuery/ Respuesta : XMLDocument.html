@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Respuesta / XMLDocument</title>
+    <style></style>
+    <script>
+      $.get({
+        url: 'https://api.geekdo.com/xmlapi2/search',
+        data: {query: 'dixit', type: 'boardgame'},
+        success: processarResposta,
+      });
+
+      function processarResposta(dadesXML, statusText, jqXHR) {
+        var $jocs = $(dadesXML).find('name');
+        var $llista = $('<ul>');
+
+        $jocs.each(function () {
+          var nomJoc = $(this).attr('value');
+          $joc = $('<li>');
+          $joc.text(nomJoc);
+          $llista.append($joc);
+        });
+
+        $('body').append($llista);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

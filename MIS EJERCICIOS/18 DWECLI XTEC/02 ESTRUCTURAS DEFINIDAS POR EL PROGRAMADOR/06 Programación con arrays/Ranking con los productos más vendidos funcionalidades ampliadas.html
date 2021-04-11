@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestió de l'estoc</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>Gestion de stock de una tienda</h1>
+    <h2>Funcionalidades del comerciante:</h2>
+    <br />
+    <button onclick="verStock()">Ver Stock</button>
+    <button onclick="ampliarStock()">Ampliar Stock</button>
+    <button onclick="nuevoProducto()">Añadir producto</button>
+    <button onclick="eliminarProducto()">Eliminar producto</button>
+    <button onclick="ordenarproduct()">
+      Ordenar productos Según el stock que queda
+    </button>
+    <br /><br />
+    <label for="unidades">Numero del producto que va a comprar:</label>
+    <input type="text" id="unidades" size="10" />
+    <button
+      onclick="primerProducto(document.getElementById('unidades').value);"
+    >
+      Primer producto con X unidades de stock
+    </button>
+    <button
+      onclick="ultimoProducto(document.getElementById('unidades').value);"
+    >
+      Ultimo producto con X unidades de estoc
+    </button>
+    <br /><br />
+    <button onclick="minDeUnidades()">Productos con 10 unidades?</button>
+    <button onclick="senseStock()">Existen productos sin stock?</button>
+    <button onclick="listadeProductosSinStock()">
+      Listado de productos sin stock.
+    </button>
+    <br /><br />
+    <label for="valor1">1º Valor</label>
+    <input type="text" id="valor1" size="3" />
+    <label for="valor2">2º Valor.</label>
+    <input type="text" id="valor2" size="3" />
+    <button onclick="listaParcialDeStock()">
+      Listado del stock desde el producto 1º valor al producto 2º valor
+    </button>
+    <button onclick="añadirStockPosicionValor1()">
+      Añadir 1 producto a partir del producto con id del campo 1º valor.
+    </button>
+    <div id="info"></div>
+    <br />
+    <h2>Funcionalidades del comprador:</h2>
+    <br />
+    <label for="numProducto">Numero del producte que vols comprar:</label>
+    <input type="text" id="numProducto" size="10" />
+    <button onclick="comprar(document.getElementById('numProducto').value);">
+      Comprar Producte
+    </button>
+    <br />
+    <h2>listar de products:</h2>
+    <div id="listar"></div>
+    <br />
+    <h2>Els products més ventas son:</h2>
+    <div id="ventas"></div>
+  </body>
+  <script>
+    var products = [];
+    var vendes = [];
+    function verStock() {
+      var listar = '<ul>';
+      for (var x in products) {
+        listar +=
+          '<li>El producto ' + x + ' tiene ' + products[x] + ' unidades';
+      }
+      listar += '</ul>';
+      document.getElementById('listar').innerHTML = listar;
+    }
+
+    onload = function () {
+      products = productosConStockMinimo(10);
+    };
+
+    function ampliarStock() {
+      var nouEstoc = productosConStockMinimo();
+      products = products.concat(nouEstoc);
+      verStock();
+    }
+
+    function productosConStockMinimo(num) {
+      if (arguments.length === 0) {
+        num = Math.floor(Math.random() * 5 + 1);
+      }
+      var p = [];
+      while (num !== 0) {
+        p.push(Math.floor(Math.random() * 100));
+        num--;
+      }
+      return p;
+    }
+
+    function comprar(numProducto) {
+      if (products[numProducto] !== undefined) {
+        products[numProducto]--;
+        if (products[numProducto] !== -1) {
+          if (vendes[numProducto] === undefined) {
+            vendes[numProducto] = 0;
+          }
+          vendes[numProducto]++;
+        } else {
+          products[numProducto] = 0;
+        }
+        ranquing();
+        verStock();
+      }
+    }
+
+    function nuevoProducto() {
+      products.push(Math.floor(Math.random() * 100));
+      verStock();
+    }
+
+    function eliminarProducto() {
+      products.pop();
+      verStock();
+    }
+    //Funcion auxiliar que ayuda a ordenar los productos
+    function sortNumber(a, b) {
+      return a - b;
+    }
+
+    function ordenarproduct() {
+      products.sort(sortNumber);
+      verStock();
+    }
+    //funcion para ordenar segun las ventas del producto
+    function sortProducte(a, b) {
+      var aa = a.split('-')[0];
+      var bb = b.split('-')[0];
+      return aa - bb;
+    }
+    function ranquing() {
+      var aux = [];
+
+      for (var numProducto in vendes) {
+        aux.push(vendes[numProducto] + '-' + numProducto);
+      }
+      //ordenar los productos segun las unidades vendidas
+      //Funcion de ordenacion para separar las unidades vendidas del numproducte.
+      aux.sort(sortProducte).reverse();
+      //llistar los productos ordenados
+      var listar = '<ul>';
+      for (var index in aux) {
+        var arr = aux[index].split('-');
+
+        listar +=
+          "<li>s'Ha vendido " +
+          arr[0] +
+          ' unidades del producto ' +
+          arr[1] +
+          '</li>';
+      }
+      listar += '</ul>';
+
+      document.getElementById('ventas').innerHTML = listar;
+    }
+
+    function primerProducto(unidades) {
+      var unint = parseInt(unidades);
+      if (products.indexOf(unint) !== -1) {
+        document.getElementById('info').innerHTML = products.indexOf(unint);
+      } else {
+        document.getElementById('info').innerHTML =
+          'No hay ningún producto con ' + unidades + ' unidades.';
+      }
+    }
+
+    function ultimoProducto(unidades) {
+      var unint = parseInt(unidades);
+      if (products.lastIndexOf(unint) !== -1) {
+        document.getElementById('info').innerHTML = products.lastIndexOf(unint);
+      } else {
+        document.getElementById('info').innerHTML =
+          'No hay ningún producto con ' + unidades + ' unidades.';
+      }
+    }
+
+    //  * Queremos comprobar si todos los productos Tienen más de 10 unidades de stocks
+
+    function checkDeuunidades(unidades) {
+      return unidades >= 10;
+    }
+
+    function minDeUnidades() {
+      document.getElementById('info').innerHTML =
+        'Todos los productos Tienen más de 10 unidades?' +
+        products.every(checkDeuunidades);
+    }
+
+    //  * Queremos comprobar si algún producto Tiene 0 unidades de stock
+
+    function checkBuit(unidades) {
+      return unidades === 0;
+    }
+
+    function senseStock() {
+      document.getElementById('info').innerHTML =
+        'Hay productos sin stock?' + products.some(checkBuit);
+    }
+
+    //  Queremos saber qué productos Tienen 0 unidades de stock.
+    function checkBuitSplit(unidades) {
+      var aa = unidades.split('-')[0];
+      return parseInt(aa) === 0;
+    }
+    function listadeProductosSinStock() {
+      var listar = 'No hay productos sin stock.';
+
+      if (products.some(checkBuit)) {
+        var aux = [];
+        var arr = [];
+        listar = '';
+        for (var numProducto in products) {
+          arr.push(products[numProducto] + '-' + numProducto);
+        }
+        aux = arr.filter(checkBuitSplit);
+        for (var index in aux) {
+          listar +=
+            '<li>El producto ' +
+            aux[index].split('-')[1] +
+            ' no tiene stock.</li>';
+        }
+        document.getElementById('info').innerHTML = '<ul>' + listar + '</ul>';
+      } else {
+        document.getElementById('info').innerHTML = listar;
+      }
+    }
+
+    //  * Queremos un listar del stock desde el producto X al producto Y ( slice)
+    function listaParcialDeStock() {
+      var ini = parseInt(document.getElementById('valor1').value);
+      var fin = parseInt(document.getElementById('valor2').value);
+      var estoc = products.slice(ini, fin);
+      document.getElementById('info').innerHTML = estoc.toString();
+      verStock();
+    }
+
+    //  * Queremos añadir 1 producto a partir de una posición X de la array products (* splice) .
+
+    function añadirStockPosicionValor1() {
+      var ini = parseInt(document.getElementById('valor1').value);
+      products.splice(ini, 0, Math.floor(Math.random() * 100));
+      verStock();
+    }
+  </script>
+</html>

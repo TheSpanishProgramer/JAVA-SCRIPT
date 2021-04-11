@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Funciones anónimas con número</title>
+    <style></style>
+    <script>
+      var persona = {
+        cantar: function xiular(n) {
+          return n > 1 ? xiular(n - 1) + '-fiu' : 'fiu';
+        },
+      };
+      document.write(
+        'Llamamos al metodo cantar para que a su vez llame a la funcion auxiliar: persona.cantar(3): <b>'
+      );
+      document.write(persona.cantar(3) + '</b><br>');
+      document.write(
+        'Intentamos llamar a la funcion auxiliar directamente, pero no funciona:<br>'
+      );
+      document.write(persona.xiular(3));
+      document.write(window.xiular(3));
+    </script>
+  </head>
+  <body></body>
+</html>

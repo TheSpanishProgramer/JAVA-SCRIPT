@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>
+      Haz que tu página sea la página de inicio del navegador del visitante
+    </title>
+
+    <style type="text/css">
+      A.clase1:link {
+        /* Color del enlace no visitado */
+        text-decoration: none;
+        color: #0000ff;
+      }
+
+      A.clase1:visited {
+        /* Color del enlace visitado */
+        text-decoration: none;
+        color: #ff0000;
+      }
+
+      A.clase1:active {
+        /* Color que toma el ultimo enlace visitado */
+        text-decoration: none;
+        color: #99ff00;
+      }
+
+      A.clase1:hover {
+        /* Color que toma el enlace al pasar el raton sobre el */
+        text-decoration: underline;
+        color: #ffff00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a
+      href="http://www.jpstudioweb.com#"
+      class="clase1"
+      onclick="this.style.behavior='url(#default#homepage)';
+this.setHomePage('http://www.jpstudioweb.com');"
+      >Página de inicio</a
+    >
+  </body>
+</html>

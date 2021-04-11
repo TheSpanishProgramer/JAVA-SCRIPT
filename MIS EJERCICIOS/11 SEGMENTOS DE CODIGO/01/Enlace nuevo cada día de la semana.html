@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>
+      Con este script se puede mostrar una pagina nueva cada día de la semana
+    </title>
+    <script>
+      var semana = new Array();
+
+      semana[00] = 'http://www.jpstudioweb.com/domingo.htm';
+      semana[01] = 'http://www.jpstudioweb.com/lunes.htm';
+      semana[02] = 'http://www.jpstudioweb.com/martes.htm';
+      semana[03] = 'http://www.jpstudioweb.com/miercoles.htm';
+      semana[04] = 'http://www.jpstudioweb.com/jueves.htm';
+      semana[05] = 'http://www.jpstudioweb.com/viernes.htm';
+      semana[06] = 'http://www.jpstudioweb.com/sabado.htm';
+
+      var myday = new Date();
+      var foto_diasemana = myday.getDay();
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <a
+        href="jpstudioweb"
+        onClick="window.location=semana[foto_diasemana];return false"
+      >
+        <font face="Verdana" size="2"><b>ENLACE DE HOY</b></font></a
+      >
+    </center>
+
+    <center>
+      <a
+        href="jpstudioweb"
+        onClick="window.location=semana[foto_diasemana];return false"
+      >
+        <img border="0" src="imagen.jpg" width="125" height="125"
+      /></a>
+    </center>
+
+    <center>
+      <input
+        type="button"
+        value="ENLACE DE HOY"
+        onClick="window.location=semana[foto_diasemana];return false"
+      />
+    </center>
+  </body>
+</html>

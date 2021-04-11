@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>String como variable u objeto, segun se declare</title>
+    <style></style>
+    <script>
+      var animal = {
+        id: 345,
+        nom: 'Gato',
+        classe: 'Mamifero',
+        familia: 'Felino',
+      };
+
+      console.log(animal.id);
+
+      var animal = {
+        id: 345,
+        nom: 'Perro',
+        classe: 'Mamifero',
+        familia: 'Canino',
+        get_taxo: function () {
+          return this.classe + ' - ' + this.familia;
+        },
+      };
+
+      console.log(animal.get_taxo());
+
+      var animal = 'Aguila';
+      console.log(animal);
+      console.log(animal.length);
+      console.log(animal.toUpperCase());
+
+      var animal = 'Aguila';
+      console.log(animal);
+      console.log(typeof animal);
+
+      var vegetal = new String('Acelga');
+      console.log(vegetal);
+      console.log(typeof vegetal);
+
+      var x = 234.6789;
+      console.log(x.toFixed(2));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,40 @@
+ {% comment %} Contador : Object Interface {% endcomment %}
+
+ <!DOCTYPE html > 
+<html> 
+<head><meta charset="utf-8"/> 
+<script type="text/javascript"> 
+let objContador = (function (inicio) { 
+ let contador = 0; 
+ 
+ return { 
+ incrementarcontador: function () { 
+ return contador++; 
+ }, 
+ 
+ salirpantalla: function () { 
+ let cadena = "El contador es: " + contador; 
+ document.getElementById("salida").innerHTML = cadena; 
+ }, 
+ 
+ resetcontador: function () { 
+ console.log( "contador antes de reset: " + contador ); 
+ contador = 0; 
+ } 
+ }; 
+})(); 
+ 
+function incrementar (){ 
+objContador.incrementarcontador(); 
+objContador.salirpantalla(); 
+} 
+</script> 
+</head> 
+<body> 
+ <div id="salida"></div> 
+ 
+ <input type="button" value="Incrementa contador" onclick="incrementar()" > 
+ 
+</body> 
+</head> 
+</html>

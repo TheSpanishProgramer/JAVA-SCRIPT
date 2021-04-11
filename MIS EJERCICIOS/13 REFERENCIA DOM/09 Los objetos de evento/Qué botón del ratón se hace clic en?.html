@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>(laespañaprogramadora.com)</title>
+    <script type="text/javascript">
+      function whichButton(event)
+      {
+      var btnNum = event.button;
+      if (btnNum==2)
+        {
+        alert("¡Hiciste clic con el botón derecho del mouse!")
+        }
+      else if(btnNum==0)
+        {
+        alert("¡Hiciste clic en el botón izquierdo del mouse!")
+        }
+      else if(btnNum==1)
+        {
+        alert("¡Hiciste clic en el botón central del mouse!");
+        }
+      else
+        {
+        alert("
+      Hiciste clic" + btnNum+ "Tecla numérica, no puedo determinar su nombre.");
+        }
+      }
+    </script>
+  </head>
+
+  <body onmousedown="whichButton(event)">
+    <p>
+      Haga clic con el mouse en el documento. Un cuadro de mensaje indicará en
+      qué botón del mouse hizo clic.
+    </p>
+  </body>
+</html>

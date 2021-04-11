@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Herencia / invocación de métodos al prototipo</title>
+    <style></style>
+    <script>
+      var Arma = function (nombre) {
+        this.nombre = nombre;
+        this.so = 'Zas!';
+        this.potencia = 1;
+      };
+
+      Arma.prototype.atacar = function (objetivo) {
+        console.log(
+          this.so +
+            ' Se ha causado ' +
+            this.potencia +
+            ' puntos de daño ' +
+            objetivo
+        );
+      };
+
+      var ArmaAmbMunicio = function (nombre, maxMunicio) {
+        Arma.call(this, nombre);
+        this.municio = maxMunicio;
+        this.so = 'Bang!';
+        this.potencia = 2;
+      };
+
+      // Se relaciona el prototipo del padre y se corrige el constructor
+      ArmaAmbMunicio.prototype = Object.create(Arma);
+      ArmaAmbMunicio.prototype.constructor = ArmaAmbMunicio;
+
+      ArmaAmbMunicio.prototype.parent = Arma.prototype;
+      ArmaAmbMunicio.prototype.atacar = function (objetivo) {
+        if (this.municio > 0) {
+          this.municio--;
+          ArmaAmbMunicio.prototype.parent.atacar.call(this, objetivo);
+        } else {
+          console.log('Click! no queda munició!');
+        }
+      };
+
+      var cuchillo = new Arma('cuchillo');
+      var pistola = new ArmaAmbMunicio('Pistola', 2);
+
+      cuchillo.atacar('Zombi');
+      pistola.atacar('PerroZombi');
+      pistola.atacar('PerroZombi');
+      pistola.atacar('PerroZombi');
+
+      var ak47 = new ArmaAmbMunicio('Kalàixnikov', 10);
+      ak47.atacar = function (objetivo) {
+        for (var i = 0; i < 10; i++) {
+          ArmaAmbMunicio.prototype.atacar.call(this, objetivo);
+        }
+      };
+      ak47.atacar('Horda de zombis');
+    </script>
+  </head>
+  <body></body>
+</html>

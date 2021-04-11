@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Declaración literal/ Eliminación de propiedades</title>
+    <style></style>
+    <script>
+      var arma = {
+        nombre: 'pistola',
+        municio: 19,
+      };
+
+      console.log('Munición de ' + arma.nombre + ': ' + arma.municio);
+      delete arma.municio;
+      console.log('Munición de ' + arma.nombre + ': ' + arma.municio);
+    </script>
+  </head>
+  <body></body>
+</html>

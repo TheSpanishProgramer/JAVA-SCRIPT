@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo detección de eventos</title>
+    <style></style>
+    <script>
+      // Guardamos Los elementos en variables
+      var primerElement = document.getElementById('primer'),
+        segonElement = document.getElementById('segon');
+
+      // Asignamos a cada elemento una funcionaria que será gritada Cuando se haga clic
+      primerElement.onclick = function (e) {
+        alert('Clic al primer element de tipus: ' + e.type);
+      };
+
+      segonElement.onclick = function (e) {
+        alert('Clic al segon element de tipus: ' + e.type);
+      };
+    </script>
+  </head>
+  <body>
+    <button id="primer">Haz clic en el primer elemento!</button>
+    <button>Aquí no Hace nada, No tiene menoscabe id para referirnos</button>
+    <button id="segon">Haz clic en el segundo elemento!</button>
+    <button id="tercer">
+      Aquí si que Tenemos id , pero no Hemos añadido ninguna Función
+    </button>
+  </body>
+</html>

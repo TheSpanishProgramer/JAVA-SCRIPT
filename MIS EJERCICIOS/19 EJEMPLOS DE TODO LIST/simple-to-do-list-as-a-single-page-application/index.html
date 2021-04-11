@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Simple data bind </title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/todo.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+	<style>
+		
+		.margin-top-10{
+			margin-top: 10px;
+		}
+		
+		.padding-bottom-5{
+			padding-bottom: 5px;
+		}	
+		
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Todo List</h1>
+
+		<div data-bind="visible: listVisible">
+			<form data-bind="submit: addListTask">
+				<div class="margin-top-10">
+					Add list: <input data-bind="value: newListText" placeholder="Humm a new list?" />
+					<button type="submit" class="btn btn-primary btn-sm">Add</button>
+				</div>
+			</form>
+			<ul data-bind="foreach : listTask" class="margin-top-10">
+				<li class="padding-bottom-5"><span data-bind="text: title, visible: !editable(), click: $parent.toggleEditableList"></span><input data-bind="value: title, visible: editable, hasFocus: editable" /></span> <button class="btn btn-sm" data-bind="click: $parent.showList">Show</button></li>
+			</ul>
+		</div>
+
+		<div id="listItems" data-bind="visible: itemsListVisible">
+			<form data-bind="submit: addTask">
+			<div class="margin-top-10">
+				Add task: <input data-bind="value: newTaskText" placeholder="What needs to be done?" />
+				<button type="submit" class="btn btn-primary btn-sm">Add</button>
+			</div>
+
+			</form>
+			<div class="row">
+				<div class="col-lg-6">
+					<table class="table table-hover table-condensed" >
+					<thead>
+						<tr>
+							<th class="col-lg-2"><input type="checkbox" data-bind="click: selectAll, checked: allSelected"/></th>
+							<th class="col-lg-5">Title</th>
+							<th class="col-lg-5">Delete</th>
+						</tr>
+					</thead>
+						<tbody data-bind="foreach: tasks">
+							<tr data-bind="css: { active : isDone()}">
+								<td class="col-lg-2"><input type="checkbox" data-bind="checked: isDone" /></td>
+								<td class="col-lg-5"><span data-bind="text: title, visible: !editable(), click: $parent.toggleEditable"></span><input data-bind="value: title, disable: isDone, visible: editable, hasFocus: editable" /></td>
+								<td class="col-lg-5"><a href="#" data-bind="click: $parent.remove"><span class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+						</tbody>
+					</table>
+					<button class="btn btn-primary btn-sm" data-bind="click: backToMenu">Back</button>
+				</div>  
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="script/todo.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</body>
+<script>
+	
+	function Task(data){
+		this.title  = ko.observable(data.title);
+		this.isDone = ko.observable(data.isDone);
+		this.editable = ko.observable(false);
+	}
+	
+	function ListTask(data){
+		this.title = ko.observable(data.title);
+		this.tasks = ko.observableArray([]);
+		this.editable = ko.observable(false);
+	}
+	
+	function ViewModel() {
+		var self = this;
+		self.listVisible = ko.observable(true);
+		self.itemsListVisible = ko.observable(false);
+		self.listTask = ko.observableArray([]);
+		self.newTaskText = ko.observable();
+		self.newListText = ko.observable();
+		self.allSelected = ko.observable(false);
+		self.tasks = ko.observableArray([]);
+	
+		self.addListTask = function(){
+			self.listTask.push(new ListTask({title: self.newListText()}));
+			self.newListText("");
+		};
+	
+		self.toggleEditableList = function(list){
+			list.editable(!list.editable());
+		};
+	
+		self.showList = function(list){
+			self.listVisible(false);
+			self.itemsListVisible(true);
+			self.tasks(list.tasks());
+		};
+	
+		self.backToMenu = function(){
+			self.listVisible(true);
+			self.itemsListVisible(false);
+			self.tasks([]);
+		};
+	
+		self.addTask = function(){
+			self.tasks.push(new Task({title : this.newTaskText()}));
+			self.newTaskText("");
+		};
+	
+		self.remove = function(task){
+			self.tasks.remove(task);
+		};
+	
+		self.selectAll = function(){
+			var all = self.allSelected();
+			ko.utils.arrayForEach(self.tasks(),function(entry){
+				entry.isDone(!all); 
+			});
+			return true;
+		};
+	
+		self.toggleEditable = function(task){
+			task.editable(!task.editable());
+		};
+	}
+	
+	ko.applyBindings(new ViewModel());
+	
+	
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let httpRequest = new XMLHttpRequest();
+        var cadena = "";
+
+        function obtenerDatosTriangulos(url) {
+            return new Promise(function (resolve, reject) {
+                httpRequest.onload = function () {
+                    var respuesta = JSON.parse(httpRequest.responseText);
+
+                    resolve(respuesta);
+                }
+
+                httpRequest.open('GET', url, true);
+                httpRequest.send();
+            });
+        }
+
+        function calcularHipotenusa(triangulo) {
+            return new Promise(function (resolve, reject) {
+
+                setTimeout(function () {
+                    for (let i = 0; i < triangulo.triangulos.length; i++) {
+
+                        let hipotenusa = Math.hypot(triangulo.triangulos[i].catetos[0], triangulo.triangulos[i].catetos[1]);  //Cateto1,Cateto2
+                        triangulo.triangulos[i].hipotenusa = hipotenusa;
+                    }
+
+                    resolve(triangulo);
+                }, 2000);
+            });
+        }
+
+        function formatearTexto(triangulo) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    for (let i = 0; i < triangulo.triangulos.length; i++) {
+                        cadena += "Cateto 1 = " + triangulo.triangulos[i].catetos[0] + "\n";
+                        cadena += "Cateto 2 = " + triangulo.triangulos[i].catetos[1] + "\n";
+                        cadena += "Hipotenusa = " + triangulo.triangulos[i].hipotenusa + "\n";
+                        cadena += "Nombre = " + triangulo.triangulos[i].nombre + "\n";
+
+                    }
+                    resolve(cadena);
+
+                }, 2000);
+
+            });
+        }
+
+        obtenerDatosTriangulos("datosTriangulos.json").then(resolve => calcularHipotenusa(resolve)).then(resolve => formatearTexto(resolve)).then(resolve => console.log(resolve));
+
+
+
+
+    </script>
+</body>
+
+</html>

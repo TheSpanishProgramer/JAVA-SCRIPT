@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+  </head>
+  <body>
+    <form>
+      Botón:
+      <input type="button" id="firstbtn" value="OK" />
+      <input type="button" id="secondbtn" value="OK" />
+    </form>
+    <p>
+      Haga clic en el botón de abajo para cancelar el primer botón de arriba.
+    </p>
+    <button onclick="disableElement()">Botón cancelar</button>
+    <script>
+      function disableElement() {
+        document.getElementById('firstbtn').disabled = true;
+      }
+    </script>
+  </body>
+</html>

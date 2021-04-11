@@ -1,0 +1,50 @@
+
+<HTML>
+  <HEAD>
+    <TITLE>Recomendar página</TITLE>
+	<SCRIPT TYPE="text/javascript">
+		var good;
+ 
+		function checkEmailAddress(field)
+		{
+			var goodEmail=field.value.match(/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/);
+ 
+			if(goodEmail)
+			{
+				good=true;
+				alert('El e-mail es válido!');
+ 
+			}else{
+				alert('Por favor introduce un e-mail valido!');
+				field.focus();
+				field.select();
+				good=false;
+			}
+		}
+ 
+		u=window.location;
+		m="Pienso que te puede interesar esta página...";
+ 
+		function mailThisUrl()
+		{
+			good=false;
+			checkEmailAddress(document.eMailer.address);
+ 
+			if(good)
+			{
+				window.location="mailto:"+document.eMailer.address.value+"?subject="+m+"&body="+document.title+": "+u;
+			}
+		}
+ 
+	</SCRIPT>	
+  </HEAD>
+  <BODY>
+	<FORM NAME="eMailer">
+		<h3>ENVÍA ESTA PÁGINA A UN AMIGO</h3>
+		Indica su e-mail:
+		</br>
+		<INPUT TYPE="text" NAME="address" SIZE="25">
+		<INPUT TYPE="button" VALUE="Recomienda esta web!" onclick="mailThisUrl()">
+    </FORM>
+  </BODY>
+</HTML>

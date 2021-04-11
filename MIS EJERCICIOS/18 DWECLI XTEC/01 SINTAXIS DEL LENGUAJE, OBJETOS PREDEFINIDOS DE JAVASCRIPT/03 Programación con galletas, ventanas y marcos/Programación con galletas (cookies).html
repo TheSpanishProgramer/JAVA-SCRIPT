@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Programación con galletas (cookies)</title>
+    <style>
+
+
+
+    </style>
+    <script>
+
+function cargarCookies() {
+var nom_cookie, valor_cookie;
+var temp;
+var array_cookies = document.cookie.split('; ');
+for(var i = 0; i < array_cookies.length; i++) {
+temp = array_cookies[i].split('=');
+nom_cookie = temp[0];
+valor_cookie = temp[1];
+console.log("Nombre de la cookie: " + nom_cookie + "; valor de la cookie: " + valor_cookie);
+var h1 = document.getElementById("header");
+if (nom_cookie=="idioma" && valor_cookie=="catalan") {
+h1.innerHTML = "Text en català";
+} else if (nom_cookie=="idioma" && valor_cookie=="Castellano") {
+h1.innerHTML = "Texto en castellano";
+} else if (nom_cookie=="idioma" && valor_cookie=="Ingles") {
+h1.innerHTML = "Text in English";
+}
+if (nom_cookie=="color") {
+document.body.style.backgroundColor = valor_cookie;
+}
+}
+}
+
+    </script>  
+  </head>
+  <bodyonload="cargarCookies()">
+<h1 id="header">Funcionamiento de las Cookies</h1>
+Para ver los Cambios, actualizar la página.<br />
+<button onclick="document.cookie = 'idioma = Catalan';">Catalan</button>
+<button onclick="document.cookie = 'idioma = Castellano';">Castellano</button>
+<button onclick="document.cookie = 'idioma = Ingles';">Ingles</button><br />
+<button onclick="document.cookie = 'color = red';">Rojo</button>
+<button onclick="document.cookie = 'color = blue';">Azul</button>
+<button onclick="document.cookie = 'color = green';">Verde</button>
+</body>
+</html>

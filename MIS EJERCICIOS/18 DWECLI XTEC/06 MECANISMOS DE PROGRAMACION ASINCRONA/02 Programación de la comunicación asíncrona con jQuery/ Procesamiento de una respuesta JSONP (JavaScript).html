@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Procesamiento de una respuesta JSONP (JavaScript)</title>
+    <style></style>
+    <script>
+      $.ajax({
+        url: 'provincies.js',
+        beforeSend: function (jqXHR) {
+          jqXHR.overrideMimeType('application/javascript');
+        },
+        success: processarResposta,
+        dataType: 'script',
+      });
+
+      function processarResposta(dadesJS, statusText, jqXHR) {
+        console.log('Dades rebudes:', dadesJS);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function rowRules() {
+        document.getElementById('myTable').rules = 'rows';
+      }
+      function colRules() {
+        document.getElementById('myTable').rules = 'cols';
+      }
+    </script>
+  </head>
+  <body>
+    <table id="myTable" border="1">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+    </table>
+    <br />
+    <input
+      type="button"
+      onclick="rowRules()"
+      value="Mostrar solo bordes de línea"
+    />
+    <input
+      type="button"
+      onclick="colRules()"
+      value="Para mostrar el borde de la columna"
+    />
+  </body>
+</html>

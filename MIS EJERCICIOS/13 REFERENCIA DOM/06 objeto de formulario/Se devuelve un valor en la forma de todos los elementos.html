@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+  </head>
+  <body>
+    <form id="frm1" action="demo-form.php">
+      Nombre: <input type="text" name="fname" value="Donald" /><br />
+      Apellido: <input type="text" name="lname" value="Duck" /><br />
+      <input type="submit" value="提交" />
+    </form>
+    <p>Devuelve el valor de cada elemento en el formulario:</p>
+    <script>
+      var x = document.getElementById('frm1');
+      for (var i = 0; i < x.length; i++) {
+        document.write(x.elements[i].value);
+        document.write('<br>');
+      }
+    </script>
+  </body>
+</html>

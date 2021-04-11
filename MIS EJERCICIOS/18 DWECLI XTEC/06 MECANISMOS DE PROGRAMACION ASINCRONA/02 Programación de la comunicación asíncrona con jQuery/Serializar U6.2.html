@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Serializar U6</title>
+    <style></style>
+    <script>
+      $('button').on('click', function () {
+        var serialitzat = $('form').serializeArray();
+        console.log(serialitzat);
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <input name="nom" value="Maria" />
+      <input name="cognom" value="Campmany" />
+    </form>
+    <button>Comprovar</button>
+  </body>
+</html>

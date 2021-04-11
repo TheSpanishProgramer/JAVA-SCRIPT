@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Una función puede devolver otra función</title>
+    <style></style>
+    <script>
+      function estudiar(frase) {
+        return function () {
+          document.write(frase);
+        };
+      }
+      var callback = estudiar('Mola estudiar javascript!');
+
+      callback();
+    </script>
+  </head>
+  <body></body>
+</html>

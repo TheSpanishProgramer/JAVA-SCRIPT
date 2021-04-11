@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(laespañaprogramadora.com)</title>
+    <script>
+      function getElements() {
+        var x = document.getElementsByName('x');
+        alert(x.length);
+      }
+    </script>
+  </head>
+  <body>
+    Gato:
+    <input name="x" type="radio" value="Gato" />
+    perro:
+    <input name="x" type="radio" value="perro" />
+    <input
+      type="button"
+      onclick="getElements()"
+      value="Cuantos nombres hay 'x' Elementos?"
+    />
+  </body>
+</html>

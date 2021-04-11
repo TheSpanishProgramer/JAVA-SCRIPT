@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Informació bàsica de los elementos</title>
+    <style></style>
+  </head>
+  <body>
+    <h1 class="principal">Primera lista</h1>
+    <p id="contenido" class="principal parrafo" title="Aqui va un parrafo">
+      Un parrafo
+    </p>
+  </body>
+
+  <script>
+    var elementH1 = document.getElementsByTagName('h1')[0];
+    var elementP = document.getElementsByTagName('p')[0];
+
+    elementH1.tagName = 'H2';
+
+    console.log('-- Tag de los elementos --');
+    console.log(elementH1.tagName);
+    console.log(elementP.tagName);
+
+    console.log('-- Classes de los elementos --');
+    console.log(elementH1.className);
+    console.log(elementP.className);
+
+    console.log('-- Modificación de los clases de los Elementos --');
+    elementH1.className = elementH1.className + 'ampliación';
+    elementP.className = 'cambio por las nuesvas clases ';
+
+    console.log('-- Clases de Los elementos ampliados--');
+    console.log(elementH1.className);
+    console.log(elementP.className);
+
+    console.log('-- Lista de clases del parrafo --');
+    for (var i = 0; i < elementP.classList.length; i++) {
+      console.log('Clase ' + i + ':' + elementP.classList[i]);
+    }
+
+    console.log('-- Identificadores de los Elementos--');
+    console.log('Contenido: ' + elementH1.id);
+    console.log('Parrafo: ' + elementP.id);
+    elementH1.id = 'actualizado';
+    elementP.id = elementP.id + ' actualizado';
+
+    console.log('-- Identificadores de los Elementos actualizados--');
+    console.log('Cabecera: ' + elementH1.id);
+    console.log('Parrafo: ' + elementP.id);
+  </script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Propiedades del objeto Number</title>
+    <style></style>
+    <script>
+      console.log((18).toString() + (20).toString());
+
+      var x = 234.456;
+      console.log(typeof x); //numero
+      console.log(Number.isInteger(x)); //false
+      console.log(x.toExponential());
+      x = x.toFixed(2); // 234.46, redondea de la forma esperada
+      console.log(x);
+      console.log(typeof x); //string! por el momento es un string
+      x = parseFloat(x);
+      console.log(typeof x); //number. vuelve a ser un numero
+
+      x = x.toPrecision(6); //234.460
+      console.log(x);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html xmlns="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 06B</title>
+
+<script >
+var i = parseInt(prompt("Ingrese el primer numero: "));
+var b = parseInt(prompt("Ingrese el segundo numero: "));
+
+for (i ; i <= b; i++) {
+   (function(ind) {
+       setTimeout(function(){document.write(ind+ " <br>");}, 1000 + (1000 * ind));
+   })(i);
+}
+</script>
+</head>
+
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,23 @@
+ <HEAD>
+    <TITLE>Texto Bloqueado</TITLE>
+      <SCRIPT LANGUAGE="JavaScript">
+        function disableselect(e)
+        {
+          return false
+        }   
+        function reEnable()
+        {
+          return true
+        }
+        document.onselectstart=new Function("return false")
+        if(window.sidebar)
+        {
+          document.onmousedown=disableselect
+          document.onclick=reEnable
+        }
+      </SCRIPT>
+  </HEAD>
+  <BODY>
+    <p>Si intentas copiar este texto no te voy a dejar!!!</p>
+  </BODY>
+</HTML>

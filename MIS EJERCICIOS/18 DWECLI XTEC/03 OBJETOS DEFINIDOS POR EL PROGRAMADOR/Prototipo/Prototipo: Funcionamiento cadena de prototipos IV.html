@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Prototipo/ Funcionamiento cadena de prototipos IV</title>
+    <style></style>
+    <script>
+      // Constructor de armas
+      var Arma = function (nombre) {
+        this.nombre = nombre;
+        this.potencia = 1;
+      };
+
+      // Se Anadir los Métodos que serán compartidos por todas las armas
+      Arma.prototype.atacar = function (objetivo) {
+        console.log(
+          'Zap! causa ' + this.potencia + ' puntos de saño a ' + objetivo
+        );
+      };
+
+      Arma.prototype.equipar = function () {
+        console.log('Se ha equipado ' + this.nombre);
+      };
+
+      // Se Instancia un nuevo arma
+      var cuchillo = new Arma('cuchillo');
+
+      // Se comprueba que efectivamente se ha añadido el método atacar
+      cuchillo.equipar();
+      cuchillo.atacar('Zombi');
+
+      // Constructor por un tipo especializado de armas
+      var ArmaAmbmunicion = function (nombre, maxmunicionn) {
+        // Se Tiene que gritar en la clase padre, pasando como Contexto this y el número del arma como parámetros
+        Arma.call(this, nombre);
+
+        // Se ida o modifican las propiedades necesarias
+        this.potencia = 2;
+        this.maxmunicionn = maxmunicionn;
+        this.municion = maxmunicionn;
+      };
+
+      // Se establece como prototipo el prototipo de Arma
+      ArmaAmbmunicion.prototype = Object.create(Arma.prototype);
+
+      // Se corrige el constructor del prototipo Porque apunte al de este constructor
+      ArmaAmbmunicion.prototype.constructor = ArmaAmbmunicion.constructor;
+
+      // Aumentamos el prototipo de ArmaAmbmunicion con nuevos Métodos
+      ArmaAmbmunicion.prototype.atacar = function (objetivo) {
+        if (this.municion > 0) {
+          this.municion--;
+          console.log(
+            'Bang! causa ' + this.potencia + ' puntos de daño a ' + objetivo
+          );
+        } else {
+          console.log('Click! no queda munició!');
+        }
+      };
+
+      ArmaAmbmunicion.prototype.recargar = function () {
+        this.municion = this.maxmunicionn;
+        console.log(this.nombre + ' recargarda');
+      };
+
+      var pistola = new ArmaAmbmunicion('Pistola', 2);
+      pistola.equipar();
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.atacar('Zombi');
+      pistola.recargar();
+      pistola.atacar('Zombi');
+
+      // Se crea una nueva instancia de ArmaAmbmunicion y se aumenta con el método atacar ();
+      var escopetaRecortada = new ArmaAmbmunicion(
+        'Escopeta de cañones recortados ',
+        2
+      );
+      escopetaRecortada.atacar = function (objetivo) {
+        console.log(
+          'Boom! causa ' + this.potencia * 3 + ' puntos de daño ' + objetivo
+        );
+      };
+
+      // Es comprova el seu funcionament
+      escopetaRecortada.atacar('Zombi');
+      escopetaRecortada.atacar('Zombi');
+      escopetaRecortada.atacar('Zombi');
+
+      // Es crea una nova instancia d'ArmaAmbmunicion i s'augmenta amb el mètode atacar();
+      var escopetaRecortada = new ArmaAmbmunicion(
+        'Escopeta de cañones recortados',
+        2
+      );
+      escopetaRecortada.atacar = function (objetivo) {
+        console.log(
+          'Boom! causa ' + this.potencia * 3 + ' puntos de daño a ' + objetivo
+        );
+      };
+
+      // Se comprueba super Funcionamiento
+      escopetaRecortada.atacar('Zombi');
+      escopetaRecortada.atacar('Zombi');
+      escopetaRecortada.atacar('Zombi');
+
+      console.log(
+        'Se cuchillo una instancia de Object?',
+        cuchillo instanceof Object
+      );
+      console.log(
+        'Se pistola una instancia de Object?',
+        pistola instanceof Object
+      );
+      console.log(
+        'Se escopetaRecortada una instancia de Object?',
+        escopetaRecortada instanceof Object
+      );
+      console.log(
+        'Se cuchillo una instancia de Arma?',
+        cuchillo instanceof Arma
+      );
+      console.log('Es pistola una instancia de Arma?', pistola instanceof Arma);
+      console.log(
+        'Es escopetaRecortada una instància de Arma?',
+        escopetaRecortada instanceof Arma
+      );
+      console.log(
+        'Es cuchillo una instància de ArmaAmbmunicion?',
+        cuchillo instanceof ArmaAmbmunicion
+      );
+      console.log(
+        'Es pistola una instància de ArmaAmbmunicion?',
+        pistola instanceof ArmaAmbmunicion
+      );
+      console.log(
+        'Es escopetaRecortada una instància de ArmaAmbmunicion?',
+        escopetaRecortada instanceof ArmaAmbmunicion
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

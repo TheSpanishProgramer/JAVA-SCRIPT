@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Almacenar información con Local Storage</title>
+    <style>
+
+
+
+    </style>
+    <script>
+
+		function guardar() {
+			var animal = document.getElementById("nomAnimal").value;
+			var vegetal = document.getElementById("nomVegetal").value;
+			/*Guardamos los datos en localStorage*/
+			localStorage.setItem("animal", animal);
+			localStorage.setItem("vegetal", vegetal);
+			/* limpiamos los campos*/
+			document.getElementById("nomAnimal").value = "";
+			document.getElementById("nomVegetal").value = "";
+		};  
+		
+		function cargar() {
+			var animal = localStorage.getItem("animal");
+			var vegetal = localStorage.getItem("vegetal");
+			document.getElementById("nomAnimal").value = animal;
+			document.getElementById("nomVegetal").value = vegetal;
+		}
+
+    </script>  
+  </head>
+  <body>
+
+<center>
+<h1>Ejemplo localStorage</h1>
+<input type="text"  placeholder="nombre de animal" id="nomAnimal"><br />
+<input type="text"  placeholder="nombre de vegetal" id="nomVegetal"><br />
+
+<button onclick="guardar()">Guardar</button>
+<button onclick="cargar()">Cargar</button>
+
+  </body>
+</html>

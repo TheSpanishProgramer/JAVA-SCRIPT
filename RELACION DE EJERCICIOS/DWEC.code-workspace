@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../DAW 2º AÑO/01 DESARROLLO WEB EN ENTORNO CLIENTE/03 MIS EJERCICIOS"
+		}
+	],
+	"settings": {
+		"eslint.enable": false,
+		"standard.enable": false,
+		"tslint.enable": false,
+		"git.ignoreLimitWarning": true,
+		"liveServer.settings.multiRootWorkspaceName": "03 MIS EJERCICIOS"
+	}
+}

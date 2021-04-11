@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Ejemplo de cookies recuperar valor y función getCookie (clave)
+    </title>
+    <style></style>
+    <script>
+      // crear una cookie
+      document.cookie = 'seu=Barcelona';
+      document.cookie = 'paf=1';
+
+      // Rrecuperamos la cookie
+      var paf = getCookie('paf'),
+        seu = getCookie('seu');
+
+      // Mostramos los datos por consola
+      console.log('Totes les galetes:', document.cookie);
+      console.log('Seu:', seu);
+      console.log('PAF:', paf);
+
+      function getCookie(key) {
+        var patro = new RegExp('(?:' + key + ')=(.+?)(?=;|$)', 'g');
+        return patro.exec(document.cookie)[1];
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

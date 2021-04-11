@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Objetos/ declaracion literal - modificar el prototipo</title>
+    <style></style>
+    <script>
+      var persona = {
+        ocupacion: 'Indeterminada',
+      };
+
+      var prototipoPersona = Object.getPrototypeOf(persona);
+      prototipoPersona.nombre = 'Número sin definir';
+      prototipoPersona.saludar = function () {
+        console.log('Hola, mi nombrebre es: ' + this.nombre);
+      };
+
+      var ricard = Object.create(prototipoPersona);
+      ricard.nombre = 'Ricard';
+
+      var patricia = Object.create(persona);
+      patricia.nombre = 'patricia';
+
+      persona.saludar();
+      console.log('Ocupación de persona:', persona.ocupacion);
+      ricard.saludar();
+      console.log('Ocupación de Ricard:', ricard.ocupacion);
+      patricia.saludar();
+      console.log('Ocupación de patriciaa:', patricia.ocupacion);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,353 @@
+{
+  "levels": [
+    {
+      "name": "Nivell 1",
+      "description": "Aquest es el primer nivell del joc.<br>Fes servir els cursors per moure't i espai per disparar.",
+      "music": "defense-line",
+      "background": {
+        "layers": [
+          {
+            "id": "bg_layer_1",
+            "speed": {
+              "x": -1,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_2",
+            "speed": {
+              "x": -2,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_3",
+            "speed": {
+              "x": -4,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_4",
+            "speed": {
+              "x": -8,
+              "y": 0
+            }
+          }
+        ]
+      },
+      "waves": [
+        {
+          "distance": 100,
+          "spawns": [
+            {
+              "type": "alien_a",
+              "formation": {
+                "type": "column",
+                "amount": 4,
+                "column_height": 350,
+                "spacer": 50
+              },
+              "position": {
+                "x": 1024,
+                "y": 81
+              },
+              "speed": {
+                "x": -1.5,
+                "y": 0
+              }
+            },
+            {
+              "type": "alien_d",
+              "formation": {
+                "type": "row",
+                "amount": 1,
+                "spacer": 0
+              },
+              "position": {
+                "x": 1024,
+                "y": 350
+              },
+              "speed": {
+                "x": -1,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 500,
+          "spawns": [
+            {
+              "type": "alien_a",
+              "formation": {
+                "type": "columns",
+                "amount": 4,
+                "column_height": 250,
+                "spacer": 50
+              },
+              "position": {
+                "x": 1024,
+                "y": 30
+              },
+              "speed": {
+                "x": -1.5,
+                "y": 0
+              }
+            },
+            {
+              "type": "alien_b",
+              "formation": {
+                "type": "grid",
+                "amount": 9,
+                "spacer": 75
+              },
+              "position": {
+                "x": 1024,
+                "y": 250
+              },
+              "speed": {
+                "x": -3,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 800,
+          "spawns": [
+            {
+              "type": "alien_c",
+              "formation": {
+                "type": "row",
+                "amount": 5,
+                "spacer": 50
+              },
+              "position": {
+                "x": 1024,
+                "y": 30
+              },
+              "speed": {
+                "x": -5,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 1000,
+          "spawns": [
+            {
+              "type": "alien_c_2",
+              "formation": {
+                "type": "row",
+                "amount": 5,
+                "spacer": 50
+              },
+              "position": {
+                "x": 1024,
+                "y": 300
+              },
+              "speed": {
+                "x": -5,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 1300,
+          "spawns": [
+            {
+              "type": "alien_d",
+              "formation": {
+                "type": "row",
+                "amount": 1,
+                "spacer": 0
+              },
+              "position": {
+                "x": 1024,
+                "y": 240
+              },
+              "speed": {
+                "x": -1,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 1400,
+          "spawns": [
+            {
+              "type": "alien_d",
+              "formation": {
+                "type": "row",
+                "amount": 1,
+                "spacer": 0
+              },
+              "position": {
+                "x": 1024,
+                "y": 140
+              },
+              "speed": {
+                "x": -1,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 1500,
+          "spawns": [
+            {
+              "type": "alien_d",
+              "formation": {
+                "type": "row",
+                "amount": 1,
+                "spacer": 0
+              },
+              "position": {
+                "x": 1024,
+                "y": 340
+              },
+              "speed": {
+                "x": -1,
+                "y": 0
+              }
+            }
+          ]
+        }
+
+      ],
+
+
+      "end": 1800
+    },
+    {
+      "name": "Nivell 2",
+      "music": "star-commander",
+      "description": "Aquest es el segon nivell del joc.",
+      "background": {
+        "layers": [
+          {
+            "id": "bg_layer_1_green",
+            "speed": {
+              "x": -1,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_2_green",
+            "speed": {
+              "x": -4,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_4_green",
+            "speed": {
+              "x": -8,
+              "y": 0
+            }
+          }
+        ]
+      },
+      "waves": [
+        {
+          "distance": 100,
+          "spawns": [
+            {
+              "type": "alien_a",
+              "formation": {
+                "type": "columns",
+                "amount": 14,
+                "column_height": 350,
+                "spacer": 50
+              },
+              "position": {
+                "x": 1024,
+                "y": 81
+              },
+              "speed": {
+                "x": -1,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 200,
+          "spawns": []
+        }
+      ],
+      "end": 500
+    },
+    {
+      "name": "Nivell 3",
+      "description": "Aquest es el tercer nivell del joc.",
+      "music": "defense-line",
+      "background": {
+        "layers": [
+          {
+            "id": "bg_layer_1",
+            "speed": {
+              "x": -1,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_2_green",
+            "speed": {
+              "x": -2,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_3",
+            "speed": {
+              "x": -4,
+              "y": 0
+            }
+          },
+          {
+            "id": "bg_layer_4_green",
+            "speed": {
+              "x": -8,
+              "y": 0
+            }
+          }
+        ]
+      },
+      "waves": [
+        {
+          "distance": 100,
+          "spawns": [
+            {
+              "type": "alien_a",
+              "formation": {
+                "type": "columns",
+                "amount": 42,
+                "column_height": 350,
+                "spacer": 50
+              },
+              "position": {
+                "x": 1024,
+                "y": 81
+              },
+              "speed": {
+                "x": -1,
+                "y": 0
+              }
+            }
+          ]
+        },
+        {
+          "distance": 200,
+          "spawns": []
+        }
+      ],
+      "end": 500
+    }
+  ]
+}

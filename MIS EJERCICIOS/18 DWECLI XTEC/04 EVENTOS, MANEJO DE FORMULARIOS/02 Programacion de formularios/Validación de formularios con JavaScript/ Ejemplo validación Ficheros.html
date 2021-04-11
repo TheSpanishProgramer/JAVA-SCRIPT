@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo validación Ficheros</title>
+    <style></style>
+    <script>
+      var fitxers = document.getElementById('fitxers'),
+        MAX_MIDA_FITXERS = 2048; // Medida máxima en bytes
+
+      function validarFicheros() {
+        var fitxer, midaTotal;
+
+        if (fitxers.files.length > 0) {
+          midaTotal = 0;
+
+          for (var i = 0; i < fitxers.files.length; i++) {
+            fitxer = fitxers.files[i];
+            console.log(
+              'Fitxer: ' +
+                fitxer.name +
+                ' tiene un tamaño de ' +
+                fitxer.size +
+                ' bytes'
+            );
+            midaTotal += fitxer.size;
+          }
+
+          console.log('Tamaño total de los Ficheros: ', midaTotal);
+
+          if (midaTotal > MAX_MIDA_FITXERS) {
+            fitxers.value = [];
+            alert(
+              'La medida máxima de los Ficheros se ' +
+                MAX_MIDA_FITXERS +
+                ' bytes, pero los Ficheros Seleccionados Tienen una medida de ' +
+                midaTotal +
+                ' bytes.'
+            );
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="test.php" method="POST" enctype="multipart/form-data">
+      <input
+        type="file"
+        id="fitxers"
+        name="fitxer[]"
+        multiple="true"
+        onchange="validarFicheros
+();"
+      />
+      <button>Enviar</button>
+    </form>
+  </body>
+</html>

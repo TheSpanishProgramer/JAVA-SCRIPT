@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tipos de declaracion de variables</title>
+    <style></style>
+    <script>
+      var i = 365;
+      var cad = 'Soy una variable de cadena de text';
+      var cad2 = 'Palabra';
+      console.log(cad);
+      console.log(cad2);
+
+      var i = '365';
+      var cad = 'El año tiene ' + i + ' dias';
+      console.log(cad);
+
+      var i = '365';
+      var cad = 'El año tiene' + i + ' dias';
+      console.log(cad);
+
+      var color;
+      console.log(
+        color
+      ); /*No esta inicializada por eso es undefined (indefinida)*/
+
+      var color1 = 'red',
+        color2 = 'orange',
+        color3 = 'black';
+      console.log(color1);
+      console.log(color2);
+      console.log(color3);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,27 @@
+<script>
+	function alerta(campo) { 
+		alert("Por favor, completa el campo "+campo) 
+	}
+	function validar_formulario(form) {
+		if (form.nombre4.value == "") { 
+			alerta('\"Nombre\"'); form.nombre4.focus(); return true; 
+		}
+		if (form.telefono4.value == "") { 
+			alerta('\"Teléfono\"'); form.telefono4.focus(); return true;
+		}
+		if (form.direccion4.value == "") { 
+			alerta('\"Direccion\"'); form.direccion4.focus(); return true;
+		}
+		form.submit()
+	}
+</script>
+<form name="formulario_didesweb4" method="POST">
+	<p>Completa el formulario</p>
+	<p>Nombre: </p>
+	<input type="text" name="nombre4"><br>
+	<p>Teléfono: </p>
+	<input type="text" name="telefono4"><br>
+	<p>Direccion: </p>
+	<input type="text" name="direccion4"><br>
+	<input type="button" value="Terminar" onClick="validar_formulario(this.form)">
+</form>

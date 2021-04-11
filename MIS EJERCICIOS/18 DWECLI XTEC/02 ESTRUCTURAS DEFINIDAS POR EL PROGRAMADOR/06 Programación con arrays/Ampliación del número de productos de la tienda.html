@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ampliación del número de productos de la tienda</title>
+    <style></style>
+    <script>
+      var productes = [];
+      function verStock() {
+        var listarStock = '<ul>';
+        for (x = 0; x < productes.length; x++) {
+          listarStock +=
+            '<li>El producte numero ' + x + ' té ' + productes[x] + ' unitats';
+        }
+        listarStock += '</ul>';
+        document.getElementById('listarStock').innerHTML = listarStock;
+      }
+      onload = function () {
+        productes = demanarProductes(10);
+      };
+
+      function ampliarStock() {
+        var nouEstoc = demanarProductes();
+        productes = productes.concat(nouEstoc);
+        verStock();
+      }
+      function demanarProductes(num) {
+        if (arguments.length === 0) {
+          num = Math.floor(Math.random() * 5 + 1);
+        }
+        var p = [];
+        for (x = 0; x < num; x++) {
+          p[x] = Math.floor(Math.random() * 100);
+        }
+
+        return p;
+      }
+    </script>
+  </head>
+  <body>
+    <div>Ampliación del número de productos de la tienda</div>
+    <button onclick="verStock()">Ver Stock</button>
+    <button onclick="ampliarStock()">Ampliar Stock</button>
+    <div id="listarStock"></div>
+  </body>
+</html>

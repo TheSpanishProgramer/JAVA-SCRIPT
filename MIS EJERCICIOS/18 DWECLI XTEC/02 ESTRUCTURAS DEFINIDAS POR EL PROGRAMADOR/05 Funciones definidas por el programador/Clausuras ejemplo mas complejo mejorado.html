@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clausuras ejemplo mas complejo mejorado</title>
+    <style></style>
+    <script>
+      var frase = 'Mola estudiar javascript.';
+      var nova;
+
+      function estudiar() {
+        var frase2 = 'no me gusta estudiar!';
+        function molt(frase3) {
+          document.write('Global: ' + frase + '<br>');
+          document.write('Local: ' + frase2 + '<br>');
+          document.write('Parametre: ' + frase3 + '<br>');
+          document.write('Variable Global:  ' + frase4 + '<br>');
+        }
+        nova = molt;
+      }
+
+      document.write('Variable Global:  ' + frase4 + '<br>');
+      var frase4 = 'Esto me exaspera';
+      estudiar();
+      nova(
+        'Podemos imaginar una clausura como una burbuja segura de la función. Las variables que están dentro del ámbito de la función en su declaración y la misma función están dentro de esta burbuja. Así esta función dispone de todos los elementos necesarios para poder ejecutar. !'
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

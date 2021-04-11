@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<script>
+var opcion = prompt("Elige: \n1.- Potencia \n2.- Raíz \n3.- Redondeo \n4.- Trigonometría", "");
+
+    function casos(opcion) {
+        switch(opcion) {
+            case "1":
+			var base = prompt("Introduce la base(x)");
+			var exponente = prompt("Introduce el exponente base(y)");
+			alert("El resultado es "+Math.pow(base, exponente));
+                break;
+            case "2":
+			var raiz = prompt("Introduce un número para calcular su raíz");
+			if (raiz < 0) {
+			alert("Debes introducir un número positivo");
+			}else{
+			alert("La raíz de "+ raiz + " es " + Math.sqrt(raiz));
+			}
+                break;
+            case "3":
+			var numeroRedondeo = prompt("Introduce un número con decimales");
+			alert("El número introducido ("+numeroRedondeo+") una vez redondeado es " + Math.round(numeroRedondeo)); 
+                break;
+            case "4":
+			var angulo = prompt("Introduce un ángulo entre 0º y 360º");
+			if (angulo < 0 || angulo > 360) {
+			alert("El número que has introducido no es válido (debe de ser entre 0 y 360)");
+			}else{
+			alert("El seno de "+angulo+" es "+Math.sin(angulo)+"\nEl coseno de "+angulo+" es "+Math.cos(angulo)+"\nLa tangente de "+angulo+" es "+Math.tan(angulo));
+			}
+                break;
+			default:
+				alert("Debes introducir una opción entre 1 y 4");
+            }
+    }
+	casos(opcion);
+</script>
+</body>
+</html>

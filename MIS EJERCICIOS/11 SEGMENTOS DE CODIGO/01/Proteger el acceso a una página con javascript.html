@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Acceso mediante contraseña por enrutamiento</title>
+
+    <script language="JavaScript">
+      function acceso() {
+        window.location = document.formclave.clave.value + '.htm';
+      }
+    </script>
+  </head>
+
+  <body>
+    <form name="formclave">
+      <input type="password" name="clave" />
+      <input onclick="acceso()" type="button" value="Acceder" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Envío de Parámetros cono GET como cadena de texto</title>
+    <style></style>
+    <script>
+      var httpRequest = new XMLHttpRequest();
+      var url = 'https://boardgamegeek.com/xmlapi2/search';
+      var dades = {
+        query: 'monopoly',
+        type: 'boardgame',
+      };
+
+      var params = convertirEnParametres(dades);
+
+      httpRequest.open('GET', url + '?' + params, true);
+
+      httpRequest.onload = function () {
+        // Aquí es processaria la respuesta de las peticiones
+        var resposta = httpRequest.responseXML;
+        console.log(resposta);
+      };
+
+      httpRequest.send(null);
+
+      function convertirEnParametres(dades) {
+        var params = '';
+        for (var dada in dades) {
+          if (params.length > 0) {
+            params += '&';
+          }
+
+          params += encodeURIComponent(dada);
+          params += '=';
+          params += encodeURIComponent(dades[dada]);
+        }
+
+        return params;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

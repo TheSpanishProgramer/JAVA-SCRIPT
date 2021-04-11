@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo cookies recuperar valor</title>
+    <style></style>
+    <script>
+      // Añadir una cookie
+      document.cookie = 'seu=Barcelona';
+      document.cookie = 'paf=1';
+
+      // Extraemos la galleta correspondiente en la sede
+      var patro = new RegExp('(?:seu)=(.+?)(?=;|$)', 'g'),
+        seu = patro.exec(document.cookie)[1];
+
+      // la mostramos por consola
+      console.log(seu);
+    </script>
+  </head>
+  <body></body>
+</html>

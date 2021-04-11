@@ -1,0 +1,238 @@
+[
+  {
+    "name": "player",
+    "data": {
+      "type": "player",
+      "sprite": "spaceship",
+      "explosion": "player_explosion",
+      "cannon": [
+        {
+          "bullet": "plasma_shot_1",
+          "fireRate": 15,
+          "position": {
+            "x": 35,
+            "y": 5
+          },
+          "direction": {
+            "x": 5,
+            "y": 0
+          }
+        },
+        {
+          "bullet": "plasma_shot_1",
+          "fireRate": 15,
+          "position": {
+            "x": 35,
+            "y": 45
+          },
+          "direction": {
+            "x": 5,
+            "y": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "alien_a",
+    "data": {
+      "type": "enemy",
+      "sprite": "alien_a",
+      "explosion": "enemy_explosion",
+      "points": 10,
+      "cannon": [
+        {
+          "bullet": "standard_shot",
+          "fireRate": 1,
+          "position": {
+            "x": -5,
+            "y": 14
+          },
+          "direction": {
+            "x": -5,
+            "y": 0
+          }
+        }
+      ],
+      "move": "movement_pattern_a"
+    }
+  },
+  {
+    "name": "alien_b",
+    "data": {
+      "type": "enemy",
+      "sprite": "alien_b",
+      "explosion": "enemy_explosion",
+      "points": 15,
+      "cannon": [
+        {
+          "bullet": "wave_shot_a",
+          "fireRate": 1,
+          "position": {
+            "x": -5,
+            "y": 14
+          },
+          "direction": {
+            "x": -5,
+            "y": 0
+          }
+        }
+      ],
+      "move": "movement_pattern_b"
+    }
+  },
+  {
+    "name": "alien_c",
+    "data": {
+      "type": "enemy",
+      "sprite": "alien_c",
+      "explosion": "enemy_explosion",
+      "points": 30,
+      "cannon": [
+        {
+          "bullet": "standard_shot",
+          "fireRate": 2,
+          "position": {
+            "x": 10,
+            "y": 14
+          },
+          "direction": {
+            "x": 0,
+            "y": 3
+          }
+        }
+      ],
+      "move": "movement_pattern_c"
+    }
+  },
+  {
+    "name": "alien_c_2",
+    "data": {
+      "type": "enemy",
+      "sprite": "alien_c",
+      "explosion": "enemy_explosion",
+      "points": 30,
+      "cannon": [
+        {
+          "bullet": "standard_shot",
+          "fireRate": 1,
+          "position": {
+            "x": 5,
+            "y": -5
+          },
+          "direction": {
+            "x": 0,
+            "y": -3
+          }
+        }
+      ],
+      "move": "movement_pattern_c"
+    }
+  },
+  {
+    "name": "alien_d",
+    "data": {
+      "type": "enemy",
+      "sprite": "alien_d",
+      "explosion": "enemy_explosion",
+      "points": 100,
+      "cannon": [
+        {
+          "bullet": "wave_shot_a",
+          "fireRate": 2,
+          "position": {
+            "x": -5,
+            "y": 2
+          },
+          "direction": {
+            "x": -2.5,
+            "y": 0
+          }
+        },
+        {
+          "bullet": "wave_shot_b",
+          "fireRate": 2,
+          "position": {
+            "x": -5,
+            "y": 40
+          },
+          "direction": {
+            "x": -2.5,
+            "y": 0
+          }
+        }
+      ],
+      "move": "movement_pattern_b"
+    }
+  },
+  {
+    "name": "standard_shot",
+    "data": {
+      "type": "shot",
+      "sprite": "bullet_enemy",
+      "sound": "laser",
+      "move": "movement_pattern_b"
+    }
+  },
+  {
+    "name": "wave_shot_a",
+    "data": {
+      "type": "shot",
+      "sprite": "bullet_enemy",
+      "sound": "laser",
+      "move": "movement_pattern_c"
+    }
+  },
+  {
+    "name": "wave_shot_b",
+    "data": {
+      "type": "shot",
+      "sprite": "bullet_enemy",
+      "sound": "laser",
+      "move": "movement_pattern_d"
+    }
+  },
+  {
+    "name": "zigzag_shot",
+    "data": {
+      "type": "shot",
+      "sprite": "bullet_enemy",
+      "sound": "laser",
+      "move": "movement_pattern_a"
+    }
+  },
+  {
+    "name": "plasma_shot_1",
+    "data": {
+      "type": "shot",
+      "sprite": "bullet_player_1",
+      "sound": "shoot",
+      "move": "movement_pattern_b"
+    }
+  },
+  {
+    "name": "plasma_shot_2",
+    "data": {
+      "type": "shot",
+      "sprite": "bullet_player_2",
+      "sound": "shoot",
+      "move": "movement_pattern_b"
+    }
+  },
+  {
+    "name": "enemy_explosion",
+    "data": {
+      "type": "explosion",
+      "sprite": "explosion_enemy",
+      "sound": "enemy_explosion"
+    }
+  },
+  {
+    "name": "player_explosion",
+    "data": {
+      "type": "explosion",
+      "sprite": "explosion_player",
+      "sound": "player_explosion"
+    }
+  }
+]

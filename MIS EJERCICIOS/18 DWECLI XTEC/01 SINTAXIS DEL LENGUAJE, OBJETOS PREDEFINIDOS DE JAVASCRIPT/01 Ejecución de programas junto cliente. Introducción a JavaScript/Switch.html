@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Switch</title>
+    <style></style>
+    <script>
+      var mes;
+
+      switch (new Date().getMonth()) {
+        case 0:
+          mes = 'Enero';
+          estacion = 'Invierno';
+          break;
+        case 1:
+          mes = 'Febrero';
+          estacion = 'Invierno';
+          break;
+        case 2:
+          mes = 'Marzo';
+          estacion = 'Invierno / Primavera';
+          break;
+        case 3:
+          mes = 'Abril';
+          estacion = 'Primavera';
+          break;
+        case 4:
+          mes = 'Mayo';
+          estacion = 'Primavera';
+          break;
+        case 5:
+          mes = 'Junio';
+          estacion = 'Primavera / Verano';
+          break;
+        case 6:
+          mes = 'Julio';
+          estacion = 'Verano';
+          break;
+        case 7:
+          mes = 'Agosto';
+          estacion = 'Verano';
+          break;
+        case 8:
+          mes = 'Setiembre';
+          estacion = 'Verano / Otoño';
+          break;
+        case 9:
+          mes = 'Octubre';
+          estacion = 'Otoño';
+          break;
+        case 10:
+          mes = 'Noviembre';
+          estacion = 'Otoño';
+          break;
+        case 11:
+          mes = 'Diciembre';
+          estacion = 'Otoño / Invierno';
+          break;
+        default:
+          console.log(
+            'El código nunca Pasará por aquí, pero en Otros casos podamos utiltizar la cláusula default'
+          );
+      }
+
+      console.log('Mes: ' + mes);
+      console.log('Estació: ' + estacion);
+    </script>
+  </head>
+  <body></body>
+</html>

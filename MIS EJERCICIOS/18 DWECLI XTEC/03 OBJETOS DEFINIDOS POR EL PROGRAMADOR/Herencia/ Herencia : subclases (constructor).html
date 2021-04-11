@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Herencia / subclases (constructor)</title>
+    <style></style>
+    <script>
+      // Es crea un constructor
+      var Criatura = function (nombre) {
+        this.nombre = nombre;
+        this.movimiento = 10;
+        this.potencia = 1;
+      };
+
+      // Se aumenta sume prototipo para optimizar el uso de la memoria
+      Criatura.prototype.caminar = function () {
+        console.log(this.nombre + ' camina ' + this.movimiento + ' metros');
+      };
+
+      Criatura.prototype.atacar = function (objetivo) {
+        console.log(
+          this.nombre +
+            ' ataca a ' +
+            objetivo.nombre +
+            ' y le causa ' +
+            this.potencia +
+            ' puntos de daño'
+        );
+      };
+
+      // Se crea un objetivo que heredará del anterior
+      var Perro = function () {
+        Criatura.apply(this, arguments); // Se ejecutar el constructor del padre
+        this.nombre = 'Perro';
+        this.potencia = 2; // Se actualizan las propiedades
+      };
+
+      // Se Tiene que corregir el prototipo del Objeto y super constructor
+      Perro.prototype = Object.create(Criatura.prototype);
+      Perro.prototype.constructor = Perro;
+
+      // Se aumenta el prototipo
+      Perro.prototype.saltar = function () {
+        console.log(this.nombre + ' salta ' + this.movimiento / 5 + ' metres');
+      };
+
+      // Se crea un nuevo constructor a partir del anterior
+      var PerroZombi = function () {
+        Perro.apply(this, arguments); // S'executa el constructor del pare
+        this.nombre = 'PerroZombi';
+      };
+
+      // S'ha de corregir el prototipus de l'objecte i el seu constructor
+      PerroZombi.prototype = Object.create(Perro.prototype);
+      PerroZombi.prototype.constructor = PerroZombi;
+
+      // S'actualitza el prototipus
+      PerroZombi.prototype.saltar = function () {
+        console.log(this.nombre + ' intenta saltar... però no pot');
+      };
+
+      // Es generen els objectes a partir dels constructors
+      var perro = new Perro(),
+        PerroZombi = new PerroZombi();
+
+      perro.caminar();
+      perro.atacar(PerroZombi);
+      perro.saltar();
+      PerroZombi.atacar(perro);
+      PerroZombi.saltar();
+      PerroZombi.caminar();
+    </script>
+  </head>
+  <body></body>
+</html>

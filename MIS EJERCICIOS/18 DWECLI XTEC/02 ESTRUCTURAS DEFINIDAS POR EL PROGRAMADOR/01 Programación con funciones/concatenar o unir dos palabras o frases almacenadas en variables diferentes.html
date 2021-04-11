@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      concatenar o unir dos palabras o frases almacenadas en variables
+      diferentes
+    </title>
+    <style></style>
+    <script>
+      var frase1 = 'Estudiar Javascript';
+      var frase2 = 'es muy divertido.';
+      //sin separación
+      var resultat = frase1 + frase2;
+      document.write(resultat + '<br>');
+
+      //con separació
+      var resultat = frase1 + ' ' + frase2;
+      document.write(resultat + '<br>');
+
+      //sin separación
+      var resultat = frase1.concat(frase2);
+      document.write(resultat + '<br>');
+
+      //con separació
+      var resultat = frase1.concat(' ' + frase2);
+      document.write(resultat + '<br>');
+    </script>
+  </head>
+  <body></body>
+</html>

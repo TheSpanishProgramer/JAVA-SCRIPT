@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lista de Tareas</title>
+    
+	<link rel="stylesheet" type="text/css" href="todos.css">
+    <meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <div id="myDIV" class="header">
+      <h2 style="margin:5px">Mi lista de tareas.</h2>
+      <input type="text" id="myInput" placeholder="Title...">
+      <span onclick="añadirTarea()" class="addBtn">Añadir</span>
+    </div>
+    
+    <ul id="myUL">
+      <li>Hacer la cama</li>
+      <li class="checked">Lavarme los dientes</li>
+      <li>Estudiar JS hasta morirrrrr</li>
+    </ul>
+    
+    <script>
+    // Crea un botón "cerrar" y lo añade a cada elemento de la lista
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+    
+    // Clic en un botón de cierre para ocultar el elemento de la lista actual
+    var close = document.getElementsByClassName("close");
+    var i;
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+    
+    // Agregar un símbolo "marcado" al hacer clic en un elemento de la lista
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+      if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+      }
+    }, false);
+    
+    // Cree un nuevo elemento de lista al hacer clic en el botón "Añadir"
+    function añadirTarea() {
+      var li = document.createElement("li");
+      var inputValue = document.getElementById("myInput").value;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      if (inputValue === '') {
+        alert("You must write something!");
+      } else {
+        document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = "";
+    
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+    
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+    }
+    </script>
+    
+    </body>
+    </html>
+    

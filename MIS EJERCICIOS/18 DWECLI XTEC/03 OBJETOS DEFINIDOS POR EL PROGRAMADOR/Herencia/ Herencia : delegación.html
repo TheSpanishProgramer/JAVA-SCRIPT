@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Herencia / delegación</title>
+    <style></style>
+    <script>
+      var Arma = function (nombre, potencia) {
+        this.nombre = nombre;
+        this.potencia = potencia;
+        this.atacar = function (objetivo) {
+          console.log(
+            'Zas! ' +
+              this.personatge.nombre +
+              ' ataca con ' +
+              this.nombre +
+              ' y causa ' +
+              this.potencia +
+              ' puntos de daño a ' +
+              objetivo
+          );
+        };
+      };
+
+      var ArmaAmbMunicio = function (nombre, potencia, municio) {
+        Arma.call(this, nombre, potencia);
+        this.municio = municio;
+
+        this.atacar = function (objetivo) {
+          if (this.municio > 0) {
+            console.log(
+              'Bang! ' +
+                this.personatge.nombre +
+                ' ataca con ' +
+                this.nombre +
+                ' y causa ' +
+                this.potencia +
+                ' puntos de daño a  ' +
+                objetivo
+            );
+            this.municio--;
+          } else {
+            console.log('Click! mo tengo municion!');
+          }
+        };
+      };
+
+      var Persona = function (nombre) {
+        this.nombre = nombre;
+        this.atacar = function (objetivo) {
+          if (this.arma) {
+            this.arma.atacar(objetivo);
+          } else {
+            console.log(
+              'No se puede atacar Porque no hay ninguna arma equipada!'
+            );
+          }
+        };
+        this.equipar = function (arma) {
+          console.log(this.nombre + ' ha equipado ' + arma.nombre);
+          this.arma = arma;
+          arma.personatge = this;
+        };
+      };
+
+      var Forest = new Persona('Forest');
+      var cuchillo = new Arma('cuchillo', 2);
+      var pistola = new ArmaAmbMunicio('Pistola', 3, 2);
+
+      Forest.atacar('Zombi');
+      Forest.equipar(cuchillo);
+      Forest.atacar('Zombi');
+      Forest.equipar(pistola);
+      Forest.atacar('Zombi');
+      Forest.atacar('Zombi');
+      Forest.atacar('Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

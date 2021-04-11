@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    <button id="boton">Usuarios</button>
+    <br>
+    <br>
+    <br>
+    <img id="avatar" src="" alt="">
+    <br>
+    <script src="api.js"></script>
+    <script>
+        function asignarImagenUsuario(datos) {
+            if(datos && datos.results)
+            {
+                //PARSEAR - DESGRANAR
+                let usuarios = datos.results;
+                let usuario = usuarios[0];
+
+                let imagenUsuario = usuario.picture.large;
+
+                document.getElementById("avatar").setAttribute("src", imagenUsuario);
+            }
+            else
+            {
+                console.log("Houston, ha habido un problema cargando datos del servidor");
+            }
+        }
+
+        document.getElementById("boton").addEventListener("click", function(){
+            llamadaGetAPI ("https://randomuser.me/api/", asignarImagenUsuario);
+        });
+
+    </script>
+</body>

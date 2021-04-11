@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Creación de Objetos/ patrones funcionales ( Objeto simple) copy
+    </title>
+    <style></style>
+    <script>
+      var crearPersona = function (nombre) {
+        var persona = {};
+
+        persona.nombre = nombre;
+        persona.caminar = function (distancia) {
+          console.log(this.nombre + ' camina ' + distancia + ' metros');
+        };
+
+        return persona;
+      };
+
+      var ricard = crearPersona('Ricard');
+      var patricia = crearPersona('Patricia');
+      ricard.caminar(19);
+      patricia.caminar(42);
+    </script>
+  </head>
+  <body></body>
+</html>

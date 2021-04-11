@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Relaciones entre elementos/ hermanos</title>
+    <style></style>
+  </head>
+  <body>
+    <ul>
+      <li>Primer elemento de la lista</li>
+      <li id="central">Segundo elemento de la lista</li>
+      <li>Tercer elemento de la lista</li>
+    </ul>
+  </body>
+
+  <script>
+    var central = document.getElementById('central');
+
+    console.log(
+      'El contenido del elemento anterior es: ',
+      central.previousElementSibling.textContent
+    );
+
+    console.log(
+      'El contenido del elemento siguiente es: ',
+      central.nextElementSibling.textContent
+    );
+  </script>
+</html>

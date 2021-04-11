@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo beforeunload sin dialog</title>
+    <style></style>
+    <script>
+      window.onbeforeunload = function (e) {
+        console.log('No se muestra el dialogo');
+      };
+    </script>
+  </head>
+  <body>
+    <p>Recarga la página, pero no verás ningún dialogar.</p>
+  </body>
+</html>

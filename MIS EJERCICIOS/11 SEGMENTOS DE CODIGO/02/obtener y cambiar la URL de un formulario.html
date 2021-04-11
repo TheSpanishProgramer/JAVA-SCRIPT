@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function getAction() {
+        var x = document.forms.myForm;
+        alert(x.action);
+      }
+
+      function changeAction(action) {
+        var x = document.forms.myForm;
+        x.action = action;
+        alert(x.action);
+      }
+    </script>
+  </head>
+
+  <body>
+    <form name="myForm" action="ejemplos.php">
+      <input
+        type="button"
+        onclick="getAction()"
+        value="Ver el valor del atributo action"
+      />
+      &lt;br&gt;&lt;br&gt;
+      <input
+        type="button"
+        onclick="changeAction('hola.php')"
+        value="Cambiar el valor del atributo action"
+      />
+    </form>
+  </body>
+</html>

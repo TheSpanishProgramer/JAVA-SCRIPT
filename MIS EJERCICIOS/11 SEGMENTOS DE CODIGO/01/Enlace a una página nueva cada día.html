@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>
+      Con este script se puede mostrar una pagina nueva cada día del mes
+    </title>
+
+    <script language="JavaScript">
+      var diadelmes = new Array();
+
+      diadelmes[01] = 'http://www.jpstudioweb.com/dia1.htm';
+      diadelmes[02] = 'http://www.jpstudioweb.com/dia2.htm';
+      diadelmes[03] = 'http://www.jpstudioweb.com/dia3.htm';
+      diadelmes[04] = 'http://www.jpstudioweb.com/dia4.htm';
+      diadelmes[05] = 'http://www.jpstudioweb.com/dia5.htm';
+      diadelmes[06] = 'http://www.jpstudioweb.com/dia6.htm';
+      diadelmes[07] = 'http://www.jpstudioweb.com/dia7.htm';
+      diadelmes[08] = 'http://www.jpstudioweb.com/dia8.htm';
+      diadelmes[09] = 'http://www.jpstudioweb.com/dia9.htm';
+      diadelmes[10] = 'http://www.jpstudioweb.com/dia10.htm';
+
+      diadelmes[11] = 'http://www.jpstudioweb.com/dia11.htm';
+      diadelmes[12] = 'http://www.jpstudioweb.com/dia12.htm';
+      diadelmes[13] = 'http://www.jpstudioweb.com/dia13.htm';
+      diadelmes[14] = 'http://www.jpstudioweb.com/dia14.htm';
+      diadelmes[15] = 'http://www.jpstudioweb.com/dia15.htm';
+      diadelmes[16] = 'http://www.jpstudioweb.com/dia16.htm';
+      diadelmes[17] = 'http://www.jpstudioweb.com/dia17.htm';
+      diadelmes[18] = 'http://www.jpstudioweb.com/dia18.htm';
+      diadelmes[19] = 'http://www.jpstudioweb.com/dia19.htm';
+      diadelmes[20] = 'http://www.jpstudioweb.com/dia10.htm';
+
+      diadelmes[21] = 'http://www.jpstudioweb.com/dia21.htm';
+      diadelmes[22] = 'http://www.jpstudioweb.com/dia22.htm';
+      diadelmes[23] = 'http://www.jpstudioweb.com/dia23.htm';
+      diadelmes[24] = 'http://www.jpstudioweb.com/dia24.htm';
+      diadelmes[25] = 'http://www.jpstudioweb.com/dia25.htm';
+      diadelmes[26] = 'http://www.jpstudioweb.com/dia26.htm';
+      diadelmes[27] = 'http://www.jpstudioweb.com/dia27.htm';
+      diadelmes[28] = 'http://www.jpstudioweb.com/dia28.htm';
+      diadelmes[29] = 'http://www.jpstudioweb.com/dia29.htm';
+      diadelmes[30] = 'http://www.jpstudioweb.com/dia30.htm';
+      diadelmes[31] = 'http://www.jpstudioweb.com/dia31.htm';
+
+      var mydate = new Date();
+      var foto_diames = mydate.getDate();
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <a
+        href="jpstudioweb"
+        onClick="window.location=diadelmes[foto_diames];return false"
+      >
+        <font face="Verdana" size="2"><b>ENLACE DE HOY</b></font></a
+      >
+    </center>
+
+    <center>
+      <a
+        href="jpstudioweb"
+        onClick="window.location=diadelmes[foto_diames];return false"
+      >
+        <img border="0" src="imagen.jpg" width="125" height="125"
+      /></a>
+    </center>
+
+    <center>
+      <input
+        type="button"
+        value="ENLACE DE HOY"
+        onClick="window.location=diadelmes[foto_diames];return false"
+      />
+    </center>
+  </body>
+</html>

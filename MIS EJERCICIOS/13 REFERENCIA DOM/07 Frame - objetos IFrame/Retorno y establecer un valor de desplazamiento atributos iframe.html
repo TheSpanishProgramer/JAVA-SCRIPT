@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>(laespañaprogramadora.com)</title>
+<script>
+function removeScroll(){
+	document.getElementById("myframe").scrolling="no";
+}
+</script>
+</head>
+<body>
+
+<iframe id="myframe" src="http://www.jpstudioweb.com" scrolling="auto">
+<p>Su navegador no soporta iframes.</p>
+</iframe>
+<p>El valor de la propiedad de desplazamiento:
+<script>
+document.write(document.getElementById("myframe").scrolling);
+</script>
+<p>
+<input type="button" onclick="removeScroll()" value="Quitar barra de desplazamiento">
+<p>IE, Google Chrome, Opera y Safari tienen problemas al configurar las barras de desplazamiento。</p>
+
+</body>
+</html>

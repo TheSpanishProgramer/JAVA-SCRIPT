@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Acceso a formularios con document</title>
+    <style>
+
+
+
+    </style>
+
+  </head>
+  <body>
+
+<form id="primero">
+  <input type="text" />
+</form>
+
+<form id="segundo">
+  <input type="text" />
+</form>
+  </body>
+      <script>
+
+console.log('Número de formularios del documento: ', document.forms.length);
+
+for (var i = 0; i < document.forms.length; i++) {
+  console.log('id del formulario con indice' + i + ':', document.forms[i].id);
+}
+
+    </script>  
+</html>

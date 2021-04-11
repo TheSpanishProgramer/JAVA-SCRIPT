@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Comunicació entre finestres</title>
+    <script>
+      var i = 0;
+      function crearVentanaHija() {
+        var ventanaHija = window.open(
+          'ventanaHija.html',
+          'Comptador',
+          'top=200,left=200,width=200,height=200'
+        );
+        var myVar = setInterval(function () {
+          temporitzador(ventanaHija);
+        }, 1000);
+      }
+
+      function temporitzador(ventanaHija) {
+        i++;
+        var comptador_fill = ventanaHija.document.getElementById('comptador');
+        comptador_fill.innerHTML = i;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="crearVentanaHija();">Crear la ventana hija</button>
+  </body>
+</html>

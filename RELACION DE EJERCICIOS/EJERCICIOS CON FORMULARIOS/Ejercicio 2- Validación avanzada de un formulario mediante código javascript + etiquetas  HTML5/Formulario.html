@@ -1,0 +1,155 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>VALIDACIÓN DE FORMULARIOS CON HTML5</title>
+	</head>
+	<body>
+		
+		<style>
+			.error {
+			border: solid 2px #FF0000;
+			}
+		</style>
+		
+		<h1>Formulario</h1>
+		
+		<form action="procesar.php" method="post" id="miFormulario">
+			<table>
+				<tr>
+					<td>Nombre*: </td>
+					<td>
+						<script>
+							  function soloLetras(e) {
+								  var key = e.keyCode || e.which,
+									tecla = String.fromCharCode(key).toLowerCase(),
+									letras = "áéíóúabcdefghijklmnñopqrstuvwxyz ",
+									especiales = [8, 37, 39, 46],
+									tecla_especial = false;
+							  
+								  for (var i in especiales) {
+									if (key == especiales[i]) {
+									  tecla_especial = true;
+									  break;
+									}
+								  }
+							  
+								  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+									return false;
+								  }
+								}
+							  function soloNumeros(e) {
+								  var key = e.keyCode || e.which,
+									tecla = String.fromCharCode(key).toLowerCase(),
+									numeros = "0123456789",
+									especiales = [8, 37, 39, 46],
+									tecla_especial = false;
+							  
+								  for (var i in especiales) {
+									if (key == especiales[i]) {
+									  tecla_especial = true;
+									  break;
+									}
+								  }
+							  
+								  if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
+									return false;
+								  }
+								}
+							</script>
+						<input type="text" maxlength="15" name="nombre" id="nombre" onkeypress="return soloLetras(event)" title="“Introduce entre 2 y 15
+						letras" pattern="[A-Za-z]+" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>Edad*: </td>
+					<td>
+						
+						<input type="number" name="edad" id="edad" min="18" max="100" required/>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>Telefono*: </td>
+					<td>
+						<input type="text" name="telefono" id="telefono" minlength="9" maxlength="9" onkeypress="return soloNumeros(event)" title="“Número de
+						9 cifras" pattern="[0-9]+" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>Punto 6*: </td>
+					<td>
+						</br>
+						
+						<script>
+							
+							function updateTextInput(val) {
+								  document.getElementById('textInput').value=val; 
+							}	
+							
+						</script>	
+						<input type="range" name="rangeInput" min="1" max="100" value="50" step="5" onchange="updateTextInput(this.value);">
+						<input type="text" id="textInput" value="">
+					</td>
+				</tr>
+			</table>
+			<p>
+				<input type="submit" value="Enviar" id="enviar" />
+				<input type="reset" value="Borrar" id="borrar" />
+			</p>
+	  		<p id="mensajeError"></p>
+		</form>
+	</body>
+	<script>
+		window.onload = iniciar;
+		function iniciar() {
+			document.getElementById("enviar").addEventListener('click',
+			validar);
+		}
+		function validarNombre() {
+			let nombre = document.getElementById('nombre');
+			if (!nombre.checkValidity()) {
+				if (nombre.validity.valueMissing){
+					nombre.setCustomValidity( "No has escrito nada en el campo Nombre");
+			}else if (nombre.validity.tooShort)
+			{
+				nombre.setCustomValidity("Nombre de usuario demasiado corto");
+			}
+				return false;
+			} else
+				return true;
+		}
+		
+		function validarEdad() {
+			let edad = document.getElementById('edad');
+			if (!edad.checkValidity()) {
+				if (edad.validity.valueMissing)
+				edad.setCustomValidity('No has escrito nada en el campo Edad');
+			else if (edad.validity.tooShort)
+				edad.setCustomValidity("'Formato de edad incorrecto, es demasiado pequeño.''");
+				return false;
+			} else
+				return true;
+		}
+		function validarTelefono() {
+			let telefono = document.getElementById('telefono');
+			if (!telefono.checkValidity()) {
+				if (telefono.validity.valueMissing)
+				telefono.setCustomValidity('No has escrito nada en el campo Telefono');
+			else if (telefono.validity.tooShort)
+				telefono.setCustomValidity("'Longitud del formato de telefono Incorrecta, demasiado corto'");
+				return false;
+			} else
+				return true;
+		}
+		function validar (event) {
+			if (validarNombre() && validarClave() && validarTelefono())
+				alert("Validación del formulario correcta")
+			else {
+				alert("Validación del formulario NO correcta")
+			}
+		}
+	</script>
+		
+</html>

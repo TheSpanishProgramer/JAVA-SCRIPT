@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Declaración literal/ propiedades con Objetos y arrays</title>
+    <style></style>
+    <script>
+      var MOTOR_DEL_JOC = {
+        ocupacions: [
+          'Sin Ocupación',
+          'Policia',
+          'Militar',
+          'Médico',
+          'Tecnico',
+          'Mecanico',
+          'Delincuente',
+        ],
+
+        supervivents: {
+          Barcelona: 23140,
+          Madrid: 6789,
+          Huesca: 11298,
+          Almeria: 19830,
+        },
+
+        jugadores: [
+          {
+            nombre: 'Ricard',
+            ocupacion: 'Policia',
+            edad: 40,
+            'lugar de nacimiento': 'Cambrils',
+          },
+          {
+            nombre: 'Patrici',
+            ocupacion: 'Delinqüent',
+            edad: 35,
+            'lugar de nacimiento': 'Reus',
+          },
+        ],
+      };
+
+      console.log('Tercera ocupació:', MOTOR_DEL_JOC.ocupacion[3]);
+      console.log(
+        'Supervivents a Girona:',
+        MOTOR_DEL_JOC.supervivents['Girona']
+      );
+      console.log('Nom del primer jugador:', MOTOR_DEL_JOC.jugadores[0]['nom']);
+      console.log(
+        'Ocupació del primer jugador:',
+        MOTOR_DEL_JOC.jugadores[0].ocupacion
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

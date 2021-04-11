@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>querySelector i querySelectorAll</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Primera lista</h1>
+    <ul>
+      <li>elemento de la lista 1</li>
+      <li>elemento de la lista 1</li>
+      <li>elemento de la lista 1</li>
+    </ul>
+    <h1 class="secundari">Segunda lista</h1>
+    <p id="contingut" class="secundari paragraf">Un parrafo</p>
+    <ul>
+      <li>elemento de la lista 2</li>
+      <li>elemento de la lista 2</li>
+      <li>elemento de la lista 2</li>
+    </ul>
+  </body>
+
+  <script>
+    console.log('-- cabecera h1 con clase secondari --');
+    var elementsTitols = document.querySelectorAll('h1.secundari');
+    for (var i = 0; i < elementsTitols.length; i++) {
+      console.log(elementsTitols[i].textContent);
+    }
+
+    console.log('-- Todos los elementos de la primera lista --');
+    var elementsLlista = document.querySelectorAll('li');
+    for (var i = 0; i < elementsLlista.length; i++) {
+      console.log(elementsLlista[i].textContent);
+    }
+
+    console.log('-- Primeros elementos de las listas --');
+    var elementsPrimers = document.querySelectorAll('li:first-child');
+    for (var i = 0; i < elementsPrimers.length; i++) {
+      console.log(elementsPrimers[i].textContent);
+    }
+  </script>
+</html>

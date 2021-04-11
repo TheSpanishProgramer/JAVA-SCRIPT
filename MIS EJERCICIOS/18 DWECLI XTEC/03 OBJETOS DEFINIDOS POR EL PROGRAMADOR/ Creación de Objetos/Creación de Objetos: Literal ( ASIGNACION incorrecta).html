@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creación de Objetos/ Literal ( ASIGNACION incorrecta)</title>
+    <style></style>
+    <script>
+      var arma = {
+        nombre: 'Arma',
+        potencia: 1,
+        atacar: function (objetivo) {
+          console.log(
+            this.nombre +
+              ' causa ' +
+              this.potencia +
+              ' puntos de daño a ' +
+              objetivo
+          );
+        },
+      };
+
+      var cuchillo = arma;
+      cuchillo.nombre = 'Cuchillo';
+      cuchillo.atacar('Gato Zombi');
+      arma.atacar('Perro Zombi');
+    </script>
+  </head>
+  <body></body>
+</html>

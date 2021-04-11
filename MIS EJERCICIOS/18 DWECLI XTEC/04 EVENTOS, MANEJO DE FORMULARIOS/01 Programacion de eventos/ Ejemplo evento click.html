@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo evento click</title>
+    <style></style>
+    <script>
+      function mostraMissatge(e) {
+        console.log(e);
+        alert('Detectadas uno evento de tipo: ' + e.type);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="mostraMissatge(event);">Pulse aqui!</button>
+  </body>
+</html>

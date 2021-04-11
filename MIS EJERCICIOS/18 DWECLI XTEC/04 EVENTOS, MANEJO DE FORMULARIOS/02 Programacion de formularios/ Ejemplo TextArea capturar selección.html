@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejemplo TextArea capturar selección</title>
+    <style></style>
+    <script>
+      var textarea = document.getElementById('test');
+
+      function mostrarSeleccio() {
+        var seleccio, start, length;
+
+        start = textarea.selectionStart;
+        length = textarea.selectionEnd - textarea.selectionStart;
+        seleccio = textarea.value.substr(start, length);
+        alert(seleccio);
+      }
+    </script>
+  </head>
+  <body>
+    <textarea id="test">Texxto de prueba</textarea>
+    <br />
+    <button onclick="mostrarSeleccio();">Mostrar seleccion</button>
+  </body>
+</html>
